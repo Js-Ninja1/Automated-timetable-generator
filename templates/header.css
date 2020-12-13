@@ -60,4 +60,8 @@ body {
     -o-transition: .4s;
 }
 
+i {
+    margin: 4px;
+}
+
 #wrapper {}

@@ -15,6 +15,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../templates/header.css">
 
+    <!-- Call cream css -->
+    <link rel="stylesheet" href="../templates/cream.css">
+
+    <!-- Call admin page css-->
+    <link rel="stylesheet" href="../style/adminpage.css">
+
     <!-- Custom Fonts-->
  
     <link rel='icon' href='favicon.ico' type='image/x-icon'/>
@@ -35,7 +41,7 @@
             <div class="navbar-header">
 
                 <h2>Hello Admin
-                    <span style="float:right"><a href="logout.php" style="font-size: 20px; color: white;">Logout</a></span>
+                    <span style="float:right"><a href="logout.php" style="font-size: 20px; color: white; padding-right:10px">Logout</a></span>
 </h2>
             </div>
 
@@ -49,13 +55,13 @@
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-fw fa-bar-chart-o"></i>Rooms</a>
+                        <a href=""><i class="fas fa-chalkboard-teacher"></i>Rooms</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-fw fa-table"></i>Course</a>
+                        <a href=""><i class="fas fa-book-reader"></i>Course</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-fw fa-edit"></i>Lecture</a>
+                        <a href=""><i class="fa teacher"></i>Lecture</a>
                     </li>
                     <li>
                         <a href=""><i class="fa fa-fw fa-desktop"></i>Time frames</a>

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap');
+html,
+body,
+.stage {
+    float: left;
+    width: 800px;
+    height: auto;
+    overflow: hidden;
+    font-family: 'Nunito', sans-serif;
+    font-size: 70px;
+    background: #fff;
+}
+
+.stage {
+    max-width: 1440px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 25px;
+}
+
+.btn {
+    cursor: pointer;
+}

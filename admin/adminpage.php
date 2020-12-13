@@ -4,22 +4,19 @@
 
     <div class="container">
 
-        <!-- Page Heading -->
-        <div class="row" height="500" width="1000">
-
-
-            <!-- <img src="../images/admincontainer.jpg" height="500" width="500"> -->
+    <?php include('../templates/cream.php') ?>
         </div>
+        <!--Close container-->
     </div>
-    <!-- /.row -->
 
+<!--close page-wrapper -->
 </div>
-<!-- /.container-fluid -->
 
-</div>
-<!-- /#page-wrapper -->
 
+
+
+<!-- /# close wrapper -->
 </div>
-<!-- /#wrapper -->
+
 
 <?php include('../templates/footer.php') ?>

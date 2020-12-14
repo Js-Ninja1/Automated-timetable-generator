@@ -15,7 +15,7 @@ body {
     color: white;
     text-align: center;
     line-height: 70px;
-    background: #063146;
+    background: #7268e5;
     user-select: none;
 }
 
@@ -24,7 +24,8 @@ body {
     height: 1000;
     position: fixed;
     left: 0px;
-    background: #063146;
+    /*background: #063146;*/
+    background: #7268e5;
     transition: all .5s ease;
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;

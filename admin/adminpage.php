@@ -1,10 +1,11 @@
 <?php include('../templates/header.php'); ?>
 
-<div id="page-wrapper">
+<div class="container-space">
 
     <div class="container">
 
     <?php include('../templates/cream.php') ?>
+    <?php include('add-unit.php') ?>
         </div>
         <!--Close container-->
     </div>

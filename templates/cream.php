@@ -63,7 +63,7 @@ $('.titleHit').on('mouseout', ()=>coneTL.pause() );
 
 
 var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-if (isSafari) gsap.set('.bg2, .bg3', {attr:{filter:'none'}}); //Safari doesn't like feGaussianBlur :(
+if (isSafari) gsap.set('.bg2, .bg3', {attr:{filter:'none'}}); 
 </script>
 <div class="stage">
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1000 750" preserveAspectRatio="xMidYMid slice">  
@@ -95,8 +95,8 @@ if (isSafari) gsap.set('.bg2, .bg3', {attr:{filter:'none'}}); //Safari doesn't l
       <path d="M351.5,357.5c-1.98-12.85-12-23-14-24c-4-2,0-9-7-15c-3.22-2.76-7-6-9-4s-54,67-54,67c1,23,21,24,25,24 c1.33,0,8.82,0.47,10.5,5.5c4,12,11-3,21-3c5.52,0,0.78-7.81,7.5-11.5C351.5,385.5,353.5,370.5,351.5,357.5z M336.92,375 c-4.42,0.5-8.42-2.5-8.42-7.5s2-9-2-14s-3-13,6-10c3.42,1.14,8.67,8.52,8.83,16.26C341.5,367.5,341.33,374.5,336.92,375z"/>
     </g>
   </g>    
-  <text class="txt" fill="#ff3880" x="360" y="390">Gilbert</text>
-  <text class="txt" fill="#000" x="360" y="430" font-size="28" letter-spacing="3.3">kitetu</text>
+  <text class="txt" fill="#ff3880" x="360" y="390">Generate</text>
+  <text class="txt" fill="#000" x="360" y="430" font-size="28" letter-spacing="3.3">Timetable</text>
   <rect class="titleHit" x="210" y="300" width="550" height="140" fill="rgba(0,0,0,0)">
 </svg>
 

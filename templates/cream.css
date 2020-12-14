@@ -3,16 +3,16 @@ html,
 body,
 .stage {
     float: left;
-    width: 800px;
+    width: 100%;
     height: auto;
-    overflow: hidden;
+    /*overflow: hidden;*/
     font-family: 'Nunito', sans-serif;
     font-size: 70px;
     background: #fff;
 }
 
 .stage {
-    max-width: 1440px;
+    /*max-width: 1440px;*/
     position: relative;
     margin: 0 auto;
 }

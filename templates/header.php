@@ -11,6 +11,8 @@
 
     <title>Admin page</title>
 
+<!--Add a favicon-->
+<link rel='icon' href='favicon.ico' type='image/x-icon'/>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../templates/header.css">
@@ -23,7 +25,7 @@
 
     <!-- Custom Fonts-->
  
-    <link rel='icon' href='favicon.ico' type='image/x-icon'/>
+    <link rel='icon' href='../style/favicon.ico' type='image/x-icon'/>
    
    <script src="https://kit.fontawesome.com/c8879970d7.js" crossorigin="anonymous"></script>
 
@@ -55,16 +57,16 @@
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href=""><i class="fas fa-chalkboard-teacher"></i>Rooms</a>
+                        <a href="add-unit.php"><i class="fas fa-school"></i>Rooms</a>
                     </li>
                     <li>
                         <a href=""><i class="fas fa-book-reader"></i>Course</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa teacher"></i>Lecture</a>
+                        <a href=""><i class="fas fa-chalkboard-teacher"></i>Lecture</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-fw fa-desktop"></i>Time frames</a>
+                        <a href=""><i class="fas fa-clock"></i>Time frames</a>
                     </li>
 
 

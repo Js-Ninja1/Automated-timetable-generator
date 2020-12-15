@@ -49,7 +49,7 @@ button{
 <div class="container-space">
 <div class="container">
 <div class="add-unit" id="add-unit">
-<h2>Add Units</h2>
+<h2>Add Course</h2>
 <form>
     <div class="label-block">
     <label>Course name:</label>

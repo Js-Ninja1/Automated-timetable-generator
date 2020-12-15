@@ -6,20 +6,20 @@
 
 </script>
 <style>
-.add-unit{
+.add-lecture{
     font-size: 20px;
     padding: 10px;
     text-align: center;
     margin-top: 20px;
     display: block;
 }
-.add-unit form{
+.add-lecture form{
     padding: 10px;
 }
-.add-unit form label{
+.add-lecture form label{
     padding: 5px;
 }
-.add-unit form input{
+.add-lecture form input{
     border-top-style: hidden;
         border-right-style: hidden;
         border-left-style: hidden;
@@ -48,17 +48,22 @@ button{
 <?php include('../templates/header.php'); ?>
 <div class="container-space">
 <div class="container">
-<div class="add-unit" id="add-unit">
-<h2>Add Units</h2>
+<div class="add-lecture" id="add-lecture">
+<h2>Add Lecture</h2>
 <form>
     <div class="label-block">
-    <label>Course name:</label>
-    <input type="text" id="course" name="course" placeholder="Enter the course here">
+    <label>Lecture name:</label>
+    <input type="text" id="lecture" name="lecture" placeholder="Enter the lecture name here">
     </div>
     <div class="label-block">
-    <label>The number of units in<!--<p>Course</p>-->course</label>
-    <input type="text" id="unit-number" name="input-number" placeholder="Enter the number of units">
+    <label>Lecture Id</label>
+    <input type="text" id="lecture-id" name="input-id" placeholder="Enter lecture id">
     </div>
+    <div class="label-block">
+    <label>The number of units taught by<!--<p>Course</p>-->lecture</label>
+    <input type="text" id="lecture-units" name="input-number" placeholder="Enter the number of units">
+    </div>
+   
 
     <!--Loop depending on number of units units-->
     <div class="label-block">

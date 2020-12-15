@@ -3,9 +3,16 @@
 <div class="container-space">
 
     <div class="container">
-
+<div id="cream">
     <?php include('../templates/cream.php') ?>
-    <?php include('add-unit.php') ?>
+</div>
+
+<!-- <div class="add-unit">
+    <?php //include('add-unit.php') ?>
+</div>
+<div class="add-rooms">
+
+</div> -->
         </div>
         <!--Close container-->
     </div>

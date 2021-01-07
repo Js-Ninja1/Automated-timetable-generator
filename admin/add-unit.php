@@ -1,4 +1,67 @@
 <?php
+// Include connect file
+require_once "../db_config/connect.php";
+
+//Define our awesome variable here
+$courseName = $unitName = $unitCode = "";
+$courseNameErr = $unitNameErr = $unitCodeErr = "";
+
+//Process data submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    //validate course name
+    $inputCourseName = trim($_POST["course"]);
+    if(empty($inputCourseName)){
+        $courseNameErr = "Please enter a course";
+
+    }elseif(!filter_var($inputCourseName, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp" => "/^[a-zA-Z\s]+$/")))){
+        $courseNameErr = "Please enter a valid course name";
+    }else{
+        $courseName = $inputCourseName;
+    }
+    //Validate unit
+   $inputUnitName = trim($_POST["unit-name"]);
+   if(empty($inputUnitName)){
+       $unitNameErr = "Please enter a unit name";
+   } else{
+       $unitName = $inputUnitName;
+   }
+   //Now we validate unit code yeey!
+   $inputUnitCode = trim($_POST["unit-code"]);
+   if(empty($inputUnitCode)){
+       $unitCodeErr = "Please enter a unit code";
+   }else{
+       $unitCode = $inputUnitCode;
+   }
+   //Commancing error checking b4 inserting to database timetable_generator table courses
+   if(empty($courseNameErr) && empty($unitNameErr) && empty($unitCodeErr)){
+       //Prepare an insert statement here hehe
+       $sql = "INSERT INTO courses (courseName, unitName, unitCode) VALUES (?, ?, ?)";
+
+       if($stmt = mysqli_prepare($link, $sql)){
+           //Bind vars to prepared statements as params
+           mysqli_stmt_bind_param($stmt, "sss", $param_course, $param_unitName, $param_unitCode);
+
+           // Set the terrific parameters here
+           $param_course = $courseName;
+           $param_unitName = $unitName;
+           $param_unitCode = $unitCode;
+
+           //Try to execute the stmt
+           if(mysqli_stmt_execute($stmt)){
+               //success.... Redirect to self for another insertion... So funny
+               header("location: add-unit.php");
+               exit();
+               //still funny
+           } else{
+               echo "Something went wrong... Try again...";
+           }
+       }
+       //Close stmt
+       mysqli_stmt_close($stmt);
+   }
+   mysqli_close($link);
+
+}
 
 ?>
 
@@ -73,12 +136,14 @@ button{
     </div>
     <div class="label-block">
         <button>Add another</button>
-    </div>
-    <div class="label-block">
-        <button>Finish</button>
-    </div>
+
 
 </div>
+</form>
+<form action="finish.php" method="post">
+    <div class="label-block">
+    <button id="finish" value="finish" name="finish">Finish</button>
+    </div>
 </form>
 </div>
 </div>

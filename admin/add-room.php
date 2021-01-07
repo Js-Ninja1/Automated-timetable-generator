@@ -130,7 +130,7 @@ button{
         <button value="Submit" onclick="submitRoom();">Add another room</button>
     </div>
 </form>
-<form action="add-room-finish.php" method="post">
+<form action="finish.php" method="post">
 <!-- /<?php
 // $finishClicked = false;
 

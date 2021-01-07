@@ -17,6 +17,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $lectureName = $input_lectureName;
     }
+    //validate unit name
+    $inputUnitName = trim($_POST["unit-name"]);
+    if(empty($inputUnitName)){
+        $unitNameErr = "Please enter a unit name";
+    } else{
+        $unitName = $inputUnitName;
+    }
+
+    //validate unit code
+   $inputUnitCode = trim($_POST["unit-code"]);
+   if(empty($inputUnitCode)){
+       $unitCodeErr = "Please enter a unit code";
+   }else{
+       $unitCode = $inputUnitCode;
+   }
+   
     
 }
 

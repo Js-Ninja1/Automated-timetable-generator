@@ -50,7 +50,7 @@ button{
 <div class="container">
 <div class="add-lecture" id="add-lecture">
 <h2>Add Lecture</h2>
-<form>
+<form <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
     <div class="label-block">
     <label>Lecture name:</label>
     <input type="text" id="lecture" name="lecture" placeholder="Enter the lecture name here">

@@ -55,20 +55,21 @@ button{
     <label>Lecture name:</label>
     <input type="text" id="lecture" name="lecture" placeholder="Enter the lecture name here">
     </div>
-    <div class="label-block">
+    <!-- <div class="label-block">
     <label>Lecture Id</label>
     <input type="text" id="lecture-id" name="input-id" placeholder="Enter lecture id">
-    </div>
-    <div class="label-block">
-    <label>The number of units taught by<!--<p>Course</p>-->lecture</label>
+    </div> -->
+    <!-- <div class="label-block">
+    <label>The number of units taught by  <p>Course</p>  lecture</label>
     <input type="text" id="lecture-units" name="input-number" placeholder="Enter the number of units">
-    </div>
+    </div> -->
    
 
     <!--Loop depending on number of units units-->
     <div class="label-block">
     <div id="unit">
-    <label>Unit<!--Show numbers-->name:</label>
+    <label>Unit name:</label>
+    
     <input type="text" id="unit-name" name="unit-name" placeholder="Enter unit name">
     </div>
     <div class="label-block">
@@ -76,7 +77,10 @@ button{
     <input type="text" id="unit-code" name="unit-code" placeholder="Enter unit code">
     </div>
     <div class="label-block">
-        <button>ADD</button>
+        <button>Add another unit</button>
+    </div>
+    <div class="label-block">
+        <button>Finish</button>
     </div>
 </div>
 </form>

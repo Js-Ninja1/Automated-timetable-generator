@@ -3,7 +3,8 @@
 ?>
 
 <script>
-
+// var courseName = document.getElementById('course');
+// console.log(courseName);
 </script>
 <style>
 .add-unit{
@@ -50,20 +51,20 @@ button{
 <div class="container">
 <div class="add-unit" id="add-unit">
 <h2>Add Course</h2>
-<form>
+<form <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
     <div class="label-block">
     <label>Course name:</label>
     <input type="text" id="course" name="course" placeholder="Enter the course here">
     </div>
-    <div class="label-block">
-    <label>The number of units in<!--<p>Course</p>-->course</label>
+    <!-- <div class="label-block">
+    <label>The number of units in comment here<p>Course</p>course</label>
     <input type="text" id="unit-number" name="input-number" placeholder="Enter the number of units">
-    </div>
+    </div> -->
 
     <!--Loop depending on number of units units-->
     <div class="label-block">
     <div id="unit">
-    <label>Unit<!--Show numbers-->name:</label>
+    <label>Unit name:</label>
     <input type="text" id="unit-name" name="unit-name" placeholder="Enter unit name">
     </div>
     <div class="label-block">
@@ -71,8 +72,12 @@ button{
     <input type="text" id="unit-code" name="unit-code" placeholder="Enter unit code">
     </div>
     <div class="label-block">
-        <button>ADD</button>
+        <button>Add another</button>
     </div>
+    <div class="label-block">
+        <button>Finish</button>
+    </div>
+
 </div>
 </form>
 </div>

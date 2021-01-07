@@ -1,4 +1,25 @@
 <?php
+// Include connect file
+require_once "../db_config/connect.php";
+
+//Define
+$lectureName = $unitName = $unitCode = "";
+$lectureNameErr = $unitNameErr = $unitCodeErr = "";
+
+//process submitted data
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    //validate lecture name
+    $input_lectureName = trim($_POST["lecture"]);
+    if(empty($input_lectureName)){
+        $lectureNameErr = "Please enter a lecture name.";
+    } elseif(!filter_var($input_lectureName, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $lectureNameErr = "Please enter a valid lecture name.";
+    } else{
+        $lectureName = $input_lectureName;
+    }
+    
+}
+
 
 ?>
 

@@ -118,8 +118,9 @@ button{
     <div class="form-group <?php echo (!empty($lectureNameErr)) ? 'has-error' : ''; ?>">
     <label>Lecture name:</label>
     <input type="text" id="lecture" name="lecture" placeholder="Enter the lecture name here">
-    </div>
     <span class="help-block"><?php echo $lectureNameErr;?></span>
+    </div>
+    
     <!-- <div class="label-block">
     <label>Lecture Id</label>
     <input type="text" id="lecture-id" name="input-id" placeholder="Enter lecture id">
@@ -132,14 +133,18 @@ button{
 
     <!--Loop depending on number of units units-->
     <div class="label-block">
+    <div class="form-group <?php echo (!empty($unitNameErr)) ? 'has-error' : ''; ?>">
     <div id="unit">
     <label>Unit name:</label>
-    
     <input type="text" id="unit-name" name="unit-name" placeholder="Enter unit name">
+    <span class="help-block"><?php echo $unitNameErr;?></span>
     </div>
+
     <div class="label-block">
+    <div class="form-group <?php echo (!empty($unitCodeErr)) ? 'has-error' : ''; ?>">
     <label>Unit code</label>
     <input type="text" id="unit-code" name="unit-code" placeholder="Enter unit code">
+    <span class="help-block"><?php echo $unitCodeErr;?></span>
     </div>
     <div class="label-block">
         <button value="Submit">Add another unit</button>

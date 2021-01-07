@@ -123,8 +123,10 @@ button{
 <h2>Add a new Room</h2>
 <form <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
 <div class="label-block">
+<div class="form-group <?php echo (!empty($roomErr)) ? 'has-error' : ''; ?>">
     <label>Room name:</label>
     <input type="text" id="roomName" name="roomName"  placeholder="Enter the name of the room here">
+    <span class="help-block"><?php echo $roomErr;?></span>
     </div>
     <div class="label-block">
         <button value="Submit" onclick="submitRoom();">Add another room</button>

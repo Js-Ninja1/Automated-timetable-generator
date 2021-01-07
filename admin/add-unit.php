@@ -116,8 +116,10 @@ button{
 <h2>Add Course</h2>
 <form <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
     <div class="label-block">
+    <div class="form-group <?php echo (!empty($courseNameErr)) ? 'has-error' : ''; ?>">
     <label>Course name:</label>
     <input type="text" id="course" name="course" placeholder="Enter the course here">
+    <span class="help-block"><?php echo $courseNameErr;?></span>
     </div>
     <!-- <div class="label-block">
     <label>The number of units in comment here<p>Course</p>course</label>
@@ -126,13 +128,17 @@ button{
 
     <!--Loop depending on number of units units-->
     <div class="label-block">
+    <div class="form-group <?php echo (!empty($unitNameErr)) ? 'has-error' : ''; ?>">
     <div id="unit">
     <label>Unit name:</label>
     <input type="text" id="unit-name" name="unit-name" placeholder="Enter unit name">
+    <span class="help-block"><?php echo $unitNameErr;?></span>
     </div>
     <div class="label-block">
+    <div class="form-group <?php echo (!empty($unitCodeErr)) ? 'has-error' : ''; ?>">
     <label>Unit code</label>
     <input type="text" id="unit-code" name="unit-code" placeholder="Enter unit code">
+    <span class="help-block"><?php echo $unitCodeErr;?></span>
     </div>
     <div class="label-block">
         <button>Add another</button>

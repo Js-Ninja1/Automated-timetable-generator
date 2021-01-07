@@ -12,9 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $input_lectureName = trim($_POST["lecture"]);
     if(empty($input_lectureName)){
         $lectureNameErr = "Please enter a lecture name.";
-    } elseif(!filter_var($input_lectureName, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $lectureNameErr = "Please enter a valid lecture name.";
-    } else{
+    }else{
         $lectureName = $input_lectureName;
     }
     //validate unit name
@@ -42,10 +40,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            //Bind
            mysqli_stmt_bind_param($stmt, "sss", $param_lectureName, $param_unitName, $param_unitCode);
 
-           
+           //set params
+           $param_lectureName = $lectureName;
+           $param_unitName = $unitName;
+           $param_unitCode = $unitCode;
+
+           //Execute
+           if(mysqli_stmt_execute($stmt)){
+               //success... redirect
+               header("location: add-lecture.php");
+               exit();
+           }else{
+               echo "Something went wrong at add_lecture";
+           }
+
+
        }
+       mysqli_stmt_close($stmt);
    }
-    
+    mysqli_close($link);
 }
 
 
@@ -99,11 +112,14 @@ button{
 <div class="container">
 <div class="add-lecture" id="add-lecture">
 <h2>Add Lecture</h2>
-<form <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
+<form <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="POST">
+
     <div class="label-block">
+    <div class="form-group <?php echo (!empty($lectureNameErr)) ? 'has-error' : ''; ?>">
     <label>Lecture name:</label>
     <input type="text" id="lecture" name="lecture" placeholder="Enter the lecture name here">
     </div>
+    <span class="help-block"><?php echo $lectureNameErr;?></span>
     <!-- <div class="label-block">
     <label>Lecture Id</label>
     <input type="text" id="lecture-id" name="input-id" placeholder="Enter lecture id">
@@ -126,12 +142,14 @@ button{
     <input type="text" id="unit-code" name="unit-code" placeholder="Enter unit code">
     </div>
     <div class="label-block">
-        <button>Add another unit</button>
-    </div>
-    <div class="label-block">
-        <button>Finish</button>
+        <button value="Submit">Add another unit</button>
     </div>
 </div>
+</form>
+<form action="finish.php" method="post">
+    <div class="label-block">
+    <button id="finish" value="finish" name="finish">Finish</button>
+    </div>
 </form>
 </div>
 </div>

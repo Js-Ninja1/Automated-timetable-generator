@@ -54,8 +54,8 @@ body {
     color: #ffdc82;
     padding-left: 40px;
     padding: 10px;
-    /*box-sizing: border-box;*/
-    /* border-top: 1px solid rgba(255, 255, 255, .1);
+    /* box-sizing: border-box;
+    border-top: 1px solid rgba(252, 252, 252, 0.1);
     border-bottom: 1px solid black; */
     transition: .4s;
     -webkit-transition: .4s;

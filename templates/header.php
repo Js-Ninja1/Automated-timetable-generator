@@ -60,7 +60,7 @@
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href=""><i class="fas fa-school"></i>Rooms</a>
+                        <a href="add-room.php"><i class="fas fa-school"></i>Rooms</a>
                     </li>
                     <li>
                         <a href="add-unit.php"><i class="fas fa-book-reader"></i>Course</a>
@@ -69,7 +69,7 @@
                         <a href="add-lecture.php"><i class="fas fa-chalkboard-teacher"></i>Lecture</a>
                     </li>
                     <li>
-                        <a href=""><i class="fas fa-clock"></i>Time frames</a>
+                        <a href="add-timeframes.php"><i class="fas fa-clock"></i>Time frames</a>
                     </li>
 
 

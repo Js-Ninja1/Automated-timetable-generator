@@ -32,7 +32,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    }else{
        $unitCode = $inputUnitCode;
    }
-   
+
+   //checking errors
+   if(empty($lectureNameErr) && empty($unitNameErr) && empty($unitCodeErr)){
+       //prepare stmt
+       $sql = "INSERT INTO lecturer (lectureName, unitName, unitCode) VALUES (?, ?, ?)";
+
+       if($stmt = mysqli_prepare($link, $sql)){
+           //Bind
+           mysqli_stmt_bind_param($stmt, "sss", $param_lectureName, $param_unitName, $param_unitCode);
+
+           
+       }
+   }
     
 }
 

@@ -57,7 +57,7 @@
             <div class="side-nav">
                 <ul class="side-nav-content">
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i>Dashboard</a>
+                        <a href="../templates/cream.php"><i class="fa fa-fw fa-dashboard"></i>Dashboard</a>
                     </li>
                     <li>
                         <a href="add-room.php"><i class="fas fa-school"></i>Rooms</a>

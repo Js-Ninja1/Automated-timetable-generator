@@ -1,5 +1,49 @@
 <?php
+//require connect file
+require_once "../db_config/connect.php";
 
+//define vars
+$fromTime = $toTime = "";
+$fromTimeErr = $toTimeErr = "";
+
+//process the data 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    //VALIDATE TIME
+    // if(isset($_POST['fromTime']) == "" || !is_numeric($_POST['fromTime']) || ($_POST['fromTime']) >= 23){
+    //     echo "<script>alert('wrong time format'); window.history.go(-1);</script>";
+    // }
+
+    //nothing to validate here
+$fromTime = $_POST["fromTime"];
+//echo $fromTime;
+$toTime = $_POST["toTime"];
+//echo $toTime;
+
+if(empty($fromTimeErr) && empty($toTimeErr)){
+    //prepare stmt
+    $sql = "INSERT INTO time_frames (startTime, endTime) VALUES (?, ?)";
+
+    if($stmt = mysqli_prepare($link, $sql)){
+        //bind vars to prepared statement as params
+        mysqli_stmt_bind_param($stmt, "ss", $param_fromTime, $param_toTime);
+
+        //set params
+        $param_fromTime = $fromTime;
+        $param_toTime = $toTime;
+
+        //execute
+        if(mysqli_stmt_execute($stmt)){
+            header("location: add-timeframes.php");
+            exit();
+        }else{
+            echo "Something went wrong at time frames...";
+        }
+    }
+    mysqli_stmt_close($stmt);
+}
+mysqli_close($link);
+
+}
 ?>
 
 <script>

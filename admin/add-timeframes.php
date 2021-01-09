@@ -52,22 +52,33 @@ button{
 <div class="container">
 <div class="add-lecture" id="add-lecture">
 <h2>Add Time frames</h2>
-<form>
+<form <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="POST">
     <div class="label-block">
-    <h2>Week days</h2>
+    <!-- <h2>Week days</h2>
     <ul>
         <li>Monday</li>
         <li>Tuesday</li>
         <li>Wednesday</li>
         <li>Thursday</li>
         <li>Friday</li>
-    </ul>
+    </ul> -->
+    
+    <input type="time" name="fromTime" id="name">
+    <label>To</label>
+    <input type="time" name="toTime" id="name">
+
     </div>
     <div class="time-frames"></div>
     <div class="add-button">
-        <button>ADD</button>
+        <button value="submit">Add another time frame</button>
     </div>   
 </div>
+</form>
+<form action="finish.php" method="post">
+
+    <div class="label-block">
+    <button id="finish" value="finish" name="finish">Finish</button>
+    </div>
 </form>
 </div>
 </div>

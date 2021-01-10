@@ -44,9 +44,28 @@
         <nav class="topnav" role="navigation">
 
             <div class="navbar-header">
-
+<style>
+    .btnGenerateTimetable{
+color: white;
+    }
+    .btnGenerateTimetable:hover { 
+            text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 
+                0 3px 0 #ccc, 0 4px 0 #ccc, 
+                0 5px 0 #ccc, 0 6px 0 #ccc, 
+                0 7px 0 #ccc, 0 8px 0 #ccc, 
+                0 9px 0 #ccc, 0 10px 0 #ccc, 
+                0 11px 0 #ccc, 0 12px 0 #ccc, 
+                0 20px 30px rgba(0, 0, 0, 0.5); 
+        } 
+</style>
                 <h2>Hello Admin
-                <span style="float:left"><a href="#" style="font-size: 25px; color: white; padding-left:500px; transform: rotateX(150deg)">Generate New Timetable</a></span>
+                <span id="btnGenerateTimetable" style="float:left"><a href="#" id="btnGenerateTimetable" style="font-size: 25px; padding-left:500px; color: white;  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 
+                0 3px 0 #ccc, 0 4px 0 #ccc, 
+                0 5px 0 #ccc, 0 6px 0 #ccc, 
+                0 7px 0 #ccc, 0 8px 0 #ccc, 
+                0 9px 0 #ccc, 0 10px 0 #ccc, 
+                0 11px 0 #ccc, 0 12px 0 #ccc, 
+                0 20px 30px rgba(0, 0, 0, 0.5); ">Generate New Timetable</a></span>
                     <span style="float:right"><a href="logout.php" style="font-size: 20px; color: white; padding-right:10px">Logout</a></span>
 </h2>
             </div>

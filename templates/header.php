@@ -46,6 +46,7 @@
             <div class="navbar-header">
 
                 <h2>Hello Admin
+                <span style="float:left"><a href="#" style="font-size: 25px; color: white; padding-left:500px; transform: rotateX(150deg)">Generate New Timetable</a></span>
                     <span style="float:right"><a href="logout.php" style="font-size: 20px; color: white; padding-right:10px">Logout</a></span>
 </h2>
             </div>
@@ -57,7 +58,7 @@
             <div class="side-nav">
                 <ul class="side-nav-content">
                     <li>
-                        <a href="../templates/cream.php"><i class="fa fa-fw fa-dashboard"></i>Dashboard</a>
+                        <a href="../admin/adminpage.php"><i class="fa fa-fw fa-dashboard"></i>Dashboard</a>
                     </li>
                     <li>
                         <a href="add-room.php"><i class="fas fa-school"></i>Rooms</a>

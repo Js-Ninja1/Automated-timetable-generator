@@ -23,6 +23,76 @@
     <!-- Call admin page css-->
     <link rel="stylesheet" href="../style/adminpage.css">
 
+    <!--Timetable nme popup style-->
+   <style>
+       /* timetable-name
+        color: #232323;
+    font-size: 0.95em;    
+    font-family: arial;
+        --> */
+    .timetable-name-form{
+    width: 350px;
+    height: 480px;
+    margin: 0px;
+    background-color: white;
+    font-family: Arial;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -210px;
+    margin-top: 5px;
+    box-shadow: 1px 1px 5px #444444;
+    padding: 20px 40px 40px 40px;
+       }
+    #send{
+    background-color: #09F;
+    border: 1px solid #1398f1;
+    font-family: Arial;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+    .timetable-name-form h1{
+        /* font-weight: normal; */
+        font-size: 20px;
+    text-align: center;
+    /* margin: 10px 0px 20px 0px; */
+    }
+    .timetable-input-name{
+        color: #d30a0a;
+    letter-spacing: 2px;
+    padding-left: 5px;
+    }
+    .inputBox {
+    width: 100%;
+    margin: 5px 0px 15px 0px;
+    border: #dedede 1px solid;
+    box-sizing: border-box;
+    padding: 15px;
+}
+#timetable-name-form {
+    /* position: absolute; */
+    /* top: 0px;
+    left: 0px; */
+    /* height: 100%; */
+    /*width: 100%; */
+    /* background: rgba(0, 0, 0, 0.5); */
+    display: none;
+    /* color: #676767; */
+} 
+.timetable-name{
+
+}
+
+.timetable-name-form label{
+    font-size: 20px;
+}
+   </style>
+
+
+
     <!-- Custom Fonts-->
  
     <link rel='icon' href='../style/favicon.ico' type='image/x-icon'/>
@@ -32,7 +102,22 @@
    
    <script src="https://kit.fontawesome.com/c8879970d7.js" crossorigin="anonymous"></script>
 
+   <!--import jquery for the genarate time table name popup-->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="../jQuery/jquery-3.5.1.js"></script>
 
+   <!--popup  script-->
+   <script>
+       $(document).ready(function () {
+           $("#generate-btn").click(function (){
+               $("#timetable-name-form").show();
+               console.log("hello world");
+           });
+
+       });
+   </script>
+
+   
 
 </head>
 
@@ -44,64 +129,39 @@
         <nav class="topnav" role="navigation">
 
             <div class="navbar-header">
-<style>
-    .btnGenerateTimetable{
-color: white;
-    }
-    .btnGenerateTimetable:hover { 
-            text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 
-                0 3px 0 #ccc, 0 4px 0 #ccc, 
-                0 5px 0 #ccc, 0 6px 0 #ccc, 
-                0 7px 0 #ccc, 0 8px 0 #ccc, 
-                0 9px 0 #ccc, 0 10px 0 #ccc, 
-                0 11px 0 #ccc, 0 12px 0 #ccc, 
-                0 20px 30px rgba(0, 0, 0, 0.5); 
-        } 
-</style>
+            <!-- <div id="generate-btn"> -->
                 <h2>Hello Admin
-                <span id="btnGenerateTimetable" style="float:left"><a href="#" id="btnGenerateTimetable" style="font-size: 25px; padding-left:500px; color: white; border: black, solid, 2px;">Generate New Timetable</a></span>
-                <div class="console-container">
-                    <style>
-                        @import url(https://fonts.googleapis.com/css?family=Khula:700);
-body {
-  background: #111;
-}
-.hidden {
-  opacity:0;
-}
-.console-container {
- 
-  font-family:Khula;
-  font-size:4em;
-  text-align:center;
-  height:200px;
-  width:600px;
-  display:block;
-  position:absolute;
-  color:white;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  margin:auto;
-}
-.console.underscore{
-    display:inline-block;
-    position: relative;
-    top: -0.14em;
-    left: 10px;
-}
-                    </style>
-                    <script>
-                        
-                    </script>
-                    <span id="text"></span>
-                    <div class="console-underscore" id="console">$#95;</div>
+                    
+                <span style="float:left"><a href="#" id="generate-btn" style="font-size: 25px; padding-left:500px; color: white;">Generate New Timetable</a></span>
+                <!-- </div> -->
 
-                </div>
-                    <span style="float:right"><a href="logout.php" style="font-size: 20px; color: white; padding-right:10px">Logout</a></span>
+               
+                    <span style="float:right"><a href="logout.php" style="font-size: 20px; color: white; padding-right:60px">Logout</a></span>
 </h2>
             </div>
+
+             <!--popup form here-->
+             <div id="timetable-name">
+                <form class="timetable-name-form" action="" id="timetable-name-form" method="POST">
+                    <h1>Timetable name</h1>
+                    <div>
+                        <div>
+                            <label>Name:</label><span id="timetable-name" class="timetable-name"></span>
+                        </div>
+                        <div>
+                            <input type="text" id="timetable-input-name" name="timetable-input-name" class="inputBox" />
+
+                        </div>
+
+                    </div>
+                    <div>
+                        <input type="submit" id="send" name="send" value="Generate" />
+                    </div>
+
+                </form>
+                </div>
+                   
+
 
             <!-- Top Menu Items -->
 

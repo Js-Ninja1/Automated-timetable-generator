@@ -140,9 +140,55 @@
 </h2>
             </div>
 
+            <!--popup php create code-->
+            <?php 
+            //require connect file
+            require_once "../db_config/connect.php";
+
+            //define variables
+            $timetable_name = "";
+            $timetable_nameErr = "";
+
+            //process 
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                //validate timetable name
+                $input_timetable_name = trim($_POST["timetable-input-name"]);
+                if(empty($input_timetable_name)){
+                    $timetable_nameErr = "Please enter a name";
+                } else{
+                    $timetable_name = $input_timetable_name;
+                }
+                //check for error b4 submitting to db
+                if(empty($timetable_nameErr)){
+                    //prepare an insert statement
+                    $sql = "INSERT INTO timetable_name (timetable) VALUES (?)";
+
+                    if($stmt = mysqli_prepare($link, $sql)){
+                        //bind
+                        mysqli_stmt_bind_param($stmt, "s", $param_timetable_name);
+
+                        //set params
+                        $param_timetable_name = $timetable_name;
+
+                        //shoot your shot
+                        if(mysqli_stmt_execute($stmt)){
+                            //of its a success... redirect to 
+                            header("location: ../templates/edit.php");
+                            exit();
+
+                        }else{
+                            echo "something went wrong in submitting timetable name to db...";
+                        }
+                    }
+                    mysqli_stmt_close($stmt);
+                }
+                mysqli_close($link);
+            }
+            ?>
+
              <!--popup form here-->
              <div id="timetable-name">
-                <form class="timetable-name-form" action="" id="timetable-name-form" method="POST">
+                <form class="timetable-name-form" id="timetable-name-form" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="POST">
                     <h1>Timetable name</h1>
                     <div>
                         <div>

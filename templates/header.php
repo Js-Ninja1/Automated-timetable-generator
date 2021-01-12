@@ -209,37 +209,41 @@
                             require_once("../db_config/connect.php");
 
                             //prepare a statement
-                            $sql_query = "SELECT courseName FROM courses";
-
-                            if($stmtt = mysqli_prepare($link, $sql_query)){
-                                //bind
-                            mysqli_stmt_bind_param($stmtt, "s" /*$param_course_name*/);
-
-                                //set parameters
-                                // $param_course_name = 
-
-                                //shoot or execute
-                                if(mysqli_stmt_execute($stmtt)){
-                                    $result = mysqli_stmt_get_result($stmtt);
-
-                                    if(mysqli_num_rows($result) >= 1){
-                                        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                                        while($data = $row){
-                                            //displaying data in option menu
-                                            echo "<option value='". $data['courseName'] ."'>" .$data['courseName'] ."</option>";
-                                        }
-
-                                    }else{
-                                        echo "An error occurred at select courses";
-                                        exit();
-                                    }
-                                }else{
-                                    echo "Oops something went wrong at execute select courses";
-                                }
-                                mysqli_stmt_close($stmtt);
-                                mysqli_close($link);
-
+                            //$sql_query = "SELECT courseName FROM courses";
+                            $records = mysqli_query($link, "SELECT courseName FROM courses");
+                            while($data = mysqli_fetch_array($records)){
+                                echo "<option value='". $data['courseName'] ."'>" .$data['courseName'] ."</option>";
                             }
+
+                            // if($stmtt = mysqli_prepare($link, $sql_query)){
+                            //     //bind
+                            // mysqli_stmt_bind_param($stmtt, "s", $param_course_name);
+
+                            //     //set parameters
+                            //     $param_course_name = 
+
+                            //     //shoot or execute
+                            //     if(mysqli_stmt_execute($stmtt)){
+                            //         $result = mysqli_stmt_get_result($stmtt);
+
+                            //         if(mysqli_num_rows($result) >= 1){
+                            //             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                            //             while($data = $row){
+                            //                 //displaying data in option menu
+                            //                 echo "<option value='". $data['courseName'] ."'>" .$data['courseName'] ."</option>";
+                            //             }
+
+                            //         }else{
+                            //             echo "An error occurred at select courses";
+                            //             exit();
+                            //         }
+                            //     }else{
+                            //         echo "Oops something went wrong at execute select courses";
+                            //     }
+                            //     mysqli_stmt_close($stmtt);
+                            //     mysqli_close($link);
+
+                            // }
                            
                             
 
@@ -250,6 +254,7 @@
                             
                             </select>
 
+
                         </div>
 
                     </div>
@@ -258,6 +263,10 @@
                     </div>
 
                 </form>
+
+                <?php 
+                mysqli_close($link);
+                ?>
                 </div>
                    
 

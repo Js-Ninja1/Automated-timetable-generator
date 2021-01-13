@@ -1,3 +1,6 @@
+ <!--import jquery for the genarate time table name popup-->
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="../jQuery/jquery-3.5.1.js"></script> -->
 <?php
 require_once "../db_config/connect.php";
 $room = "";
@@ -151,9 +154,31 @@ button{
 
 <form action="finish.php" method="post">
     <div class="label-block">
-    <button id="finish" value="finish" name="finish">Show available rooms</button>
+    <button id="show-rooms" name="finish">Show available rooms</button>
     </div>
 </form>
+
+</div>
+
+
+<!--show room div style-->
+<style>
+
+</style>
+
+<!--show room script-->
+
+ <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
+</script>
+
+<div class="show-rooms">
+                        <h2>Rooms Details</h2>
+                    <?php
+                    include ('show-rooms.php');
+                    ?>
 
 </div>
 

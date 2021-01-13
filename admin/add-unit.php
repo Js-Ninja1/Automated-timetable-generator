@@ -152,10 +152,19 @@ button{
     <button id="finish" value="finish" name="finish">Finish</button>
     </div>
 </form>
+<div class="label-block">
+    <button id="show-courses" name="show-courses">Show available courses</button>
+    </div>
 </div>
 </div>
 </div>
 </div>
 
+<div class="show-course">
+                        <h2>Course Details</h2>
+                    <?php
+                    //include ('show-rooms.php');
+                    ?>
 
+</div>
 <?php include('../templates/footer.php') ?>

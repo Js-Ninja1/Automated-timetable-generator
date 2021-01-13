@@ -124,10 +124,20 @@ button{
     <button id="finish" value="finish" name="finish">Finish</button>
     </div>
 </form>
+<div class="label-block">
+    <button id="show-time-frames" name="show-time-frames">Show available time frames</button>
+    </div>
 </div>
 </div>
 </div>
 </div>
 
+<div class="show-time-frames">
+                        <h2>Time frames Details</h2>
+                    <?php
+                    //include ('show-rooms.php');
+                    ?>
+
+</div>
 
 <?php include('../templates/footer.php') ?>

@@ -146,8 +146,8 @@
             require_once "../db_config/connect.php";
 
             //define variables
-            $timetable_name = "";
-            $timetable_nameErr = "";
+            $timetable_name = $select_course = "";
+            $timetable_nameErr = $select_courseErr = "";
 
             //process 
             if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -158,17 +158,25 @@
                 } else{
                     $timetable_name = $input_timetable_name;
                 }
+                //validate selected course name
+                $selected = trim($_POST["course-select-name"]);
+                if(empty($selected)){
+                    $select_courseErr = "Please select a course";
+                }else{
+                    $select_course = $selected;
+                }
                 //check for error b4 submitting to db
-                if(empty($timetable_nameErr)){
+                if(empty($timetable_nameErr) && empty($select_courseErr)){
                     //prepare an insert statement
-                    $sql = "INSERT INTO timetable_name (timetable) VALUES (?)";
+                    $sql = "INSERT INTO timetable_name (timetable, course) VALUES (?, ?)";
 
                     if($stmt = mysqli_prepare($link, $sql)){
                         //bind
-                        mysqli_stmt_bind_param($stmt, "s", $param_timetable_name);
+                        mysqli_stmt_bind_param($stmt, "ss", $param_timetable_name, $param_course_name);
 
                         //set params
                         $param_timetable_name = $timetable_name;
+                        $param_course_name = $select_course;
 
                         //shoot your shot
                         if(mysqli_stmt_execute($stmt)){

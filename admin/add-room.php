@@ -148,6 +148,13 @@ button{
     </div>
 </form>
 
+
+<form action="finish.php" method="post">
+    <div class="label-block">
+    <button id="finish" value="finish" name="finish">Show available rooms</button>
+    </div>
+</form>
+
 </div>
 
 <?php include('../templates/footer.php'); ?>

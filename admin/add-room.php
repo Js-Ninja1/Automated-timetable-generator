@@ -1,6 +1,6 @@
  <!--import jquery for the genarate time table name popup-->
- <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <script src="../jQuery/jquery-3.5.1.js"></script> -->
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+   <script src="../jQuery/jquery-3.5.1.js"></script> 
 <?php
 require_once "../db_config/connect.php";
 $room = "";
@@ -118,6 +118,34 @@ button{
     cursor: pointer;
     border-radius: 5px;
 }
+#show-rooms{
+    background-color: #7268e5;
+    cursor: pointer;
+    margin-left: 500px;
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+}
+.show-rooms{
+
+    display: none;
+}
+.show-table{
+    background-color: #7268e5;
+    background: linear-gradient(
+  to bottom,
+  #7268e5 5%,
+  #7268e5 0%,
+  white 5%,
+  white
+);
+/* The rectangle in which to repeat. 
+   It can be fully wide in this case */
+background-size: 100% 25px;
+margin-left: 400px;
+width: 600px;
+border-radius: 5px;
+}
 </style>
 
 <?php include('../templates/header.php'); ?>
@@ -151,28 +179,34 @@ button{
     </div>
 </form>
 
+<script type="text/javascript">
+        $(document).ready(function(){
+        // $('[data-toggle="tooltip"]').tooltip();
 
-<form action="finish.php" method="post">
+        //show hidden table
+        $("#show-rooms").click(function(){
+            $(".show-rooms").show();
+        })
+
+
+        });
+
+</script>
+
     <div class="label-block">
-    <button id="show-rooms" name="finish">Show available rooms</button>
+    <p id="show-rooms">Show available rooms</p>
     </div>
-</form>
+
 
 </div>
 
 
 <!--show room div style-->
-<style>
 
-</style>
 
 <!--show room script-->
 
- <script type="text/javascript">
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-</script>
+ 
 
 <div class="show-rooms">
                         <h2>Rooms Details</h2>

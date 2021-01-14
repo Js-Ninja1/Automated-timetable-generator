@@ -1,40 +1,47 @@
 <?php
-// Include config file
-                    require_once "../db_config/connect.php";
-                    
-                    // Attempt select query execution
-                    //$sql = "SELECT * FROM rooms";
 
-                    if($records = mysqli_query($link, "SELECT * FROM rooms")){
 
-                    if(mysqli_num_rows($records) > 0){
-                        echo "<table class='table table-bordered table-striped'>";
-                                echo "<thead>";
-                                    echo "<tr>";
-                                        echo "<th>#</th>";
-                                        echo "<th>Room name</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = mysqli_fetch_array($records)){
-                                    echo "<tr>";
-                                    echo "<td>" . $row['id'] . "</td>";
-                                    echo "<td>" . $row['room'] . "</td>";
-                                    echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-                                    echo "<a href='delete.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
-                                    echo "</td>";
-                                    echo "</tr>";
+                /*Attempt mysql server connection*/
+                $link = mysqli_connect("localhost", "root", "", "timetable_generator");
 
-                                }
-                                echo "</tbody>";
-                                echo "</table>";
+                //check connection
+                if($link === false){
+                    die("ERROR: Could not connect. " . mysqli_connect_error());
 
-                                mysqli_free_result($records);
+                }
+
+                //Attempt select query execution
+                $sql = "SELECT * FROM rooms";
+                if($result = mysqli_query($link, $sql)){
+                    if(mysqli_num_rows($result) > 0){
+                        echo "<table class = 'show-table'>";
+                        echo "<tr>";
+                        echo "<th>#</th>";
+                        echo "<th>Room name</th>";
+                        echo "<th>Action</th>";
+                        echo "</tr>";
+                        while($row = mysqli_fetch_array($result)){
+                            echo "<tr>";
+                            echo "<td>" . $row['id'] . "</td>";
+                            echo "<td>" . $row['room'] . "</td>";
+                            echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class=''>Edit</span></a>";
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+
+                        //free result set
+                        mysqli_free_result($result);
+
                     }else{
-                        echo "No records available";
+                        echo "No records found.";
                     }
                 }else{
-                    echo "Query failed";
+                    echo "ERROR: could not be able to execute $sql " . mysqli_error($link);
+
                 }
-                    mysqli_close($link);
+                //close connection
+                mysqli_close($link);
+
+
+
                     ?>

@@ -14,20 +14,27 @@
                 $sql = "SELECT * FROM rooms";
                 if($result = mysqli_query($link, $sql)){
                     if(mysqli_num_rows($result) > 0){
-                        echo "<table class = 'show-table'>";
+                        echo "<div class = 'show-table'>";
+                        echo "<a class = 'cancel'>Cancel</a>";
+                        echo "<table>";
                         echo "<tr>";
                         echo "<th>#</th>";
                         echo "<th>Room name</th>";
                         echo "<th>Action</th>";
+                        
                         echo "</tr>";
                         while($row = mysqli_fetch_array($result)){
                             echo "<tr>";
                             echo "<td>" . $row['id'] . "</td>";
                             echo "<td>" . $row['room'] . "</td>";
+                            echo "<td>";
                             echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class=''>Edit</span></a>";
+                            echo "<a href='delete.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class=''>Delete</span></a>";
+                            echo "</td>";
                             echo "</tr>";
                         }
                         echo "</table>";
+                        echo "</div";
 
                         //free result set
                         mysqli_free_result($result);

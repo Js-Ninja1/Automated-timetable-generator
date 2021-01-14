@@ -130,7 +130,7 @@ button{
 
     display: none;
 }
-.show-table{
+.show-table table{
     background-color: #7268e5;
     background: linear-gradient(
   to bottom,
@@ -142,11 +142,54 @@ button{
 /* The rectangle in which to repeat. 
    It can be fully wide in this case */
 background-size: 100% 25px;
-margin-left: 400px;
+margin-left: 300px;
 width: 600px;
-border-radius: 5px;
+border-radius: 10px;
+}
+/* .show-table table{
+    text-align: center;
+} */
+.show-table a{
+
+    padding: 20px;
+}
+.show-table tr{
+    text-align: center;
+}
+.cancel{
+    /*background-color: #7268e5;*/
+    cursor: pointer;
+
+
+
 }
 </style>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+        // $('[data-toggle="tooltip"]').tooltip();
+
+        //show hidden table
+        $("#show-rooms").click(function(){
+            $(".show-rooms").show();
+        })
+
+        // $("#show-rooms") = clic
+        //     $("#cancel").click(function(){
+        //         $(".show-rooms").hind();
+        //     })
+        //hind
+        
+        $(".cancel").click(function(){
+            $(".show-rooms").hide();
+        })
+        
+
+
+        });
+
+</script>
+
 
 <?php include('../templates/header.php'); ?>
 
@@ -179,19 +222,6 @@ border-radius: 5px;
     </div>
 </form>
 
-<script type="text/javascript">
-        $(document).ready(function(){
-        // $('[data-toggle="tooltip"]').tooltip();
-
-        //show hidden table
-        $("#show-rooms").click(function(){
-            $(".show-rooms").show();
-        })
-
-
-        });
-
-</script>
 
     <div class="label-block">
     <p id="show-rooms">Show available rooms</p>

@@ -28,8 +28,8 @@
                             echo "<td>" . $row['id'] . "</td>";
                             echo "<td>" . $row['room'] . "</td>";
                             echo "<td>";
-                            echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class=''>Edit</span></a>";
-                            echo "<a href='delete.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class=''>Delete</span></a>";
+                            echo "<a href='action/update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class=''>Edit</span></a>";
+                            echo "<a href='action/delete.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class=''>Delete</span></a>";
                             echo "</td>";
                             echo "</tr>";
                         }

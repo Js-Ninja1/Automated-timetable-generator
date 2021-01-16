@@ -1,3 +1,4 @@
+<script src="../jQuery/jquery-3.5.1.js"></script> 
 <?php
 // Include connect file
 require_once "../db_config/connect.php";
@@ -65,10 +66,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 ?>
 
-<script>
-// var courseName = document.getElementById('course');
-// console.log(courseName);
+
+<script type="text/javascript">
+        $(document).ready(function(){
+       
+        //show hidden table
+        $("#show-courses").click(function(){
+            $(".show-course").show();
+        })
+
+        
+        $(".cancel").click(function(){
+            $(".show-course").hide();
+        })
+        
+
+
+        });
+
 </script>
+
 <style>
 .add-unit{
     font-size: 20px;
@@ -106,7 +123,28 @@ button{
     cursor: pointer;
     border-radius: 5px;
 }
-
+.show-course{
+    display: none;
+    margin: 0px;
+    position: relative;
+    
+}
+.label-block p{
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    background-color: #7268e5;
+    border: none;
+    border-radius: 5px;
+    margin-left: 400px;
+    margin-bottom: 0px;
+}
+.cancel{
+    cursor: pointer;
+}
+.show-table table td a{
+    padding: 10px;
+}
 </style>
 
 <?php include('../templates/header.php'); ?>
@@ -153,7 +191,7 @@ button{
     </div>
 </form>
 <div class="label-block">
-    <button id="show-courses" name="show-courses">Show available courses</button>
+    <p id="show-courses">Show available courses</p>
     </div>
 </div>
 </div>
@@ -163,7 +201,7 @@ button{
 <div class="show-course">
                         <h2>Course Details</h2>
                     <?php
-                    //include ('show-rooms.php');
+                    include ('show-courses.php');
                     ?>
 
 </div>

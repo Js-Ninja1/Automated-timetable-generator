@@ -143,9 +143,25 @@ button{
    It can be fully wide in this case */
 background-size: 100% 25px;
 margin-left: 300px;
-width: 600px;
+width: 500px;
+overflow-y: scroll;
+
+
 border-radius: 10px;
 }
+.show-table::-webkit-scrollbar {
+    width: 12px;
+}
+.show-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+.show-table::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
 /* .show-table table{
     text-align: center;
 } */
@@ -239,6 +255,7 @@ border-radius: 10px;
  
 
 <div class="show-rooms">
+
                         <h2>Rooms Details</h2>
                     <?php
                     include ('show-rooms.php');

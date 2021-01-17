@@ -1,3 +1,7 @@
+<!--import jquery for the genarate time table name popup-->
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+ <script src="../jQuery/jquery-3.5.1.js"></script> 
+
 <?php
 // Include connect file
 require_once "../db_config/connect.php";
@@ -64,9 +68,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 ?>
 
-<script>
+<script type="text/javascript">
+        $(document).ready(function(){
+        // $('[data-toggle="tooltip"]').tooltip();
+
+        //show hidden table
+        $("#show-lectures").click(function(){
+            $(".show-lectures").show();
+        })
+
+        // $("#show-rooms") = clic
+        //     $("#cancel").click(function(){
+        //         $(".show-rooms").hind();
+        //     })
+        //hind
+        
+        $(".cancel").click(function(){
+            $(".show-lectures").hide();
+        })
+        
+
+
+        });
 
 </script>
+
 <style>
 .add-lecture{
     font-size: 20px;
@@ -104,7 +130,62 @@ button{
     cursor: pointer;
     border-radius: 5px;
 }
+#show-lectures{
+    width: 150px;
+    height: 60px;
+    background-color: #7268e5;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 400px;
+}
+.show-lectures{
+    display: none;
+}
+.show-table table{
+    background-color: #7268e5;
+    background: linear-gradient(
+  to bottom,
+  #7268e5 5%,
+  #7268e5 0%,
+  white 5%,
+  white
+);
+/* The rectangle in which to repeat. 
+   It can be fully wide in this case */
+background-size: 100% 25px;
+margin-left: 300px;
+width: 500px;
+overflow-y: scroll;
 
+
+border-radius: 10px;
+}
+.show-table::-webkit-scrollbar {
+    width: 12px;
+}
+.show-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+.show-table::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.show-table a{
+
+padding: 20px;
+}
+.show-table tr{
+text-align: center;
+}
+.cancel{
+/*background-color: #7268e5;*/
+cursor: pointer;
+
+
+
+}
 </style>
 
 <?php include('../templates/header.php'); ?>
@@ -156,6 +237,25 @@ button{
     <button id="finish" value="finish" name="finish">Finish</button>
     </div>
 </form>
+<div class="label-block">
+    <p id="show-lectures">Show available lectures</p>
+    </div>
+
+
+</div>
+
+
+
+ 
+
+<div class="show-lectures">
+
+                        <h2>Lecture Details</h2>
+                    <?php
+                    include ('show-lectures.php');
+                    ?>
+
+</div>
 </div>
 </div>
 </div>

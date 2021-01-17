@@ -145,6 +145,55 @@ button{
 .show-table table td a{
     padding: 10px;
 }
+.show-table table{
+    background-color: #7268e5;
+    background: linear-gradient(
+  to bottom,
+  #7268e5 5%,
+  #7268e5 0%,
+  white 5%,
+  white
+);
+/* The rectangle in which to repeat. 
+   It can be fully wide in this case */
+background-size: 100% 25px;
+margin-left: 300px;
+width: 500px;
+overflow-y: scroll;
+
+
+border-radius: 10px;
+}
+.show-table::-webkit-scrollbar {
+    width: 12px;
+}
+.show-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+.show-table::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+/* .show-table table{
+    text-align: center;
+} */
+.show-table a{
+
+    padding: 20px;
+}
+.show-table tr{
+    text-align: center;
+}
+.cancel{
+    /*background-color: #7268e5;*/
+    cursor: pointer;
+
+
+
+}
 </style>
 
 <?php include('../templates/header.php'); ?>

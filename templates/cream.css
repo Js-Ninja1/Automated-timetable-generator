@@ -5,7 +5,7 @@ body,
     float: left;
     width: 100%;
     height: auto;
-    overflow: scroll;
+    /* overflow: scroll; */
     font-family: 'Nunito', sans-serif;
     font-size: 70px;
     background: #fff;

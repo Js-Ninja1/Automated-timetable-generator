@@ -1,3 +1,4 @@
+<script src="../jQuery/jquery-3.5.1.js"></script> 
 <?php
 //require connect file
 require_once "../db_config/connect.php";
@@ -45,10 +46,25 @@ mysqli_close($link);
 
 }
 ?>
+<script type="text/javascript">
+        $(document).ready(function(){
+       
+        //show hidden table
+        $("#show-time-frames").click(function(){
+            $(".show-time-frames").show();
+        })
 
-<script>
+        
+        $(".cancel").click(function(){
+            $(".show-time-frames").hide();
+        })
+        
+
+
+        });
 
 </script>
+
 <style>
 .add-lecture{
     font-size: 20px;
@@ -88,7 +104,89 @@ button{
     cursor: pointer;
     border-radius: 5px;
 }
+.label-block p{
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    background-color: #7268e5;
+    border: none;
+    border-radius: 5px;
+    margin-left: 400px;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+.show-time-frames{
+    display: none;
+    margin: 0px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    
+}
+.cancel{
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    float: right;
+    margin-right: 400px;
+    background-color: #7268e5;
+    border-radius: 10px;
+}
+.show-table table td a{
+    padding: 10px;
+}
+.show-table table{
+    background-color: #7268e5;
+    background: linear-gradient(
+  to bottom,
+  #7268e5 5%,
+  #7268e5 0%,
+  white 5%,
+  white
+);
+/* The rectangle in which to repeat. 
+   It can be fully wide in this case */
+background-size: 100% 25px;
+margin-left: 300px;
+width: 500px;
+overflow-y: scroll;
 
+
+border-radius: 10px;
+}
+/* .show-table::-webkit-scrollbar {
+    width: 12px;
+}
+.show-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+.show-table::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+} */
+
+
+/* .show-table table{
+    text-align: center;
+} */
+.show-table a{
+
+    padding: 20px;
+    cursor: pointer;
+}
+.show-table tr{
+    text-align: center;
+}
+.show-time-frames{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+.show-time-frames h2{
+    color: white;
+    font-size: 40px;
+    padding: 20px;
+}
 </style>
 
 <?php include('../templates/header.php'); ?>
@@ -125,7 +223,7 @@ button{
     </div>
 </form>
 <div class="label-block">
-    <button id="show-time-frames" name="show-time-frames">Show available time frames</button>
+    <p id="show-time-frames">Show available time frames</p>
     </div>
 </div>
 </div>
@@ -135,7 +233,7 @@ button{
 <div class="show-time-frames">
                         <h2>Time frames Details</h2>
                     <?php
-                    //include ('show-rooms.php');
+                    include ('show-time-frames.php');
                     ?>
 
 </div>

@@ -3,23 +3,65 @@ body{
 }
 h2{
     font-size: 40px;
-    color: #5F9FE9;
+    color: #7268e5;
 }
 .header h3 a{
     float: right;
     margin-top: -50px;
     cursor: pointer;
-    color: #5F9FE9;
+    color: #7268e5;
     font-size: 25px;
     text-decoration: none;
 }
 .block{
+    
     display: flex;
     width: 100%;
+    border: solid grey 2px;
+    border-radius: 10px;
 }
 .block label{
     font-size: 20px;
     font-weight: bold;
-    padding: 40px;
-    padding-right: 200px;
+    
 }
+.semi-block{
+    margin-left: 200px;
+    
+}
+.semi-block select{
+    margin-left: 20px;
+width: 300px;
+height: 40px;
+}
+.edit-class{
+    background-color: white;
+    height: 600px;
+    border-radius: 10px;
+}
+.edit-table table thead tr th{
+    padding: 30px;
+    width: 700px;
+    border-top: solid grey 2px;
+    border-right: solid grey 2px;
+}
+.edit-table table tbody tr td{
+     padding: 30px;
+    width: 700px;
+    border-top: solid grey 2px;
+    border-right: solid grey 2px;
+}
+#type1{
+    background-color: #ffdc82;
+}
+#type2{
+    background-color: #7268e580;
+}
+/*
+#ffdc82
+
+
+#ff3880
+
+#7268e5
+*/

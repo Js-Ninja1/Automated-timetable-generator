@@ -29,29 +29,60 @@
             <div class="header">
             <h2>Time table</h2>
             <h3><a href="../admin/adminpage.php">Dashboard</a></h3>
-            </dv>
+            </div>
             <div class = "edit-class">
-            <div class="block">
-            <div class="semi-block">
-            <label for="course">Course:</label>
-            <h4>Computer science</h4>
-            </div>
-            <div class="semi-block">
-            <label for="semester-stage">Semester stage:</label>
-            <select name="semester-stage" id="semester-stage">
-            <option value="1.1">1.1</option>
-            <option value="1.2">1.2</option>
-            <option value="2.1">2.1</option>
-            <option value="2.2">2.2</option>
-            <option value="2.1">3.1</option>
-            <option value="2.1">3.2</option>
-            <option value="2.1">4.1</option>
-            <option value="2.1">4.2</option>
-            <option value="2.1">5.1</option>
-            <option value="2.1">5.2</option>
-            </select>
-            </div>
-            </div>
+                <div class="block">
+                    <div class="semi-block">
+                        <label for="course">Course:</label>
+                        <h4>Computer science</h4>
+                    </div>
+                    <div class="semi-block">
+                        <label for="semester-stage">Semester stage:</label>
+                        <select name="semester-stage" id="semester-stage">
+                        <option value="1.1">1.1</option>
+                        <option value="1.2">1.2</option>
+                        <option value="2.1">2.1</option>
+                        <option value="2.2">2.2</option>
+                        <option value="2.1">3.1</option>
+                        <option value="2.1">3.2</option>
+                        <option value="2.1">4.1</option>
+                        <option value="2.1">4.2</option>
+                        <option value="2.1">5.1</option>
+                        <option value="2.1">5.2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="edit-table">
+                    
+                    <table>
+                        <thead>
+                            <tr id="type1">
+                            <th>Day/Time</th><th>08 to 10</th><th>10 to 12</th><th>12 to 2</th><th>2 to 4</th><th>4 to 6</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id = "type2">
+                                <td>Monday</td><td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                            <tr id="type1">
+                                <td>Tuesday</td><td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                            <tr id = "type2">
+                                <td>Wednesday</td><td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                            <tr id="type1">
+                                <td>Thursday</td><td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                            <tr id = "type2">
+                                <td>Friday</td><td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                        </tbody>
+                    <table>
+                   
+
+                </div>
+
             </div>
         </div>
     </body>

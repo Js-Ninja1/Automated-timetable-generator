@@ -4,8 +4,8 @@
 require_once "../db_config/connect.php";
 
 //Define our awesome variable here
-$courseName = $unitName = $unitCode = "";
-$courseNameErr = $unitNameErr = $unitCodeErr = "";
+$courseName = $semStage = $unitName = $unitCode = "";
+$courseNameErr = $semStageErr = $unitNameErr = $unitCodeErr = "";
 
 //Process data submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -18,6 +18,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $courseNameErr = "Please enter a valid course name";
     }else{
         $courseName = $inputCourseName;
+    }
+    //validate sem stage
+    $selectSemStage = trim($_POST["semester-stage"]);
+    if(empty($selectSemStage)){
+        $semStageErr = "Please select a semester stage";
+    }else{
+        $semStage = $selectSemStage;
     }
     //Validate unit
    $inputUnitName = trim($_POST["unit-name"]);
@@ -34,16 +41,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        $unitCode = $inputUnitCode;
    }
    //Commancing error checking b4 inserting to database timetable_generator table courses
-   if(empty($courseNameErr) && empty($unitNameErr) && empty($unitCodeErr)){
+   if(empty($courseNameErr) && empty($semStageErr) && empty($unitNameErr) && empty($unitCodeErr)){
        //Prepare an insert statement here hehe
-       $sql = "INSERT INTO courses (courseName, unitName, unitCode) VALUES (?, ?, ?)";
+       $sql = "INSERT INTO courses (courseName, semStage, unitName, unitCode) VALUES (?, ?, ?, ?)";
 
        if($stmt = mysqli_prepare($link, $sql)){
            //Bind vars to prepared statements as params
-           mysqli_stmt_bind_param($stmt, "sss", $param_course, $param_unitName, $param_unitCode);
+           mysqli_stmt_bind_param($stmt, "ssss", $param_course, $param_sem, $param_unitName, $param_unitCode);
 
            // Set the terrific parameters here
            $param_course = $courseName;
+           $param_sem = $semStage;
            $param_unitName = $unitName;
            $param_unitCode = $unitCode;
 
@@ -194,6 +202,10 @@ border-radius: 10px;
 
 
 }
+select{
+    width: 200px;
+    height: 30px;
+}
 </style>
 
 <?php include('../templates/header.php'); ?>
@@ -213,6 +225,25 @@ border-radius: 10px;
     <input type="text" id="unit-number" name="input-number" placeholder="Enter the number of units">
     </div> -->
 
+    <!-- select semester stage -->
+    <div class="label-block">
+    <div class="form-group <?php echo (!empty($unitNameErr)) ? 'has-error' : ''; ?>">
+    <label for="semester-stage">Semester stage:</label>
+                        <select name="semester-stage" id="semester-stage">
+                        <option >--select semester stage--</option>
+                        <option value="1.1">1.1</option>
+                        <option value="1.2">1.2</option>
+                        <option value="2.1">2.1</option>
+                        <option value="2.2">2.2</option>
+                        <option value="2.1">3.1</option>
+                        <option value="2.1">3.2</option>
+                        <option value="2.1">4.1</option>
+                        <option value="2.1">4.2</option>
+                        <option value="2.1">5.1</option>
+                        <option value="2.1">5.2</option>
+                        </select>
+                        </div>
+    </div>
     <!--Loop depending on number of units units-->
     <div class="label-block">
     <div class="form-group <?php echo (!empty($unitNameErr)) ? 'has-error' : ''; ?>">

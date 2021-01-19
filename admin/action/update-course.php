@@ -24,7 +24,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     if(empty($input_unit_name)){
         $unit_name_err = "Please enter a unit name...";     
     } else{
-        $input_unit_name = $unit_name;
+         $unit_name = $input_unit_name;
     }
     
     // Validate unit code

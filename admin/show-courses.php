@@ -20,6 +20,7 @@
                         echo "<tr>";
                         echo "<th>#</th>";
                         echo "<th>Course name</th>";
+                        echo "<th>Semester stage</th>";
                         echo "<th>Unit name</th>";
                         echo "<th>Unit code</th>";
                         echo "<th>Action</th>";
@@ -29,6 +30,7 @@
                             echo "<tr>";
                             echo "<td>" . $row['id'] . "</td>";
                             echo "<td>" . $row['courseName'] . "</td>";
+                            echo "<td>" . $row['semStage'] . "</td>";
                             echo "<td>" . $row['unitName'] . "</td>";
                             echo "<td>" . $row['unitCode'] . "</td>";
                             echo "<td>";

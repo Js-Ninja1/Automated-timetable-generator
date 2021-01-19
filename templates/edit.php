@@ -1,11 +1,21 @@
-<php?
+<?php
+
+//add connect file
+require_once "../db_config/connect.php";
+
+if(isset($_GET["courseName"]) && !empty(trim($_GET["courseName"]))){
+    // Get URL parameter
+    $courseName =  trim($_GET["courseName"]);
+    
+
+}
 
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -34,7 +44,7 @@
                 <div class="block">
                     <div class="semi-block">
                         <label for="course">Course:</label>
-                        <h4>Computer science</h4>
+                        <h4><?php echo $courseName; ?></h4>
                     </div>
                     <div class="semi-block">
                         <label for="semester-stage">Semester stage:</label>

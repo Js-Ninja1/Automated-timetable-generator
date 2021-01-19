@@ -1,0 +1,25 @@
+body{
+    background-color: #F0F0F0;
+}
+h2{
+    font-size: 40px;
+    color: #5F9FE9;
+}
+.header h3 a{
+    float: right;
+    margin-top: -50px;
+    cursor: pointer;
+    color: #5F9FE9;
+    font-size: 25px;
+    text-decoration: none;
+}
+.block{
+    display: flex;
+    width: 100%;
+}
+.block label{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 40px;
+    padding-right: 200px;
+}

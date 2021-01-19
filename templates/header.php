@@ -186,7 +186,8 @@
                         //shoot your shot
                         if(mysqli_stmt_execute($stmt)){
                             //of its a success... redirect to 
-                            header("location: ../templates/edit.php");
+                            // echo "<a href='action/delete-course.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class=''>Delete</span></a>";
+                            header("location: ../templates/edit.php?courseName=". $select_course ."");
                             exit();
 
                         }else{
@@ -225,6 +226,7 @@
                             //$sql_query = "SELECT courseName FROM courses";
                             $records = mysqli_query($link, "SELECT courseName FROM courses");
                             while($data = mysqli_fetch_array($records)){
+                                
                                 echo "<option value='". $data['courseName'] ."'>" .$data['courseName'] ."</option>";
                             }
 

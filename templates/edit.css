@@ -57,6 +57,11 @@ height: 40px;
 #type2{
     background-color: #7268e580;
 }
+.edit-table table tbody td select option{
+    width: 200px;
+    height: 30px;
+    color: blue;
+}
 /*
 #ffdc82
 

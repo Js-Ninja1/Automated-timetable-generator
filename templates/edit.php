@@ -6,7 +6,7 @@ require_once "../db_config/connect.php";
 if(isset($_GET["courseName"]) && !empty(trim($_GET["courseName"]))){
     // Get URL parameter
     $courseName =  trim($_GET["courseName"]);
-    
+
 
 }
 
@@ -73,7 +73,66 @@ if(isset($_GET["courseName"]) && !empty(trim($_GET["courseName"]))){
                         </thead>
                         <tbody>
                             <tr id = "type2">
-                                <td>Monday</td><td></td><td></td><td></td><td></td><td></td>
+                                <td>Monday</td>
+                                <td>
+                                <select id="unit" name="units" class="units">
+                            <option disabled selected>--Select unit--</option>
+                            <?php 
+                            require_once("../db_config/connect.php");
+
+                            //prepare a statement
+                            //$sql_query = "SELECT courseName FROM courses";
+                            // $records = mysqli_query($link, 
+                            $sql = "SELECT unitName FROM courses WHERE courseName = ?";
+                            if($stmt = mysqli_prepare($link, $sql)){
+                                // Bind variables to the prepared statement as parameters
+                                mysqli_stmt_bind_param($stmt, "s", $param_course_name);
+                                
+                                // Set parameters
+                                $param_course_name = $courseName;
+
+                                // Attempt to execute the prepared statement
+                            if(mysqli_stmt_execute($stmt)){
+                                $result = mysqli_stmt_get_result($stmt);
+
+                                if(mysqli_num_rows($result) >= 1){
+                                    /* Fetch result row as an associative array. Since the result set contains only one row, we don't need to use while loop */
+                                    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                                         // Retrieve individual field value
+                                    // $unit_name = $row["unitName"];
+                                    echo "<option value='". $row['unitName'] ."'>" .$row['unitName'] ."</option>";
+
+                                    }
+                                    
+                                   
+                    
+                                } else{
+                                    // URL doesn't contain valid id. Redirect to error page
+                                    echo "URL does not contain validid";
+                                }
+                                
+                            } else{
+                                echo "Oops! Something went wrong. Please try again later.";
+                            }
+                        
+                        
+                        // Close statement
+                        mysqli_stmt_close($stmt);
+                        
+                        // Close connection
+                        mysqli_close($link);
+                    }  else{
+                        // URL doesn't contain id parameter.
+                        echo "URL does not contain id parameter";
+                        
+                    }
+                    
+                            // while($data = mysqli_fetch_array($records)){
+                                
+                            //     echo "<option value='". $data['courseName'] ."'>" .$data['courseName'] ."</option>";
+                            // }
+?>
+                                </td><td></td><td></td><td></td><td></td>
                             </tr>
                             <tr id="type1">
                                 <td>Tuesday</td><td></td><td></td><td></td><td></td><td></td>

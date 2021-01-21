@@ -6,7 +6,7 @@ class Gac{
     const MUTATION_RATE = 10;
     const MUTATION_SIZE = 100;
     const SURVIVORS = 10;
-    const SUCCESS_RATE = 1;
+    const SUCCESS_RATE = 10;
     const LETTERS = "abcdefghijklmnopqrstuvwxyz ";
     // const LETTERS = "kitetu";
     const OFFSPRING = 2;

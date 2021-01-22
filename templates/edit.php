@@ -77,10 +77,21 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             require_once "../db_config/connect.php";
 
                             //$sql_query = "SELECT courseName FROM courses";
-                            $units = mysqli_query($link, "SELECT unitName FROM courses WHERE courseName = ?, semStage = ?");
-                            while($data = mysqli_fetch_array($units)){
+                            // $units = mysqli_query($link, "SELECT unitName FROM courses WHERE courseName = ?, semStage = ?");
+                            // while($data = mysqli_fetch_array($units)){
                                 
-                                echo "<td value='". $data['unitName'] ."'>" .$data['unitName'] ."</td>";
+                            //     echo "<td value='". $data['unitName'] ."'>" .$data['unitName'] ."</td>";
+                            // }
+
+                            $sql =  "SELECT unitName FROM courses WHERE courseName = ?, semStage = ?";
+                            if($stmt = mysqli_prepare($link, $sql)){
+                                // Bind variables to the prepared statement as parameters
+                                mysqli_stmt_bind_param($stmt, "ss", $param_course_name, $param_sem_stage);
+                                
+                                // Set parameters
+                                $param_course_name = $courseName;
+                                $param_sem_stage = $sem_stage;
+            
                             }
 
                             $rooms = mysqli_query($link, "SELECT room FROM rooms");

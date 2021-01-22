@@ -1,6 +1,7 @@
 <?php
 
-
+$courseName;
+$sem_stage;
 
 if(isset($_GET["courseName"]) && !empty(trim($_GET["courseName"]))){
     // Get URL parameter
@@ -71,6 +72,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                         </thead>
                         <tbody>
                             <tr>
+
                             <?php
 
                             //add connect file
@@ -83,7 +85,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             //     echo "<td value='". $data['unitName'] ."'>" .$data['unitName'] ."</td>";
                             // }
 
-                            $sql =  "SELECT unitName FROM courses WHERE courseName = ?, semStage = ?";
+                            $sql =  "SELECT unitName FROM courses WHERE courseName = ? AND semStage = ?";
                             if($stmt = mysqli_prepare($link, $sql)){
                                 // Bind variables to the prepared statement as parameters
                                 mysqli_stmt_bind_param($stmt, "ss", $param_course_name, $param_sem_stage);
@@ -91,10 +93,35 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                 // Set parameters
                                 $param_course_name = $courseName;
                                 $param_sem_stage = $sem_stage;
+
+                                 // Attempt to execute the prepared statement
+                                if(mysqli_stmt_execute($stmt)){
+                                    $result = mysqli_stmt_get_result($stmt);
+
+                                    if(mysqli_num_rows($result) >= 1){
+                                        /* Fetch result row as an associative array. Since the result set contains only one row, we don't need to use while loop */
+                                    // $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                                    // echo "Hello world";
+                                    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                                        echo "<h5 value='". $row['unitName'] ."'>" .$row['unitName'] ."</h5>";
+                                    }
+                                    }else{
+                                        echo "Nothing was found";
+                                    }
+                                    
+                                }else{
+                                    echo "Did not execute";
+                                }
+                                                             // Close statement
+                            mysqli_stmt_close($stmt);
             
+                            }else{
+                                echo "Something went wrong";
                             }
 
-                            $rooms = mysqli_query($link, "SELECT room FROM rooms");
+        
+
+                            // $rooms = mysqli_query($link, "SELECT room FROM rooms");
 
                             mysqli_close($link);
 

@@ -37,7 +37,7 @@
         --> */
     .timetable-name-form{
     width: 350px;
-    height: 480px;
+    height: 680px;
     margin: 0px;
     background-color: white;
     font-family: Arial;
@@ -151,8 +151,8 @@
             require_once "../db_config/connect.php";
 
             //define variables
-            $timetable_name = $select_course = "";
-            $timetable_nameErr = $select_courseErr = "";
+            $timetable_name = $select_course = $sem_stage = "";
+            $timetable_nameErr = $select_courseErr = $sem_stageErr = "";
 
             //process 
             if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -170,26 +170,34 @@
                 }else{
                     $select_course = $selected;
                 }
+                //validate semester stage
+                $selected_sem_stage = trim($_POST["select-sem-stage"]);
+                if(empty($selected_sem_stage)){
+                    $sem_stageErr = "Please select a semester stage";
+                }else{
+                    $sem_stage = $selected_sem_stage;
+                }
                 //check for error b4 submitting to db
-                if(empty($timetable_nameErr) && empty($select_courseErr)){
+                if(empty($timetable_nameErr) && empty($select_courseErr) && empty($sem_stageErr)){
                     //prepare an insert statement
-                    $sql = "INSERT INTO timetable_name (timetable, course) VALUES (?, ?)";
+                    $sql = "INSERT INTO timetable_name (timetable, course, sem_stage) VALUES (?, ?, ?)";
 
                     if($stmt = mysqli_prepare($link, $sql)){
                         //bind
-                        mysqli_stmt_bind_param($stmt, "ss", $param_timetable_name, $param_course_name);
+                        mysqli_stmt_bind_param($stmt, "sss", $param_timetable_name, $param_course_name, $param_sem_stage);
 
                         //set params
                         $param_timetable_name = $timetable_name;
                         $param_course_name = $select_course;
+                        $param_sem_stage = $sem_stage;
 
                         //shoot your shot
                         if(mysqli_stmt_execute($stmt)){
                             //of its a success... redirect to 
                             // echo "<a href='action/delete-course.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class=''>Delete</span></a>";
-                            header("location: ../templates/edit.php?courseName=". $select_course ."");
+                            header("location: ../templates/edit.php?courseName=". $select_course ." & sem_stage=". $sem_stage ."");
                             exit();
-
+                                
                         }else{
                             echo "something went wrong in submitting timetable name to db...";
                         }
@@ -224,53 +232,43 @@
 
                             //prepare a statement
                             //$sql_query = "SELECT courseName FROM courses";
-                            $records = mysqli_query($link, "SELECT courseName FROM courses");
+                            $records = mysqli_query($link, "SELECT DISTINCT courseName FROM courses");
                             while($data = mysqli_fetch_array($records)){
                                 
                                 echo "<option value='". $data['courseName'] ."'>" .$data['courseName'] ."</option>";
                             }
 
-                            // if($stmtt = mysqli_prepare($link, $sql_query)){
-                            //     //bind
-                            // mysqli_stmt_bind_param($stmtt, "s", $param_course_name);
-
-                            //     //set parameters
-                            //     $param_course_name = 
-
-                            //     //shoot or execute
-                            //     if(mysqli_stmt_execute($stmtt)){
-                            //         $result = mysqli_stmt_get_result($stmtt);
-
-                            //         if(mysqli_num_rows($result) >= 1){
-                            //             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                            //             while($data = $row){
-                            //                 //displaying data in option menu
-                            //                 echo "<option value='". $data['courseName'] ."'>" .$data['courseName'] ."</option>";
-                            //             }
-
-                            //         }else{
-                            //             echo "An error occurred at select courses";
-                            //             exit();
-                            //         }
-                            //     }else{
-                            //         echo "Oops something went wrong at execute select courses";
-                            //     }
-                            //     mysqli_stmt_close($stmtt);
-                            //     mysqli_close($link);
-
-                            // }
-                           
-                            
-
-
-
-                        
                             ?>
                             
                             </select>
 
 
                         </div>
+                        <div>
+                            <label>Select semester stage:</label><span id="timetable-name" class="timetable-name"></span>
+                        </div>
+                        <div>
+                            <!-- <input type="select" id="course-name" name="course-select-name" class="inputBox" /> -->
+                            <select id="sem-stage" name="select-sem-stage" class="inputBox">
+                            <option disabled selected>--Select semester stage--</option>
+                            <?php 
+                            require_once("../db_config/connect.php");
+
+                            //prepare a statement
+                            //$sql_query = "SELECT courseName FROM courses";
+                            $records = mysqli_query($link, "SELECT DISTINCT semStage FROM courses");
+                            while($data = mysqli_fetch_array($records)){
+                                
+                                echo "<option value='". $data['semStage'] ."'>" .$data['semStage'] ."</option>";
+                            }
+
+                            ?>
+                            
+                            </select>
+
+
+                        </div>
+
 
                     </div>
                     <div>

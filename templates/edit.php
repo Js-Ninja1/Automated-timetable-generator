@@ -1,7 +1,6 @@
 <?php
 
-//add connect file
-require_once "../db_config/connect.php";
+
 
 if(isset($_GET["courseName"]) && !empty(trim($_GET["courseName"]))){
     // Get URL parameter
@@ -14,6 +13,10 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
     //Get url parameter
     $sem_stage = trim($_GET["sem_stage"]);
 }
+
+//select units from table courses where course name and semester stage have been passed here
+
+
 
 ?>
 <!DOCTYPE html>
@@ -54,18 +57,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                     <div class="semi-block">
                         <label for="semester-stage">Semester stage:</label>
                         <h4><?php echo $sem_stage; ?></h4>
-                        <!-- <select name="semester-stage" id="semester-stage">
-                        <option value="1.1">1.1</option>
-                        <option value="1.2">1.2</option>
-                        <option value="2.1">2.1</option>
-                        <option value="2.2">2.2</option>
-                        <option value="2.1">3.1</option>
-                        <option value="2.1">3.2</option>
-                        <option value="2.1">4.1</option>
-                        <option value="2.1">4.2</option>
-                        <option value="2.1">5.1</option>
-                        <option value="2.1">5.2</option>
-                        </select> -->
+                        
                     </div>
                 </div>
 
@@ -78,7 +70,24 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            <tr>
+                            <?php
+
+                            //add connect file
+                            require_once "../db_config/connect.php";
+
+                            //$sql_query = "SELECT courseName FROM courses";
+                            $units = mysqli_query($link, "SELECT unitName FROM courses");
+                            while($data = mysqli_fetch_array($units)){
+                                
+                                echo "<h5 value='". $data['unitName'] ."'>" .$data['unitName'] ."</h5>";
+                            }
+
+                            mysqli_close($link);
+
+
+                            ?>
+                            </tr>
                         </tbody>
                     <table>
                    

@@ -77,11 +77,13 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             require_once "../db_config/connect.php";
 
                             //$sql_query = "SELECT courseName FROM courses";
-                            $units = mysqli_query($link, "SELECT unitName FROM courses");
+                            $units = mysqli_query($link, "SELECT unitName FROM courses WHERE ");
                             while($data = mysqli_fetch_array($units)){
                                 
-                                echo "<h5 value='". $data['unitName'] ."'>" .$data['unitName'] ."</h5>";
+                                echo "<td value='". $data['unitName'] ."'>" .$data['unitName'] ."</td>";
                             }
+
+                            $rooms = mysqli_query($link, "SELECT room FROM rooms");
 
                             mysqli_close($link);
 

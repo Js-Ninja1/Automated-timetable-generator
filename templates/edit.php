@@ -77,7 +77,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             require_once "../db_config/connect.php";
 
                             //$sql_query = "SELECT courseName FROM courses";
-                            $units = mysqli_query($link, "SELECT unitName FROM courses WHERE ");
+                            $units = mysqli_query($link, "SELECT unitName FROM courses WHERE courseName = ?, semStage = ?");
                             while($data = mysqli_fetch_array($units)){
                                 
                                 echo "<td value='". $data['unitName'] ."'>" .$data['unitName'] ."</td>";

@@ -3,6 +3,10 @@
 $courseName;
 $sem_stage;
 
+ //Craete array for time frames;
+ $time_frames = array("07-10", "08-11", "10-1pm", "11-2pm", "1-4pm", "2-5pm");
+                            
+
 if(isset($_GET["courseName"]) && !empty(trim($_GET["courseName"]))){
     // Get URL parameter
     $courseName =  trim($_GET["courseName"]);
@@ -126,9 +130,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             }
 
 
-                            //Craete array for time frames;
-                            $time_frames = array("07-10", "08-11", "10-1pm", "11-2pm", "1-4pm", "2-5pm");
-                            
+                           
 
 
                            

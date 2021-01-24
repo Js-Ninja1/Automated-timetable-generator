@@ -78,7 +78,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             //add connect file
                             require_once "../db_config/connect.php";
 
-                           
+
+
+                           //calling units of a particular course
                             $sql =  "SELECT unitName FROM courses WHERE courseName = ? AND semStage = ?";
                             if($stmt = mysqli_prepare($link, $sql)){
                                 // Bind variables to the prepared statement as parameters
@@ -114,11 +116,18 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             }
 
                             
+
+
+                            //Calling rooms
                             $rooms = mysqli_query($link, "SELECT room FROM rooms");
                             while($room = mysqli_fetch_array($rooms)){
                                 
                                echo "<td value='". $room['room'] ."'>" .$room['room'] ."</td>";
                             }
+
+
+                            //Craete array for time frames;
+                            
 
 
                            

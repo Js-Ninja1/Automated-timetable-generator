@@ -4,7 +4,10 @@ $courseName;
 $sem_stage;
 
  //Craete array for time frames;
- $time_frames = array("07-10", "08-11", "10-1pm", "11-2pm", "1-4pm", "2-5pm");
+ $time_frames = array("07am-10am", "08am-11am", "10am-1pm", "11am-2pm", "1pm-4pm", "2pm-5pm");
+
+ //create an array so that i can push units into it while looping
+ $units_array = array();
                             
 
 if(isset($_GET["courseName"]) && !empty(trim($_GET["courseName"]))){
@@ -104,6 +107,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     // echo "Hello world";
                                     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                                         echo "<h5 value='". $row['unitName'] ."'>" .$row['unitName'] ."</h5>";
+                                        //append array units_array with new units;
+                                        array_push($units_array, $row['unitName']);
+                                        
                                     }
                                     }else{
                                         echo "Nothing was found";
@@ -112,6 +118,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                 }else{
                                     echo "Did not execute";
                                 }
+                                echo "<h2>" .$units_array ."</h2>";
                                                              // Close statement
                             mysqli_stmt_close($stmt);
             

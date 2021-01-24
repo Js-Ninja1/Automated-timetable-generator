@@ -71,7 +71,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                     <table>
                         <thead>
                             <tr id="type1">
-                            <th>Day/Time</th><th>07 to 10</th><th>08 to 11</th><th>10 to 01</th><th>11 to 02</th><th>01 to 04</th><th>02 to 05</th>
+                            <th>Day/Time</th><th><?php echo $time_frames[0]; ?></th><th><?php echo $time_frames[1]; ?></th><th><?php echo $time_frames[2]; ?></th><th><?php echo $time_frames[3]; ?></th><th><?php echo $time_frames[4]; ?></th><th><?php echo $time_frames[5]; ?></th>
                             </tr>
                         </thead>
                         <tbody>

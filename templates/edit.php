@@ -140,15 +140,18 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             while($room = mysqli_fetch_array($rooms)){
                                 
                                echo "<td value='". $room['room'] ."'>" .$room['room'] ."</td>";
+                               //append array units_array with new units;
+                               array_push($rooms_array, $room['room']);
                             }
 
 
-                           
+                           echo "<h3>". $rooms_array[0] ."</h3>";
 
 
                            
 
                             mysqli_close($link);
+
 
 
                             ?>

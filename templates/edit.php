@@ -145,7 +145,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             }
 
 
-                           echo "<h3>". $rooms_array[0] ."</h3>";
+                           echo "<h3>". $rooms_array[2] ."</h3>";
 
 
                            

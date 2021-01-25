@@ -6,6 +6,9 @@ $sem_stage;
  //Craete array for time frames;
  $time_frames = array("07am-10am", "08am-11am", "10am-1pm", "11am-2pm", "1pm-4pm", "2pm-5pm");
 
+ //create days of the week array
+ $days = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
+
  
 
  //create an array so that i can push units into it while looping
@@ -125,7 +128,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                 }
                                 $rand_index = array_rand($units_array);
                                 echo "<h2>" .$units_array[0] ."</h2>";
-                                echo "<h2>" .$units_array[$rand_index] ."</h2>";
+                                $unit = $units_array[$rand_index];
+                                echo "<h2>" .$unit ."</h2>";
                                                              // Close statement
                             mysqli_stmt_close($stmt);
             
@@ -145,17 +149,66 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                array_push($rooms_array, $room['room']);
                             }
                             $rand_index = array_rand($rooms_array);
-                            echo "<h3>". $rooms_array[$rand_index] ."</h3>";
+                            //room selected randomly
+                            $roomR = $rooms_array[$rand_index];
+                            echo "<h3>". $roomR ."</h3>";
 
+
+                            
+
+
+                            //create & write into generate table 
+                            //initialize empty variables
+                            $courseNameG = $courseName;
+                            $sem_stageG = $sem_stage;
+                            $unit_selected_rand = $unit;
+                            echo $unit;
+                            $roomG = $roomR;
+                            echo $roomG;
+
+                            //Select a day randomly
+                            $rand_index = array_rand($days);
+                            $dayG = $days[$rand_index];
+                            echo "<h4>". $dayG ."</h4>";
 
                             //select a time frame randomly for the first allcation
                             $rand_index = array_rand($time_frames);
-                            echo "<h3>". $time_frames[$rand_index] ."</h3>";
+                            $time_frame_G = $time_frames[$rand_index];
+                            echo "<h3>". $time_frame_G ."</h3>";
+
+                            //Prepare statement here
+                            $sqlG = "INSERT INTO generate (courseName, semStage, unitName, room, day, time_frame) VALUES (?, ?, ?, ?, ?, ?)";
+                            if($stmtG = mysqli_prepare($link, $sqlG)){
+                                //bind params
+                                mysqli_stmt_bind_param($stmtG, "ssssss", $param_course_G, $param_sem_G, $param_unit_G, $param_room, $param_day_G, $param_time_frame_G);
+                                //set parameters
+                                $param_course_G = $courseNameG;
+                                $param_sem_G = $sem_stageG;
+                                $param_unit_G = $unit;
+                                $param_room = $roomG;
+                                $param_day_G = $dayG;
+                                $param_time_frame_G = $time_frame_G;
+
+                                //attempt to execute
+                                if(mysqli_stmt_execute($stmtG)){
+                                    //success
+                                }else{
+                                    echo "Something went wrong while writing first elements to generate table";
+                                }
 
 
-                           
+
+
+                            }
+                            mysqli_stmt_close($stmt);
+
+
 
                             mysqli_close($link);
+
+
+
+
 
 
 

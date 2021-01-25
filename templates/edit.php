@@ -161,7 +161,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             //initialize empty variables
                             $courseNameG = $courseName;
                             $sem_stageG = $sem_stage;
-                            $unit_selected_rand = $unit;
+                            // $unit_selected_rand = $unit;
                             //echo $unit;
                             $roomG = $roomR;
                             //echo $roomG;
@@ -194,73 +194,122 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     //success
                                 }else{
                                     echo "Something went wrong while writing first elements to generate table";
-                                }
+
+                                }mysqli_stmt_close($stmtG);
 
 
 
 
                             }
-                            mysqli_stmt_close($stmtG);
+                            
 
 
                             //define variables
-                            $id1 = "";
-                            $unit_name1 = "";
-                            $room1 = "";
-                            $day1 = "";
-                            $time_frame1 = "";
+                            // $id1 = "";
+                            // $unit_name1 = "";
+                            // $room1 = "";
+                            // $day1 = "";
+                            // $time_frame1 = "";
 
                             //read from db table generate
+                            // $sql_read = "SELECT id, unitName, room, day, time_frame FROM generate WHERE courseName = ?, semStage = ?, unitName = ?, day = ?, time_frame = ?";
+                            // if($stmt_read = mysqli_prepare($link, $sql_read)){
+                            //     // Bind variables to the prepared statement as parameters
+                            //     mysqli_stmt_bind_param($stmt_read, "sssss", $param_courseR, $param_sem_R, $param_unit_R, $param_day_R, $param_time_R);
+                                
+                            //     // Set parameters
+                            //     $param_courseR = $courseNameG;
+                            //     $param_sem_R = $sem_stageG;
+                            //     $param_unit_R = $unit;
+                            //     $param_day_R = $dayG;
+                            //     $param_time_R = $time_frame_G;
+                                
+                            //     // Attempt to execute the prepared statement
+                            //     if(mysqli_stmt_execute($stmt_read)==1){
+                            //         $result = mysqli_stmt_get_result($stmt_read);
+                        
+                            //         if(mysqli_num_rows($result) >= 1){
+                            //             /* Fetch result row as an associative array. Since the result set contains only one row, we don't need to use while loop */
+                            //             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                                        
+                            //             // Retrieve individual field value
+                            //             $id1 = $row["id"];
+                            //             $unit_name1 = $row["unitName"];
+                            //             echo $row["unitName"];
+                            //             $room1 = $row["room"];
+                            //             $day1 = $row["day"];
+                            //             $time_frame1 = $row["time_frame"];
+
+                                       
+                            //         } else{
+                            //             // URL doesn't contain valid id. Redirect to error page
+                            //             echo "The result was wrong: contains more that 1 results";
+                            //         }
+                                    
+                            //     } else{
+                            //         echo "Oops! Request was not executed as expected.";
+                            //     }
+
+                                
+                            //     // Close statement
+                            //     mysqli_stmt_close($stmt_read);
+                               
+                            // } echo  "<h1>". $id1 ."</h1>";
+                            // echo $unit_name1;
+                            // echo $room1;
+                            // echo $day1;
+                            // echo $time_frame1;
+                            // echo "Hello";
+                             
+
+                            // $stmt_read = $mysqli -> prepare("SELECT id, unitName, room, day, time_frame FROM generate WHERE courseName = ?, semStage = ?, unitName = ?, day = ?, time_frame = ?");
+                            // $stmt_read -> execute();
+                            // $result_read = $stmt_read -> get_result();
+                            // $row = $result_read -> fetch_assoc();
+
+                            $id1 = $unit_name1 = $room1 = $day1 = $time_frame1 = "";
+
                             $sql_read = "SELECT id, unitName, room, day, time_frame FROM generate WHERE courseName = ?, semStage = ?, unitName = ?, day = ?, time_frame = ?";
                             if($stmt_read = mysqli_prepare($link, $sql_read)){
-                                // Bind variables to the prepared statement as parameters
+                                //bind
                                 mysqli_stmt_bind_param($stmt_read, "sssss", $param_courseR, $param_sem_R, $param_unit_R, $param_day_R, $param_time_R);
-                                
-                                // Set parameters
-                                $param_courseR = $courseNameG;
-                                $param_sem_R = $sem_stageG;
+
+                                //set params
+                                $param_courseR = $courseName;
+                                $param_sem_R = $sem_stage;
                                 $param_unit_R = $unit;
                                 $param_day_R = $dayG;
                                 $param_time_R = $time_frame_G;
-                                
-                                // Attempt to execute the prepared statement
-                                if(mysqli_stmt_execute($stmt_read)==1){
+
+                                if(mysqli_stmt_execute($stmt_read)){
                                     $result = mysqli_stmt_get_result($stmt_read);
-                        
+
                                     if(mysqli_num_rows($result) >= 0){
-                                        /* Fetch result row as an associative array. Since the result set contains only one row, we don't need to use while loop */
                                         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                                        
-                                        // Retrieve individual field value
+                                        //RETRIEVE
                                         $id1 = $row["id"];
                                         $unit_name1 = $row["unitName"];
-                                        echo $row["unitName"];
                                         $room1 = $row["room"];
                                         $day1 = $row["day"];
                                         $time_frame1 = $row["time_frame"];
-
-                                       
-                                    } else{
-                                        // URL doesn't contain valid id. Redirect to error page
-                                        echo "The result was wrong: contains more that 1 results";
+                                        //echo $id1;
+                                        echo "<h1>" .$row["id"]."</h1>";
+                                        echo "<h1>" .$row["unitName"]."</h1>";
+                                        echo "hello";
+                                    }else{
+                                        echo "Did not fetch any";
                                     }
-                                    
-                                } else{
-                                    echo "Oops! Request was not executed as expected.";
+                                }else{
+                                    echo "Did not execute";
                                 }
-
-                                
                                 // Close statement
-                                mysqli_stmt_close($stmt_read);
-                               
-                            } echo  "<h1>". $id1 ."</h1>";
-                            echo $unit_name1;
-                            echo $room1;
-                            echo $day1;
-                            echo $time_frame1;
-                            echo "Hello";
-                             
+                            mysqli_stmt_close($stmt_read);
 
+
+                            }else{
+                                echo "Nothing happened here";
+                            }
+                            
                             
                             
 

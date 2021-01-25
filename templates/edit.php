@@ -114,7 +114,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     // $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                                     // echo "Hello world";
                                     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                                        echo "<h5 value='". $row['unitName'] ."'>" .$row['unitName'] ."</h5>";
+                                        //echo "<h5 value='". $row['unitName'] ."'>" .$row['unitName'] ."</h5>";
                                         //append array units_array with new units;
                                         array_push($units_array, $row['unitName']);
                                         
@@ -127,9 +127,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     echo "Did not execute";
                                 }
                                 $rand_index = array_rand($units_array);
-                                echo "<h2>" .$units_array[0] ."</h2>";
+                               // echo "<h2>" .$units_array[0] ."</h2>";
                                 $unit = $units_array[$rand_index];
-                                echo "<h2>" .$unit ."</h2>";
+                                //echo "<h2>" .$unit ."</h2>";
                                                              // Close statement
                             mysqli_stmt_close($stmt);
             
@@ -144,14 +144,14 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             $rooms = mysqli_query($link, "SELECT room FROM rooms");
                             while($room = mysqli_fetch_array($rooms)){
                                 
-                               echo "<td value='". $room['room'] ."'>" .$room['room'] ."</td>";
+                               //echo "<td value='". $room['room'] ."'>" .$room['room'] ."</td>";
                                //append array units_array with new units;
                                array_push($rooms_array, $room['room']);
                             }
                             $rand_index = array_rand($rooms_array);
                             //room selected randomly
                             $roomR = $rooms_array[$rand_index];
-                            echo "<h3>". $roomR ."</h3>";
+                            //echo "<h3>". $roomR ."</h3>";
 
 
                             
@@ -162,19 +162,19 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             $courseNameG = $courseName;
                             $sem_stageG = $sem_stage;
                             $unit_selected_rand = $unit;
-                            echo $unit;
+                            //echo $unit;
                             $roomG = $roomR;
-                            echo $roomG;
+                            //echo $roomG;
 
                             //Select a day randomly
                             $rand_index = array_rand($days);
                             $dayG = $days[$rand_index];
-                            echo "<h4>". $dayG ."</h4>";
+                            //echo "<h4>". $dayG ."</h4>";
 
                             //select a time frame randomly for the first allcation
                             $rand_index = array_rand($time_frames);
                             $time_frame_G = $time_frames[$rand_index];
-                            echo "<h3>". $time_frame_G ."</h3>";
+                            //echo "<h3>". $time_frame_G ."</h3>";
 
                             //Prepare statement here
                             $sqlG = "INSERT INTO generate (courseName, semStage, unitName, room, day, time_frame) VALUES (?, ?, ?, ?, ?, ?)";
@@ -201,6 +201,68 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
 
                             }
                             mysqli_stmt_close($stmtG);
+
+
+                            //define variables
+                            $id1 = "";
+                            $unit_name1 = "";
+                            $room1 = "";
+                            $day1 = "";
+                            $time_frame1 = "";
+
+                            //read from db table generate
+                            $sql_read = "SELECT id, unitName, room, day, time_frame FROM generate WHERE courseName = ?, semStage = ?, unitName = ?, day = ?, time_frame = ?";
+                            if($stmt_read = mysqli_prepare($link, $sql_read)){
+                                // Bind variables to the prepared statement as parameters
+                                mysqli_stmt_bind_param($stmt_read, "sssss", $param_courseR, $param_sem_R, $param_unit_R, $param_day_R, $param_time_R);
+                                
+                                // Set parameters
+                                $param_courseR = $courseNameG;
+                                $param_sem_R = $sem_stageG;
+                                $param_unit_R = $unit;
+                                $param_day_R = $dayG;
+                                $param_time_R = $time_frame_G;
+                                
+                                // Attempt to execute the prepared statement
+                                if(mysqli_stmt_execute($stmt_read)==1){
+                                    $result = mysqli_stmt_get_result($stmt_read);
+                        
+                                    if(mysqli_num_rows($result) >= 0){
+                                        /* Fetch result row as an associative array. Since the result set contains only one row, we don't need to use while loop */
+                                        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                                        
+                                        // Retrieve individual field value
+                                        $id1 = $row["id"];
+                                        $unit_name1 = $row["unitName"];
+                                        echo $row["unitName"];
+                                        $room1 = $row["room"];
+                                        $day1 = $row["day"];
+                                        $time_frame1 = $row["time_frame"];
+
+                                       
+                                    } else{
+                                        // URL doesn't contain valid id. Redirect to error page
+                                        echo "The result was wrong: contains more that 1 results";
+                                    }
+                                    
+                                } else{
+                                    echo "Oops! Request was not executed as expected.";
+                                }
+
+                                
+                                // Close statement
+                                mysqli_stmt_close($stmt_read);
+                               
+                            } echo  "<h1>". $id1 ."</h1>";
+                            echo $unit_name1;
+                            echo $room1;
+                            echo $day1;
+                            echo $time_frame1;
+                            echo "Hello";
+                             
+
+                            
+                            
 
 
 

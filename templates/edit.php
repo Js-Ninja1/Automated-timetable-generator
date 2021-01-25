@@ -123,8 +123,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                 }else{
                                     echo "Did not execute";
                                 }
+                                $rand_index = array_rand($units_array);
                                 echo "<h2>" .$units_array[0] ."</h2>";
-                                echo "<h2>" .$units_array[1] ."</h2>";
+                                echo "<h2>" .$units_array[$rand_index] ."</h2>";
                                                              // Close statement
                             mysqli_stmt_close($stmt);
             
@@ -143,9 +144,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                //append array units_array with new units;
                                array_push($rooms_array, $room['room']);
                             }
-
-
-                           echo "<h3>". $rooms_array[2] ."</h3>";
+                            $rand_index = array_rand($rooms_array);
+                            echo "<h3>". $rooms_array[$rand_index] ."</h3>";
 
 
                            

@@ -200,7 +200,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
 
 
                             }
-                            mysqli_stmt_close($stmt);
+                            mysqli_stmt_close($stmtG);
 
 
 

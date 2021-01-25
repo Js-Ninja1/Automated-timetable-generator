@@ -148,6 +148,11 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             echo "<h3>". $rooms_array[$rand_index] ."</h3>";
 
 
+                            //select a time frame randomly for the first allcation
+                            $rand_index = array_rand($time_frames);
+                            echo "<h3>". $time_frames[$rand_index] ."</h3>";
+
+
                            
 
                             mysqli_close($link);

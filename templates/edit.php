@@ -205,6 +205,28 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
 
                             
                             echo implode(', ', $units_array);
+                            $lessons = array("lesson1", "lesson2", "lesson3", "lesson4", "lesson5", "lesson6");
+                            // while(sizeof($units_array)){
+                            //     $rand_indexu = array_rand($units_array);
+                            //     $unit_l = $units_array[$rand_indexu];
+                            //     if($unit_l != $unit){
+                            //     $rand_indexa = array_rand($lessons);
+                            //     $lessons[$rand_indexa] = $unit_l;
+                            //     }
+                            //     echo "Hello";
+
+                            // }
+                            foreach($units_array as $unit_l){
+                                if($unit_l != $unit){
+                                $rand_indexa = array_rand($lessons);
+                                $lessons[$rand_indexa] = $unit_l;
+                                }else{
+                                    $unit_l = "";
+                                }
+                            }
+                            // foreach($lessons as $lesson){
+                            //     echo $lesson;
+                            // }
 
 
 
@@ -213,52 +235,52 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             echo "<tr id='type2'>";
                             echo "<td>". $days[0] . "</td>";
 
-                            echo "<td>". $unit ."<br>". $roomG ."</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $lessons[0] ."</td>";
+                            echo "<td>". $lessons[1] ."<br>". $roomG ."</td>";
+                            echo "<td>". $lessons[2]. "</td>";
+                            echo "<td>". $lessons[3]. "</td>";
+                            echo "<td>". $lessons[4]. "</td>";
+                            echo "<td>". $lessons[5]. "</td>";
                             echo "</tr>";
 
                             echo "<tr id='type1'>";
                             echo "<td>". $days[1] . "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $lessons[0]. "</td>";
+                            echo "<td>". $lessons[1]. "</td>";
+                            echo "<td>". $lessons[2]. "</td>";
+                            echo "<td>". $lessons[3]. "</td>";
+                            echo "<td>". $lessons[4]. "</td>";
+                            echo "<td>". $lessons[5]. "</td>";
                             echo "</tr>";
 
                             echo "<tr id='type2'>";
                             echo "<td>". $days[2] . "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $lessons[0]. "</td>";
+                            echo "<td>". $lessons[1]. "</td>";
+                            echo "<td>". $lessons[2]. "</td>";
+                            echo "<td>". $lessons[3]. "</td>";
+                            echo "<td>". $lessons[4]. "</td>";
+                            echo "<td>". $lessons[5]. "</td>";
                             echo "</tr>";
 
                             echo "<tr id='type1'>";
                             echo "<td>". $days[3] . "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $lessons[0]. "</td>";
+                            echo "<td>". $lessons[1]. "</td>";
+                            echo "<td>". $lessons[2]. "</td>";
+                            echo "<td>". $lessons[3]. "</td>";
+                            echo "<td>". $lessons[4]. "</td>";
+                            echo "<td>". $lessons[5]. "</td>";
                             echo "</tr>";
 
                             echo "<tr id='type2'>";
                             echo "<td>". $days[4] . "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $lessons[0]. "</td>";
+                            echo "<td>". $lessons[1]. "</td>";
+                            echo "<td>". $lessons[2]. "</td>";
+                            echo "<td>". $lessons[3]. "</td>";
+                            echo "<td>". $lessons[4]. "</td>";
+                            echo "<td>". $lessons[5]. "</td>";
                             echo "</tr>";
                             echo "</tbody";
                             echo "</table>";

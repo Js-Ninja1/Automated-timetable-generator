@@ -252,12 +252,13 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                 $rand_indexa = array_rand($lessons4);
                                 $lessons4[$rand_indexa] = $unit_l;
                                 //$lessons[1] = "";
-                                }else{
+                                }
+                                //else{
                                     //$lessons[$rand_indexa] = "";
                                     // foreach($lessons as $lesson){
                                     //     $lesson = "";
                                     // }
-                                }
+                                //}
                                 // if($unit_l = $unit){
                                 //     //$unit_l = "";
 
@@ -268,7 +269,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             // foreach($lessons as $lesson){
                             //     echo $lesson;
                             // }
-                            echo implode(', ', $allocated_units);
+
+                            //echo implode(', ', $allocated_units);
 
 
 
@@ -278,53 +280,425 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             echo "<tr id='type2'>";
                             echo "<td>". $days[0] . "</td>";
                             //if(sizeof($lessons) <= 3){
-                            echo "<td>". $lessons[0] ."</td>";
-                            echo "<td>". $lessons[1] ."<br>". $roomG ."</td>";
-                            echo "<td>". $lessons[2]. "</td>";
-                            echo "<td>". $lessons[3]. "</td>";
-                            echo "<td>". $lessons[4]. "</td>";
-                            echo "<td>". $lessons[5]. "</td>";
+                                // if($lessons[0] || $lessons[1]){
+                                //     echo "<h1>". $lessons[0] ."</h1>";
+                                //     echo "<h1>". $lessons[1] ."</h1>";
+                                // }
+                                if($lessons[0] && $lessons[1] && $lessons[2] && $lessons[3] && $lessons[4] && $lessons[5]){
+                                    echo "<td>". $lessons[0] ."</td>";
+                                    echo "<td>". $lessons[1] ."<br>". $roomG ."</td>";
+                                    echo "<td>". $lessons[2]. "</td>";
+                                    echo "<td>". $lessons[3]. "</td>";
+                                    echo "<td>". $lessons[4]. "</td>";
+                                    echo "<td>". $lessons[5]. "</td>";
+
+                                }elseif($lessons[0] && $lessons[2]){
+                                    echo "<td>". $lessons[0] ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>". $lessons[2]. "</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                }elseif($lessons[0] && $lessons[3]){
+                                    echo "<td>". $lessons[0] ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>". $lessons[3]. "</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                }elseif($lessons[1] && $lessons[4]){
+                                    echo "<td>" ."</td>";
+                                    echo "<td>". $lessons[1] ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>". $lessons[4]. "</td>";
+                                    echo "<td>" ."</td>";
+                                }elseif($lessons[1]){
+                                    echo "<td>" ."</td>";
+                                    echo "<td>". $lessons[1] ."<br>". $roomG ."</td>";
+                                    echo "<td>". "</td>";
+                                    echo "<td>". "</td>";
+                                    echo "<td>". "</td>";
+                                    echo "<td>". "</td>";
+                                }elseif($lessons[2]){
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>". $lessons[2]. "</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                }elseif($lessons[3]){
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>". $lessons[3]. "</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                }elseif($lessons[4]){
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>". $lessons[4]. "</td>";
+                                    echo "<td>" ."</td>";
+                                }elseif($lessons[5]){
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>". $lessons[5]. "</td>";
+                                }else{
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                    echo "<td>" ."</td>";
+                                }
+                            
+                            
+                            
+                            
+                            
+                            
                             //}
                             echo "</tr>";
 
                             echo "<tr id='type1'>";
                             echo "<td>". $days[1] . "</td>";
-                            echo "<td>". $lessons1[0]. "</td>";
-                            echo "<td>". $lessons1[1]. "</td>";
-                            echo "<td>". $lessons1[2]. "</td>";
-                            echo "<td>". $lessons1[3]. "</td>";
-                            echo "<td>". $lessons1[4]. "</td>";
-                            echo "<td>". $lessons1[5]. "</td>";
+                            // echo "<td>". $lessons1[0]. "</td>";
+                            // echo "<td>". $lessons1[1]. "</td>";
+                            // echo "<td>". $lessons1[2]. "</td>";
+                            // echo "<td>". $lessons1[3]. "</td>";
+                            // echo "<td>". $lessons1[4]. "</td>";
+                            // echo "<td>". $lessons1[5]. "</td>";
+
+                            if($lessons1[0] && $lessons1[1] && $lessons1[2] && $lessons1[3] && $lessons1[4] && $lessons1[5]){
+                                echo "<td>". $lessons1[0] ."</td>";
+                                echo "<td>". $lessons1[1] ."<br>". $roomG ."</td>";
+                                echo "<td>". $lessons1[2]. "</td>";
+                                echo "<td>". $lessons1[3]. "</td>";
+                                echo "<td>". $lessons1[4]. "</td>";
+                                echo "<td>". $lessons1[5]. "</td>";
+
+                            }elseif($lessons1[0] && $lessons1[2]){
+                                echo "<td>". $lessons1[0] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons1[2]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons1[0] && $lessons1[3]){
+                                echo "<td>". $lessons1[0] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons1[3]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons1[1] && $lessons1[4]){
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons1[1] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons1[4]. "</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons1[1]){
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons1[1] ."<br>". $roomG ."</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                            }elseif($lessons1[2]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons1[2]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons1[3]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons1[3]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons1[4]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons1[4]. "</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons1[5]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons1[5]. "</td>";
+                            }else{
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }
+                        
                             echo "</tr>";
 
                             echo "<tr id='type2'>";
                             echo "<td>". $days[2] . "</td>";
-                            echo "<td>". $lessons2[0]. "</td>";
-                            echo "<td>". $lessons2[1]. "</td>";
-                            echo "<td>". $lessons2[2]. "</td>";
-                            echo "<td>". $lessons2[3]. "</td>";
-                            echo "<td>". $lessons2[4]. "</td>";
-                            echo "<td>". $lessons2[5]. "</td>";
+                            // echo "<td>". $lessons2[0]. "</td>";
+                            // echo "<td>". $lessons2[1]. "</td>";
+                            // echo "<td>". $lessons2[2]. "</td>";
+                            // echo "<td>". $lessons2[3]. "</td>";
+                            // echo "<td>". $lessons2[4]. "</td>";
+                            // echo "<td>". $lessons2[5]. "</td>";
+
+                            if($lessons2[0] && $lessons2[1] && $lessons2[2] && $lessons2[3] && $lessons2[4] && $lessons2[5]){
+                                echo "<td>". $lessons2[0] ."</td>";
+                                echo "<td>". $lessons2[1] ."<br>". $roomG ."</td>";
+                                echo "<td>". $lessons2[2]. "</td>";
+                                echo "<td>". $lessons2[3]. "</td>";
+                                echo "<td>". $lessons2[4]. "</td>";
+                                echo "<td>". $lessons2[5]. "</td>";
+
+                            }elseif($lessons2[0] && $lessons2[2]){
+                                echo "<td>". $lessons2[0] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons2[2]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons2[0] && $lessons2[3]){
+                                echo "<td>". $lessons2[0] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons2[3]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons2[1] && $lessons2[4]){
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons2[1] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons2[4]. "</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons2[1]){
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons2[1] ."<br>". $roomG ."</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                            }elseif($lessons2[2]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons2[2]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons2[3]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons2[3]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons2[4]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons2[4]. "</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons2[5]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons2[5]. "</td>";
+                            }else{
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }
+                        
                             echo "</tr>";
 
                             echo "<tr id='type1'>";
                             echo "<td>". $days[3] . "</td>";
-                            echo "<td>". $lessons3[0]. "</td>";
-                            echo "<td>". $lessons3[1]. "</td>";
-                            echo "<td>". $lessons3[2]. "</td>";
-                            echo "<td>". $lessons3[3]. "</td>";
-                            echo "<td>". $lessons3[4]. "</td>";
-                            echo "<td>". $lessons3[5]. "</td>";
+                            // echo "<td>". $lessons3[0]. "</td>";
+                            // echo "<td>". $lessons3[1]. "</td>";
+                            // echo "<td>". $lessons3[2]. "</td>";
+                            // echo "<td>". $lessons3[3]. "</td>";
+                            // echo "<td>". $lessons3[4]. "</td>";
+                            // echo "<td>". $lessons3[5]. "</td>";
+
+                            if($lessons3[0] && $lessons3[1] && $lessons3[2] && $lessons3[3] && $lessons3[4] && $lessons3[5]){
+                                echo "<td>". $lessons3[0] ."</td>";
+                                echo "<td>". $lessons3[1] ."<br>". $roomG ."</td>";
+                                echo "<td>". $lessons3[2]. "</td>";
+                                echo "<td>". $lessons3[3]. "</td>";
+                                echo "<td>". $lessons3[4]. "</td>";
+                                echo "<td>". $lessons3[5]. "</td>";
+
+                            }elseif($lessons3[0] && $lessons3[2]){
+                                echo "<td>". $lessons3[0] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons3[2]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons3[0] && $lessons3[3]){
+                                echo "<td>". $lessons3[0] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons3[3]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons3[1] && $lessons3[4]){
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons3[1] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons3[4]. "</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons3[2]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons3[2]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons3[1]){
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons3[1] ."<br>". $roomG ."</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                            }elseif($lessons3[3]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons3[3]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons3[4]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons3[4]. "</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons3[5]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons3[5]. "</td>";
+                            }else{
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }
+                        
                             echo "</tr>";
 
                             echo "<tr id='type2'>";
                             echo "<td>". $days[4] . "</td>";
-                            echo "<td>". $lessons4[0]. "</td>";
-                            echo "<td>". $lessons4[1]. "</td>";
-                            echo "<td>". $lessons4[2]. "</td>";
-                            echo "<td>". $lessons4[3]. "</td>";
-                            echo "<td>". $lessons4[4]. "</td>";
-                            echo "<td>". $lessons4[5]. "</td>";
+                            // echo "<td>". $lessons4[0]. "</td>";
+                            // echo "<td>". $lessons4[1]. "</td>";
+                            // echo "<td>". $lessons4[2]. "</td>";
+                            // echo "<td>". $lessons4[3]. "</td>";
+                            // echo "<td>". $lessons4[4]. "</td>";
+                            // echo "<td>". $lessons4[5]. "</td>";
+
+                            if($lessons4[0] && $lessons4[1] && $lessons4[2] && $lessons4[3] && $lessons4[4] && $lessons4[5]){
+                                echo "<td>". $lessons4[0] ."</td>";
+                                echo "<td>". $lessons4[1] ."<br>". $roomG ."</td>";
+                                echo "<td>". $lessons4[2]. "</td>";
+                                echo "<td>". $lessons4[3]. "</td>";
+                                echo "<td>". $lessons4[4]. "</td>";
+                                echo "<td>". $lessons4[5]. "</td>";
+
+                            }elseif($lessons4[0] && $lessons4[2]){
+                                echo "<td>". $lessons4[0] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons4[2]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons4[0] && $lessons4[3]){
+                                echo "<td>". $lessons4[0] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons4[3]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons4[1] && $lessons4[4]){
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons4[1] ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons4[4]. "</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons4[2]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons4[2]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons4[1]){
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons4[1] ."<br>". $roomG ."</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                                echo "<td>". "</td>";
+                            }elseif($lessons4[3]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons4[3]. "</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons4[4]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons4[4]. "</td>";
+                                echo "<td>" ."</td>";
+                            }elseif($lessons4[5]){
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>". $lessons4[5]. "</td>";
+                            }else{
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                                echo "<td>" ."</td>";
+                            }
+                        
                             echo "</tr>";
                             echo "</tbody";
                             echo "</table>";

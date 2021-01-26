@@ -203,6 +203,57 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             }
 
                             echo "<table>";
+                            echo "<tbody>";
+                            echo "<tr id='type2'>";
+                            echo "<td>". $dayG . "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "</tr>";
+
+                            echo "<tr id='type2'>";
+                            echo "<td>". $dayG . "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "</tr>";
+
+                            echo "<tr id='type2'>";
+                            echo "<td>". $dayG . "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "</tr>";
+
+                            echo "<tr id='type2'>";
+                            echo "<td>". $dayG . "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "</tr>";
+
+                            echo "<tr id='type2'>";
+                            echo "<td>". $dayG . "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "</tr>";
+                            echo "</tbody";
                             echo "</table>";
 
 

@@ -162,19 +162,19 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             $courseNameG = $courseName;
                             $sem_stageG = $sem_stage;
                             // $unit_selected_rand = $unit;
-                            //echo $unit;
+                            echo $unit;
                             $roomG = $roomR;
-                            //echo $roomG;
+                            echo $roomG;
 
                             //Select a day randomly
-                            $rand_index = array_rand($days);
-                            $dayG = $days[$rand_index];
-                            //echo "<h4>". $dayG ."</h4>";
+                            //$rand_index = array_rand($days);
+                            $dayG = $days[0];
+                            echo "<h4>". $dayG ."</h4>";
 
                             //select a time frame randomly for the first allcation
                             $rand_index = array_rand($time_frames);
                             $time_frame_G = $time_frames[$rand_index];
-                            //echo "<h3>". $time_frame_G ."</h3>";
+                            echo "<h3>". $time_frame_G ."</h3>";
 
                             //Prepare statement here
                             $sqlG = "INSERT INTO generate (courseName, semStage, unitName, room, day, time_frame) VALUES (?, ?, ?, ?, ?, ?)";
@@ -201,6 +201,15 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
 
 
                             }
+
+                            echo "<table>";
+                            echo "</table>";
+
+
+
+
+
+                            mysqli_close($link);
                             
 
 
@@ -267,55 +276,58 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             // $result_read = $stmt_read -> get_result();
                             // $row = $result_read -> fetch_assoc();
 
-                            $id1 = $unit_name1 = $room1 = $day1 = $time_frame1 = "";
+                            // $id1 = $unit_name1 = $room1 = $day1 = $time_frame1 = "";
 
-                            $sql_read = "SELECT id, unitName, room, day, time_frame FROM generate WHERE courseName = ?, semStage = ?, unitName = ?, day = ?, time_frame = ?";
-                            if($stmt_read = mysqli_prepare($link, $sql_read)){
-                                //bind
-                                mysqli_stmt_bind_param($stmt_read, "sssss", $param_courseR, $param_sem_R, $param_unit_R, $param_day_R, $param_time_R);
+                            // $sql_read = "SELECT DISTINCT id, unitName, room, day, time_frame FROM generate WHERE courseName = ?";//, semStage = ?, unitName = ?";
+                            // if($stmt_read = mysqli_prepare($link, $sql_read)){
+                            //     //bind
+                            //     mysqli_stmt_bind_param($stmt_read, "s", $param_courseR);//, $param_sem_R, $param_unit_R);
 
-                                //set params
-                                $param_courseR = $courseName;
-                                $param_sem_R = $sem_stage;
-                                $param_unit_R = $unit;
-                                $param_day_R = $dayG;
-                                $param_time_R = $time_frame_G;
+                            //     //set params
+                            //     $param_courseR = $courseName;
+                            //     // $param_sem_R = $sem_stage;
+                            //     // $param_unit_R = $unit;
+                            //     // $param_day_R = $dayG;
+                            //     // $param_time_R = $time_frame_G;
 
-                                if(mysqli_stmt_execute($stmt_read)){
-                                    $result = mysqli_stmt_get_result($stmt_read);
+                            //     if(mysqli_stmt_execute($stmt_read)){
+                            //         $result = mysqli_stmt_get_result($stmt_read);
 
-                                    if(mysqli_num_rows($result) >= 0){
-                                        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                                        //RETRIEVE
-                                        $id1 = $row["id"];
-                                        $unit_name1 = $row["unitName"];
-                                        $room1 = $row["room"];
-                                        $day1 = $row["day"];
-                                        $time_frame1 = $row["time_frame"];
-                                        //echo $id1;
-                                        echo "<h1>" .$row["id"]."</h1>";
-                                        echo "<h1>" .$row["unitName"]."</h1>";
-                                        echo "hello";
-                                    }else{
-                                        echo "Did not fetch any";
-                                    }
-                                }else{
-                                    echo "Did not execute";
-                                }
-                                // Close statement
-                            mysqli_stmt_close($stmt_read);
+                            //         if(mysqli_num_rows($result) == 1){
+                            //             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                            //             //RETRIEVE
+                            //             $id1 = $row["id"];
+                            //             $unit_name1 = $row["unitName"];
+                            //             $room1 = $row["room"];
+                            //             $day1 = $row["day"];
+                            //             $time_frame1 = $row["time_frame"];
+                            //             //echo $id1;
+                            //             echo "<h1>" .$id1."</h1>";
+                            //             echo "<h1>" .$unit_name1."</h1>";
+                            //             echo "<h1>" .$room1."</h1>";
+                            //             echo "<h1>" .$day1."</h1>";
+                            //             echo "<h1>" .$time_frame1."</h1>";
+                            //             //echo "hello";
+                            //         }else{
+                            //             echo "Did not fetch any";
+                            //         }
+                            //     }else{
+                            //         echo "Did not execute";
+                            //     }
+                            //     // Close statement
+                            // mysqli_stmt_close($stmt_read);
 
 
-                            }else{
-                                echo "Nothing happened here";
-                            }
+                            // }else{
+                            //     echo "Nothing happened here";
+                            // }
                             
                             
                             
 
 
 
-                            mysqli_close($link);
+                           
 
 
 

@@ -217,12 +217,22 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
 
                             // }
                             foreach($units_array as $unit_l){
-                                if($unit_l != $unit){
+                                if($unit_l != $unit || $unit_l = $unit){
                                 $rand_indexa = array_rand($lessons);
                                 $lessons[$rand_indexa] = $unit_l;
+                                //$lessons[1] = "";
                                 }else{
-                                    $unit_l = "";
+                                    //$lessons[$rand_indexa] = "";
+                                    // foreach($lessons as $lesson){
+                                    //     $lesson = "";
+                                    // }
                                 }
+                                // if($unit_l = $unit){
+                                //     //$unit_l = "";
+
+                                //     $rand_indexa = array_rand($lessons);
+                                //     $lessons[$rand_indexa] = "";
+                                // }
                             }
                             // foreach($lessons as $lesson){
                             //     echo $lesson;

@@ -202,10 +202,27 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
 
                             }
 
+
+                            
+                            echo implode(', ', $units_array);
+
+
+
                             echo "<table>";
                             echo "<tbody>";
                             echo "<tr id='type2'>";
-                            echo "<td>". $dayG . "</td>";
+                            echo "<td>". $days[0] . "</td>";
+
+                            echo "<td>". $unit ."<br>". $roomG ."</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "</tr>";
+
+                            echo "<tr id='type1'>";
+                            echo "<td>". $days[1] . "</td>";
                             echo "<td>". $unit. "</td>";
                             echo "<td>". $unit. "</td>";
                             echo "<td>". $unit. "</td>";
@@ -215,7 +232,17 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             echo "</tr>";
 
                             echo "<tr id='type2'>";
-                            echo "<td>". $dayG . "</td>";
+                            echo "<td>". $days[2] . "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "<td>". $unit. "</td>";
+                            echo "</tr>";
+
+                            echo "<tr id='type1'>";
+                            echo "<td>". $days[3] . "</td>";
                             echo "<td>". $unit. "</td>";
                             echo "<td>". $unit. "</td>";
                             echo "<td>". $unit. "</td>";
@@ -225,27 +252,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             echo "</tr>";
 
                             echo "<tr id='type2'>";
-                            echo "<td>". $dayG . "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "</tr>";
-
-                            echo "<tr id='type2'>";
-                            echo "<td>". $dayG . "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "<td>". $unit. "</td>";
-                            echo "</tr>";
-
-                            echo "<tr id='type2'>";
-                            echo "<td>". $dayG . "</td>";
+                            echo "<td>". $days[4] . "</td>";
                             echo "<td>". $unit. "</td>";
                             echo "<td>". $unit. "</td>";
                             echo "<td>". $unit. "</td>";

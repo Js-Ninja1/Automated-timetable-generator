@@ -79,6 +79,11 @@ table tbody tr td {
     color: blue;
 }
 
+.generate-table {
+    width: fit-content;
+    height: fit-content;
+}
+
 
 /*
 #ffdc82

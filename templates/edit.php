@@ -220,13 +220,28 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             //     echo "Hello";
 
                             // }
+                            $units_per_day = array(1, 2, 3);
+                            //$random_num = array_rand($units_per_day);
+                            //$loops = count($units_array);
+                            $allocated_units = array();
                             foreach($units_array as $unit_l){
+                                
                                 if($unit_l != $unit || $unit_l = $unit){
+                                   
+                               
                                 $rand_indexa = array_rand($lessons);
+                                //if(in_array($unit_l, $lessons)){
                                 $lessons[$rand_indexa] = $unit_l;
+                                //}
+                                // $unit1_selected1 = $unit_l;
+                                // array_push($allocated_units, $unit1_selected1);
+                                //echo "<h2>". $unit1_selected ."</h2>";
+                                
+                                //while($loops <= $units_per_day[$random_num]){
 
                                 $rand_indexa = array_rand($lessons1);
                                 $lessons1[$rand_indexa] = $unit_l;
+                                //}
 
                                 $rand_indexa = array_rand($lessons2);
                                 $lessons2[$rand_indexa] = $unit_l;
@@ -253,20 +268,23 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             // foreach($lessons as $lesson){
                             //     echo $lesson;
                             // }
+                            echo implode(', ', $allocated_units);
 
 
 
-                            echo "<table>";
+                            echo "<table class='generate-table'>";
                             echo "<tbody>";
-                            
+
                             echo "<tr id='type2'>";
                             echo "<td>". $days[0] . "</td>";
+                            //if(sizeof($lessons) <= 3){
                             echo "<td>". $lessons[0] ."</td>";
                             echo "<td>". $lessons[1] ."<br>". $roomG ."</td>";
                             echo "<td>". $lessons[2]. "</td>";
                             echo "<td>". $lessons[3]. "</td>";
                             echo "<td>". $lessons[4]. "</td>";
                             echo "<td>". $lessons[5]. "</td>";
+                            //}
                             echo "</tr>";
 
                             echo "<tr id='type1'>";

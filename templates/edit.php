@@ -251,8 +251,30 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             $lecture_array = array();
 
                             //Select lectures from the db...
-                            foreach($units_array as $unit_lec){
+                            //foreach($units_array as $unit_lec){
+
+
+
+                        function select_lecture($unit_lec){
+                             //add connect file
+                            //require_once "../db_config/connect.php";
+                            /* Database credentials. Assuming you are running MySQL
+                                server with default setting (user 'root' with no password) */
+                                // define('DB_SERVER', 'localhost');
+                                // define('DB_USERNAME', 'root');
+                                // define('DB_PASSWORD', '');
+                                // define('DB_NAME', 'timetable_generator');
+                                
+                                /* Attempt to connect to MySQL database */
+                                $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                                
+                                // Check connection
+                                if($link === false){
+                                    die("ERROR: Could not connect. " . mysqli_connect_error());
+                                }
+
                             $sql_lec = "SELECT lectureName FROM lecturer WHERE unitName = ?";
+                            //$lec_name = "";
                             if($stmt = mysqli_prepare($link, $sql_lec)){
                                 //bind variables to p.s
                                 mysqli_stmt_bind_param($stmt, "s", $param_unit_name);
@@ -270,7 +292,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                         //RETRIEVE THE VALUE
                                         $lec_name = $row["lectureName"];
                                        // echo $lec_name;
-                                        array_push($lecture_array, $row["lectureName"]);
+                                        //array_push($lecture_array, $row["lectureName"]);
                                     }else{
                                         echo "No results for lecture found or the results are more that one";
                                     }
@@ -280,9 +302,26 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                  // Close statement
                                 mysqli_stmt_close($stmt);
                             }
-                            }
+                            return $lec_name;
+                        }
+                        
+                        // $t = select_lecture("Graphics");
+                        // echo $t;
+                        echo select_lecture("Graphics");
+
+
+
+
+                            //}
                             echo implode(', ', $lecture_array);
-                            
+
+                            function hello($t){
+                                
+                                $ty = "Hello world". $t;
+                                return $ty;
+
+                            };
+                            hello("heey");
                             foreach($units_array as $unit_l){
                                 
                                 if($unit_l != $unit || $unit_l = $unit){

@@ -351,9 +351,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     echo "<td>". $lessons[5]. "</td>";
 
                                 }elseif($lessons[0] && $lessons[2]){
-                                    echo "<td>"."<input type='text' value= ". $lessons[0] .$lecture_array[0] .">" ."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[0] .">"."<br>"."<p>".$lecture_array[0] ."</p>"."</td>";
                                     echo "<td>" ."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[2] .">" . "</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[2] .">" . "<br>"."<p>".$lecture_array[2] ."</p>"."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";

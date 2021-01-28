@@ -282,6 +282,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             }
                             }
                             echo implode(', ', $lecture_array);
+                            
                             foreach($units_array as $unit_l){
                                 
                                 if($unit_l != $unit || $unit_l = $unit){
@@ -311,6 +312,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                 $lessons4[$rand_indexa] = $unit_l;
                                 //$lessons[1] = "";
                                 }
+                                
                                 //else{
                                     //$lessons[$rand_indexa] = "";
                                     // foreach($lessons as $lesson){
@@ -324,6 +326,16 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                 //     $lessons[$rand_indexa] = "";
                                 // }
                             }
+                            /*
+                            $lessons[0] = $units_array[0];
+                            $lessons[1] = $units_array[1];
+                            $lessons[2] = $units_array[2];
+                            $lessons[3] = $units_array[3];
+                            $lessons[4] = $units_array[4];
+                            $lessons[5] = $units_array[5];
+                            */
+
+                                echo implode(',', $lessons);
                             // foreach($lessons as $lesson){
                             //     echo $lesson;
                             // }

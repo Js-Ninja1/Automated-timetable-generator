@@ -246,6 +246,42 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             //$random_num = array_rand($units_per_day);
                             //$loops = count($units_array);
                             $allocated_units = array();
+  
+                            //PUSH lectures to this array
+                            $lecture_array = array();
+
+                            //Select lectures from the db...
+                            foreach($units_array as $unit_lec){
+                            $sql_lec = "SELECT lectureName FROM lecturer WHERE unitName = ?";
+                            if($stmt = mysqli_prepare($link, $sql_lec)){
+                                //bind variables to p.s
+                                mysqli_stmt_bind_param($stmt, "s", $param_unit_name);
+
+                                //set params
+                                $param_unit_name = $unit_lec;
+
+                                //execute
+                                if(mysqli_stmt_execute($stmt)){
+                                    $result = mysqli_stmt_get_result($stmt);
+                                    if(mysqli_num_rows($result) == 1){
+                                        /*fetch result as an associative array*/
+                                        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+                                        //RETRIEVE THE VALUE
+                                        $lec_name = $row["lectureName"];
+                                       // echo $lec_name;
+                                        array_push($lecture_array, $row["lectureName"]);
+                                    }else{
+                                        echo "No results for lecture found or the results are more that one";
+                                    }
+                                }else{
+                                    echo "The select request did not go through well";
+                                }
+                                 // Close statement
+                                mysqli_stmt_close($stmt);
+                            }
+                            }
+                            echo implode(', ', $lecture_array);
                             foreach($units_array as $unit_l){
                                 
                                 if($unit_l != $unit || $unit_l = $unit){
@@ -307,7 +343,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                 //     echo "<h1>". $lessons[1] ."</h1>";
                                 // }
                                 if($lessons[0] && $lessons[1] && $lessons[2] && $lessons[3] && $lessons[4] && $lessons[5]){
-                                    echo "<td>". $lessons[0] ."</td>";
+                                    echo "<td>". $lessons[0] . $lecture_array[0] ."</td>";
                                     echo "<td>". $lessons[1] ."<br>". $roomG ."</td>";
                                     echo "<td>". $lessons[2]. "</td>";
                                     echo "<td>". $lessons[3]. "</td>";
@@ -315,14 +351,14 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     echo "<td>". $lessons[5]. "</td>";
 
                                 }elseif($lessons[0] && $lessons[2]){
-                                    echo "<td>"."<input type='text' value= ". $lessons[0] .">" ."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[0] .$lecture_array[0] .">" ."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>"."<input type='text' value= ". $lessons[2] .">" . "</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                 }elseif($lessons[0] && $lessons[3]){
-                                    echo "<td>"."<input type='text' value= ". $lessons[0] .">" ."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[0] .$lecture_array[0] .">" ."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>"."<input type='text' value= ". $lessons[3] .">" . "</td>";

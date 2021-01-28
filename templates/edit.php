@@ -87,17 +87,22 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             <style>
                             #type2 input[type=text] {
                                 border: none;
+                                background-color: #7268e530;
+                                border-radius: 5px;
                                 
                                 }
                             #type1 input[type=text] {
                                 border: none;
+                                background-color: #ffdc8290;
                                 
                                 }
                             #type1 input[type=text]:focus{
                                     outline: none;
+                                    background-color: #ffdc8290;
                                 }
                                 #type2 input[type=text]:focus{
                                     outline: none;
+                                    background-color: #7268e580;
                                 }
                                 
                             </style>

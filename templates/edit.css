@@ -51,6 +51,16 @@ h2 {
     border-right: solid grey 2px;
 }
 
+
+/* .edit-table table tbody tr td input {
+    background-color: black;
+} */
+
+input[type=text] {
+    border: 2px solid red;
+    border-radius: 4px;
+}
+
 .edit-table table tbody tr td {
     padding: 30px;
     width: 700px;

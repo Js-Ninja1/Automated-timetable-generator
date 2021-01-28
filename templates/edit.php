@@ -84,6 +84,23 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             <tr id="type1">
                             <th>Day/Time</th><th><?php echo $time_frames[0]; ?></th><th><?php echo $time_frames[1]; ?></th><th><?php echo $time_frames[2]; ?></th><th><?php echo $time_frames[3]; ?></th><th><?php echo $time_frames[4]; ?></th><th><?php echo $time_frames[5]; ?></th>
                             </tr>
+                            <style>
+                            #type2 input[type=text] {
+                                border: none;
+                                
+                                }
+                            #type1 input[type=text] {
+                                border: none;
+                                
+                                }
+                            #type1 input[type=text]:focus{
+                                    outline: none;
+                                }
+                                #type2 input[type=text]:focus{
+                                    outline: none;
+                                }
+                                
+                            </style>
                         </thead>
                         <tbody>
                             <tr>

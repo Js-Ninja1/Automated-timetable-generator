@@ -388,7 +388,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             echo "<tbody>";
 
                             echo "<tr id='type2'>";
-                            echo "<td>"."<input type='text' value= ". $days[0] .">" . "</td>";
+                            echo "<td>". $days[0] ."</td>";
                             //if(sizeof($lessons) <= 3){
                                 // if($lessons[0] || $lessons[1]){
                                 //     echo "<h1>". $lessons[0] ."</h1>";

@@ -508,6 +508,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             // global $rooms_selected;
                                             // array_push($rooms_selected, $row['room']);
                                             //$id = $row['id'];
+                                            $id_selected = $row['id'];
+                                            $room_selected = $row['room'];
                                             echo "<h1>" .$row['id'] ."</h1>";
                                             echo "<h1>" .$row['room'] ."</h1>";
                                         //}
@@ -522,6 +524,29 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             }else{
                                 echo "Nothing is happening here";
                             }
+
+
+                            
+                             //update selected
+                             $status = true;
+                             $sql_update = "UPDATE room_status SET status = ? WHERE id = ?";
+  
+                             if($stmt = mysqli_prepare($link, $sql_update)){
+                                 //bind
+                                 mysqli_stmt_bind_param($stmt, "ii", $param_stat, $param_id);
+                                 //set
+                                 $param_stat = $status;
+                                 $param_id = $id_selected;
+  
+                                 //execute
+                                 if(mysqli_stmt_execute($stmt)){
+                                     //success
+                                 }else{
+                                  echo "Something went wrong. Please try again later.";
+                              }
+                              } 
+                               // Close statement
+                                  mysqli_stmt_close($stmt);
                        
                             }
                             
@@ -606,6 +631,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             // global $rooms_selected;
                                             // array_push($rooms_selected, $row['room']);
                                             //$id = $row['id'];
+                                            $id_selected = $row['id'];
+                                            $room_selected = $row['room'];
                                             echo "<h1>" .$row['id'] ."</h1>";
                                             echo "<h1>" .$row['room'] ."</h1>";
                                         //}
@@ -620,6 +647,29 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             }else{
                                 echo "Nothing is happening here";
                             }
+
+
+                            
+                             //update selected
+                             $status = true;
+                             $sql_update = "UPDATE room_status SET status = ? WHERE id = ?";
+  
+                             if($stmt = mysqli_prepare($link, $sql_update)){
+                                 //bind
+                                 mysqli_stmt_bind_param($stmt, "ii", $param_stat, $param_id);
+                                 //set
+                                 $param_stat = $status;
+                                 $param_id = $id_selected;
+  
+                                 //execute
+                                 if(mysqli_stmt_execute($stmt)){
+                                     //success
+                                 }else{
+                                  echo "Something went wrong. Please try again later.";
+                              }
+                              } 
+                               // Close statement
+                                  mysqli_stmt_close($stmt);
                        
                             }
      
@@ -700,6 +750,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             // global $rooms_selected;
                                             // array_push($rooms_selected, $row['room']);
                                             //$id = $row['id'];
+                                            $id_selected = $row['id'];
+                                            $room_selected = $row['room'];
                                             echo "<h1>" .$row['id'] ."</h1>";
                                             echo "<h1>" .$row['room'] ."</h1>";
                                         //}
@@ -714,6 +766,29 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             }else{
                                 echo "Nothing is happening here";
                             }
+
+
+                            
+                             //update selected
+                             $status = true;
+                             $sql_update = "UPDATE room_status SET status = ? WHERE id = ?";
+  
+                             if($stmt = mysqli_prepare($link, $sql_update)){
+                                 //bind
+                                 mysqli_stmt_bind_param($stmt, "ii", $param_stat, $param_id);
+                                 //set
+                                 $param_stat = $status;
+                                 $param_id = $id_selected;
+  
+                                 //execute
+                                 if(mysqli_stmt_execute($stmt)){
+                                     //success
+                                 }else{
+                                  echo "Something went wrong. Please try again later.";
+                              }
+                              } 
+                               // Close statement
+                                  mysqli_stmt_close($stmt);
                        
                             }
                        
@@ -794,6 +869,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             // global $rooms_selected;
                                             // array_push($rooms_selected, $row['room']);
                                             //$id = $row['id'];
+                                            $id_selected = $row['id'];
+                                            $room_selected = $row['room'];
                                             echo "<h1>" .$row['id'] ."</h1>";
                                             echo "<h1>" .$row['room'] ."</h1>";
                                         //}
@@ -808,6 +885,27 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             }else{
                                 echo "Nothing is happening here";
                             }
+
+                             //update selected
+                             $status = true;
+                             $sql_update = "UPDATE room_status SET status = ? WHERE id = ?";
+  
+                             if($stmt = mysqli_prepare($link, $sql_update)){
+                                 //bind
+                                 mysqli_stmt_bind_param($stmt, "ii", $param_stat, $param_id);
+                                 //set
+                                 $param_stat = $status;
+                                 $param_id = $id_selected;
+  
+                                 //execute
+                                 if(mysqli_stmt_execute($stmt)){
+                                     //success
+                                 }else{
+                                  echo "Something went wrong. Please try again later.";
+                              }
+                              } 
+                               // Close statement
+                                  mysqli_stmt_close($stmt);
                        
                             }
                     

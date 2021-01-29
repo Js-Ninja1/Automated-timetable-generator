@@ -307,7 +307,48 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                         
                         // $t = select_lecture("Graphics");
                         // echo $t;
-                        echo select_lecture("Graphics");
+                        //echo select_lecture("Graphics");
+
+                        //create rooms array and push data into it
+                        $room_array = array();
+
+                        //function to retrive rooms from the database
+                        //function retrieve_rooms(){
+                            /* Attempt to connect to MySQL database */
+                            //$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                            $room_array = array();
+                            // Check connection
+                            if($link === false){
+                                die("ERROR: Could not connect. " . mysqli_connect_error());
+                            }
+
+                            $sql_room = "SELECT room FROM rooms";
+                            if($result = mysqli_query($link, $sql_room)){
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_array($result)){
+                                        array_push($room_array, $row['room']);
+                                    }
+                                    // Free result set
+                                     mysqli_free_result($result);
+                                }else{
+                                    echo "No records matching your query were found.";
+                                }
+                            }else{
+                                echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                            }
+                            // Close connection
+                            //mysqli_close($link);
+
+                        //}
+
+                        //retrieve_rooms();
+                        echo implode(', ', $room_array);
+
+                        foreach($room_array as $room_s){
+                            
+                        }
+
+
 
 
 

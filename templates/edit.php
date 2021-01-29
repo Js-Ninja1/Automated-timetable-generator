@@ -1,5 +1,5 @@
 <?php
-
+ini_set("memory_limit","50M");
 $courseName;
 $sem_stage;
 
@@ -430,8 +430,10 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             $room_array_allocation = array();
                             $rooms_selected = array();
 
-                            function check_room_status($any_lesson){
+                            $id = array();
 
+                            function check_room_status($any_lesson){
+                                global $id;
                             if($any_lesson){
                             /* Attempt to connect to MySQL database */
                             $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -474,52 +476,65 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     mysqli_stmt_close($stmt);
 
                              }
+                            }
+                        }
+                        }
                             
                             //select and return
 
-                            $sql_select = "SELECT id, room FROM room_status WHERE time = ?, status = ?";
+                            $sql_select = "SELECT id, room FROM room_status WHERE time = ? && status = ? LIMIT 3";
 
-                            if($stmt = mysqli_prepare($link, $sql_select)){
+                            if($stmt1 = mysqli_prepare($link, $sql_select)){
                                 //bind variables
-                                mysqli_stmt_bind_param($stmt, "si", $param_time, $param_status);
+                                mysqli_stmt_bind_param($stmt1, "si", $param_time, $param_status);
 
                                 //set
                                 $param_time = $time_frame;
                                 $param_status = $t;
 
                                 //execute
-                                if(mysqli_stmt_execute($stmt)){
-                                    $result = mysqli_stmt_get_result($stmt);
+                                if(mysqli_stmt_execute($stmt1)){
+                                    $result1 = mysqli_stmt_get_result($stmt1);
 
-                                    if(mysqli_num_rows($result) >= 1){
-                                        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                                    if(mysqli_num_rows($result1) >= 1){
+                                        $row = mysqli_fetch_array($result1);
 
                                         //RETRIEVE INDIVIDUAL VALUES INTO AN ARRAY
-                                        while ($row) {
+                                       // while ($row) {
                                             # code...
-                                            $id = array();
-                                            array_push($id, $row['id']);
-                                            global $rooms_selected;
-                                            array_push($rooms_selected, $row['room']);
-                                        }
+                                            // $id = array();
+                                             //array_push($id, $row['id']);
+                                            // global $rooms_selected;
+                                            // array_push($rooms_selected, $row['room']);
+                                            //$id = $row['id'];
+                                            echo "<h1>" .$row['id'] ."</h1>";
+                                            echo "<h1>" .$row['room'] ."</h1>";
+                                        //}
                                     }else{
                                         echo "Zero results found";
                                     }
+                                }else{
+                                    echo "Did not execute";
                                 }
                                  // Close statement
-                                    mysqli_stmt_close($stmt);
+                                    mysqli_stmt_close($stmt1);
+                            }else{
+                                echo "Nothing is happening here";
                             }
-                        }
-                        }
-                        }
+                       
                             }
                             
 
 
                             
                             }
+                            check_room_status($lessons[0]);
                             check_room_status($lessons[1]);
-                            echo implode(',', $rooms_selected);
+                            check_room_status($lessons[2]);
+                            check_room_status($lessons[3]);
+                            check_room_status($lessons[4]);
+                            check_room_status($lessons[5]);
+                            //echo implode(',', $id);
 
 
                             echo "<table class='generate-table'>";

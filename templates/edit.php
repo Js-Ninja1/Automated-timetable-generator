@@ -344,10 +344,13 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                         //retrieve_rooms();
                         echo implode(', ', $room_array);
 
-                        foreach($room_array as $room_s){
-                            
-                        }
 
+                        //$lessons = array("", "", "", "", "", "");
+                        //$time_frames = array("07am-10am", "08am-11am", "10am-1pm", "11am-2pm", "1pm-4pm", "2pm-5pm");
+
+                        
+
+                        
 
 
 
@@ -423,6 +426,100 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
 
                             //echo implode(', ', $allocated_units);
 
+
+                            $room_array_allocation = array();
+                            $rooms_selected = array();
+
+                            function check_room_status($any_lesson){
+
+                            if($any_lesson){
+                            /* Attempt to connect to MySQL database */
+                            $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                            
+                            // Check connection
+                             if($link === false){
+                             die("ERROR: Could not connect. " . mysqli_connect_error());
+                             }
+                             global $lessons;
+                             global $time_frames;
+                             global $room_array;
+                             $t = false;
+                             foreach($lessons as $lesson){
+                                 foreach($time_frames as $time_frame){
+                                     foreach($room_array as $room){
+                             if($any_lesson = $lesson){
+                                //echo "<h1>". $any_lesson . "</h1>";
+                                //$rand_index = array_rand($room_array);
+                                //$room_s = $room_array[$rand_index];
+
+                                $sql = "INSERT INTO room_status (room, time, status) VALUES (?, ?, ?)";
+                                if($stmt = mysqli_prepare($link, $sql)){
+                                    //bind params
+                                    mysqli_stmt_bind_param($stmt, "ssi", $param_room, $param_time, $param_status);
+
+                                    //set params
+                                    
+                                    $param_room = $room;
+                                    $param_time = $time_frame;
+                                    $param_status = $t;
+
+                                    //execute
+                                    if(mysqli_stmt_execute($stmt)){
+                                        //success
+                                    }else{
+                                        echo "Something went wrong. Please try again later.";
+                                    }
+                                }
+                                    // Close statement
+                                    mysqli_stmt_close($stmt);
+
+                             }
+                            
+                            //select and return
+
+                            $sql_select = "SELECT id, room FROM room_status WHERE time = ?, status = ?";
+
+                            if($stmt = mysqli_prepare($link, $sql_select)){
+                                //bind variables
+                                mysqli_stmt_bind_param($stmt, "si", $param_time, $param_status);
+
+                                //set
+                                $param_time = $time_frame;
+                                $param_status = $t;
+
+                                //execute
+                                if(mysqli_stmt_execute($stmt)){
+                                    $result = mysqli_stmt_get_result($stmt);
+
+                                    if(mysqli_num_rows($result) >= 1){
+                                        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+                                        //RETRIEVE INDIVIDUAL VALUES INTO AN ARRAY
+                                        while ($row) {
+                                            # code...
+                                            $id = array();
+                                            array_push($id, $row['id']);
+                                            global $rooms_selected;
+                                            array_push($rooms_selected, $row['room']);
+                                        }
+                                    }else{
+                                        echo "Zero results found";
+                                    }
+                                }
+                                 // Close statement
+                                    mysqli_stmt_close($stmt);
+                            }
+                        }
+                        }
+                        }
+                            }
+                            
+
+
+                            
+                            }
+                            check_room_status($lessons[1]);
+                            echo implode(',', $rooms_selected);
 
 
                             echo "<table class='generate-table'>";

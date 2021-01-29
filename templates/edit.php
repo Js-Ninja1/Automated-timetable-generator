@@ -1,4 +1,5 @@
 <?php
+set_time_limit(10);
 ini_set("memory_limit","50M");
 $courseName;
 $sem_stage;

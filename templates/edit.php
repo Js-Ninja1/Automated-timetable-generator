@@ -1,5 +1,5 @@
 <?php
-set_time_limit(10);
+set_time_limit(100);
 ini_set("memory_limit","50M");
 $courseName;
 $sem_stage;
@@ -529,12 +529,399 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
 
                             
                             }
+
+
+                            function check_room_status1($any_lesson){
+                                global $id;
+                            if($any_lesson){
+                            /* Attempt to connect to MySQL database */
+                            $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                            
+                            // Check connection
+                             if($link === false){
+                             die("ERROR: Could not connect. " . mysqli_connect_error());
+                             }
+                             global $lessons1;
+                             global $time_frames;
+                             global $room_array;
+                             $t = false;
+                             foreach($lessons1 as $lesson){
+                                 foreach($time_frames as $time_frame){
+                                     foreach($room_array as $room){
+                             if($any_lesson = $lesson){
+                                //echo "<h1>". $any_lesson . "</h1>";
+                                //$rand_index = array_rand($room_array);
+                                //$room_s = $room_array[$rand_index];
+
+                                $sql = "INSERT INTO room_status (room, time, status) VALUES (?, ?, ?)";
+                                if($stmt = mysqli_prepare($link, $sql)){
+                                    //bind params
+                                    mysqli_stmt_bind_param($stmt, "ssi", $param_room, $param_time, $param_status);
+
+                                    //set params
+                                    
+                                    $param_room = $room;
+                                    $param_time = $time_frame;
+                                    $param_status = $t;
+
+                                    //execute
+                                    if(mysqli_stmt_execute($stmt)){
+                                        //success
+                                    }else{
+                                        echo "Something went wrong. Please try again later.";
+                                    }
+                                }
+                                    // Close statement
+                                    mysqli_stmt_close($stmt);
+
+                             }
+                            }
+                        }
+                        }
+                            
+                            //select and return
+
+                            $sql_select = "SELECT id, room FROM room_status WHERE time = ? && status = ? LIMIT 3";
+
+                            if($stmt1 = mysqli_prepare($link, $sql_select)){
+                                //bind variables
+                                mysqli_stmt_bind_param($stmt1, "si", $param_time, $param_status);
+
+                                //set
+                                $param_time = $time_frame;
+                                $param_status = $t;
+
+                                //execute
+                                if(mysqli_stmt_execute($stmt1)){
+                                    $result1 = mysqli_stmt_get_result($stmt1);
+
+                                    if(mysqli_num_rows($result1) >= 1){
+                                        $row = mysqli_fetch_array($result1);
+
+                                        //RETRIEVE INDIVIDUAL VALUES INTO AN ARRAY
+                                       // while ($row) {
+                                            # code...
+                                            // $id = array();
+                                             //array_push($id, $row['id']);
+                                            // global $rooms_selected;
+                                            // array_push($rooms_selected, $row['room']);
+                                            //$id = $row['id'];
+                                            echo "<h1>" .$row['id'] ."</h1>";
+                                            echo "<h1>" .$row['room'] ."</h1>";
+                                        //}
+                                    }else{
+                                        echo "Zero results found";
+                                    }
+                                }else{
+                                    echo "Did not execute";
+                                }
+                                 // Close statement
+                                    mysqli_stmt_close($stmt1);
+                            }else{
+                                echo "Nothing is happening here";
+                            }
+                       
+                            }
+     
+                            }
+
+                            function check_room_status2($any_lesson){
+                                global $id;
+                            if($any_lesson){
+                            /* Attempt to connect to MySQL database */
+                            $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                            
+                            // Check connection
+                             if($link === false){
+                             die("ERROR: Could not connect. " . mysqli_connect_error());
+                             }
+                             global $lessons2;
+                             global $time_frames;
+                             global $room_array;
+                             $t = false;
+                             foreach($lessons2 as $lesson){
+                                 foreach($time_frames as $time_frame){
+                                     foreach($room_array as $room){
+                             if($any_lesson = $lesson){
+                                //echo "<h1>". $any_lesson . "</h1>";
+                                //$rand_index = array_rand($room_array);
+                                //$room_s = $room_array[$rand_index];
+
+                                $sql = "INSERT INTO room_status (room, time, status) VALUES (?, ?, ?)";
+                                if($stmt = mysqli_prepare($link, $sql)){
+                                    //bind params
+                                    mysqli_stmt_bind_param($stmt, "ssi", $param_room, $param_time, $param_status);
+
+                                    //set params
+                                    
+                                    $param_room = $room;
+                                    $param_time = $time_frame;
+                                    $param_status = $t;
+
+                                    //execute
+                                    if(mysqli_stmt_execute($stmt)){
+                                        //success
+                                    }else{
+                                        echo "Something went wrong. Please try again later.";
+                                    }
+                                }
+                                    // Close statement
+                                    mysqli_stmt_close($stmt);
+
+                             }
+                            }
+                        }
+                        }
+                            
+                            //select and return
+
+                            $sql_select = "SELECT id, room FROM room_status WHERE time = ? && status = ? LIMIT 3";
+
+                            if($stmt1 = mysqli_prepare($link, $sql_select)){
+                                //bind variables
+                                mysqli_stmt_bind_param($stmt1, "si", $param_time, $param_status);
+
+                                //set
+                                $param_time = $time_frame;
+                                $param_status = $t;
+
+                                //execute
+                                if(mysqli_stmt_execute($stmt1)){
+                                    $result1 = mysqli_stmt_get_result($stmt1);
+
+                                    if(mysqli_num_rows($result1) >= 1){
+                                        $row = mysqli_fetch_array($result1);
+
+                                        //RETRIEVE INDIVIDUAL VALUES INTO AN ARRAY
+                                       // while ($row) {
+                                            # code...
+                                            // $id = array();
+                                             //array_push($id, $row['id']);
+                                            // global $rooms_selected;
+                                            // array_push($rooms_selected, $row['room']);
+                                            //$id = $row['id'];
+                                            echo "<h1>" .$row['id'] ."</h1>";
+                                            echo "<h1>" .$row['room'] ."</h1>";
+                                        //}
+                                    }else{
+                                        echo "Zero results found";
+                                    }
+                                }else{
+                                    echo "Did not execute";
+                                }
+                                 // Close statement
+                                    mysqli_stmt_close($stmt1);
+                            }else{
+                                echo "Nothing is happening here";
+                            }
+                       
+                            }
+                       
+                            }
+
+                            function check_room_status3($any_lesson){
+                                global $id;
+                            if($any_lesson){
+                            /* Attempt to connect to MySQL database */
+                            $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                            
+                            // Check connection
+                             if($link === false){
+                             die("ERROR: Could not connect. " . mysqli_connect_error());
+                             }
+                             global $lessons3;
+                             global $time_frames;
+                             global $room_array;
+                             $t = false;
+                             foreach($lessons3 as $lesson){
+                                 foreach($time_frames as $time_frame){
+                                     foreach($room_array as $room){
+                             if($any_lesson = $lesson){
+                                //echo "<h1>". $any_lesson . "</h1>";
+                                //$rand_index = array_rand($room_array);
+                                //$room_s = $room_array[$rand_index];
+
+                                $sql = "INSERT INTO room_status (room, time, status) VALUES (?, ?, ?)";
+                                if($stmt = mysqli_prepare($link, $sql)){
+                                    //bind params
+                                    mysqli_stmt_bind_param($stmt, "ssi", $param_room, $param_time, $param_status);
+
+                                    //set params
+                                    
+                                    $param_room = $room;
+                                    $param_time = $time_frame;
+                                    $param_status = $t;
+
+                                    //execute
+                                    if(mysqli_stmt_execute($stmt)){
+                                        //success
+                                    }else{
+                                        echo "Something went wrong. Please try again later.";
+                                    }
+                                }
+                                    // Close statement
+                                    mysqli_stmt_close($stmt);
+
+                             }
+                            }
+                        }
+                        }
+                            
+                            //select and return
+
+                            $sql_select = "SELECT id, room FROM room_status WHERE time = ? && status = ? LIMIT 3";
+
+                            if($stmt1 = mysqli_prepare($link, $sql_select)){
+                                //bind variables
+                                mysqli_stmt_bind_param($stmt1, "si", $param_time, $param_status);
+
+                                //set
+                                $param_time = $time_frame;
+                                $param_status = $t;
+
+                                //execute
+                                if(mysqli_stmt_execute($stmt1)){
+                                    $result1 = mysqli_stmt_get_result($stmt1);
+
+                                    if(mysqli_num_rows($result1) >= 1){
+                                        $row = mysqli_fetch_array($result1);
+
+                                        //RETRIEVE INDIVIDUAL VALUES INTO AN ARRAY
+                                       // while ($row) {
+                                            # code...
+                                            // $id = array();
+                                             //array_push($id, $row['id']);
+                                            // global $rooms_selected;
+                                            // array_push($rooms_selected, $row['room']);
+                                            //$id = $row['id'];
+                                            echo "<h1>" .$row['id'] ."</h1>";
+                                            echo "<h1>" .$row['room'] ."</h1>";
+                                        //}
+                                    }else{
+                                        echo "Zero results found";
+                                    }
+                                }else{
+                                    echo "Did not execute";
+                                }
+                                 // Close statement
+                                    mysqli_stmt_close($stmt1);
+                            }else{
+                                echo "Nothing is happening here";
+                            }
+                       
+                            }
+                    
+                            }
+
+
+                            function check_room_status4($any_lesson){
+                                global $id;
+                            if($any_lesson){
+                            /* Attempt to connect to MySQL database */
+                            $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                            
+                            // Check connection
+                             if($link === false){
+                             die("ERROR: Could not connect. " . mysqli_connect_error());
+                             }
+                             global $lessons4;
+                             global $time_frames;
+                             global $room_array;
+                             $t = false;
+                             foreach($lessons4 as $lesson){
+                                 foreach($time_frames as $time_frame){
+                                     foreach($room_array as $room){
+                             if($any_lesson = $lesson){
+                                //echo "<h1>". $any_lesson . "</h1>";
+                                //$rand_index = array_rand($room_array);
+                                //$room_s = $room_array[$rand_index];
+
+                                $sql = "INSERT INTO room_status (room, time, status) VALUES (?, ?, ?)";
+                                if($stmt = mysqli_prepare($link, $sql)){
+                                    //bind params
+                                    mysqli_stmt_bind_param($stmt, "ssi", $param_room, $param_time, $param_status);
+
+                                    //set params
+                                    
+                                    $param_room = $room;
+                                    $param_time = $time_frame;
+                                    $param_status = $t;
+
+                                    //execute
+                                    if(mysqli_stmt_execute($stmt)){
+                                        //success
+                                    }else{
+                                        echo "Something went wrong. Please try again later.";
+                                    }
+                                }
+                                    // Close statement
+                                    mysqli_stmt_close($stmt);
+
+                             }
+                            }
+                        }
+                        }
+                            
+                            //select and return
+
+                            $sql_select = "SELECT id, room FROM room_status WHERE time = ? && status = ? LIMIT 3";
+
+                            if($stmt1 = mysqli_prepare($link, $sql_select)){
+                                //bind variables
+                                mysqli_stmt_bind_param($stmt1, "si", $param_time, $param_status);
+
+                                //set
+                                $param_time = $time_frame;
+                                $param_status = $t;
+
+                                //execute
+                                if(mysqli_stmt_execute($stmt1)){
+                                    $result1 = mysqli_stmt_get_result($stmt1);
+
+                                    if(mysqli_num_rows($result1) >= 1){
+                                        $row = mysqli_fetch_array($result1);
+
+                                        //RETRIEVE INDIVIDUAL VALUES INTO AN ARRAY
+                                       // while ($row) {
+                                            # code...
+                                            // $id = array();
+                                             //array_push($id, $row['id']);
+                                            // global $rooms_selected;
+                                            // array_push($rooms_selected, $row['room']);
+                                            //$id = $row['id'];
+                                            $y = $row['id'];
+                                            $u = $row['room'];
+                                            echo "<h1>" . $y ."</h1>";
+                                            echo "<h1>" . $u ."</h1>";
+                                        //}
+                                    }else{
+                                        echo "Zero results found";
+                                    }
+                                }else{
+                                    echo "Did not execute";
+                                }
+                                 // Close statement
+                                    mysqli_stmt_close($stmt1);
+                            }else{
+                                echo "Nothing is happening here";
+                            }
+                            
+
+
+                            //update selected
+                            echo "<h1>" . $y ."</h1>";
+                                            echo "<h1>" . $u ."</h1>";
+
+                            }
+                            
+                            }
+
                             check_room_status($lessons[0]);
-                            check_room_status($lessons[1]);
-                            check_room_status($lessons[2]);
-                            check_room_status($lessons[3]);
-                            check_room_status($lessons[4]);
-                            check_room_status($lessons[5]);
+                            check_room_status1($lessons1[1]);
+                            check_room_status2($lessons2[2]);
+                            check_room_status3($lessons3[3]);
+                            check_room_status4($lessons4[4]);
+                            
                             //echo implode(',', $id);
 
 

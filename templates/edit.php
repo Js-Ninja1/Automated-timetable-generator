@@ -510,8 +510,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             //$id = $row['id'];
                                             $id_selected = $row['id'];
                                             $room_selected = $row['room'];
-                                            echo $row['id'];
-                                            echo $row['room'];
+                                            //echo $row['id'];
+                                            //echo $row['room'];
+                                            
                                         //}
                                     }else{
                                         echo "Zero results found";
@@ -551,7 +552,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             }
                             
 
-
+                            return $room_selected;
                             
                             }
 
@@ -633,8 +634,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             //$id = $row['id'];
                                             $id_selected = $row['id'];
                                             $room_selected = $row['room'];
-                                            echo $row['id'];
-                                            echo $row['room'];
+                                            // echo $row['id'];
+                                            // echo $row['room'];
+                                            //return $room_selected;
                                         //}
                                     }else{
                                         echo "Zero results found";
@@ -672,7 +674,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                   mysqli_stmt_close($stmt);
                        
                             }
-     
+                            return $room_selected;
                             }
 
                             function check_room_status2($any_lesson){
@@ -752,8 +754,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             //$id = $row['id'];
                                             $id_selected = $row['id'];
                                             $room_selected = $row['room'];
-                                            echo $row['id'];
-                                            echo $row['room'];
+                                            //echo $row['id'];
+                                            //echo $row['room'];
+                                            //return $room_selected;
                                         //}
                                     }else{
                                         echo "Zero results found";
@@ -791,7 +794,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                   mysqli_stmt_close($stmt);
                        
                             }
-                       
+                            return $room_selected;
                             }
 
                             function check_room_status3($any_lesson){
@@ -871,8 +874,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             //$id = $row['id'];
                                             $id_selected = $row['id'];
                                             $room_selected = $row['room'];
-                                            echo $id_selected;
-                                            echo $room_selected;
+                                            //echo $id_selected;
+                                            //echo $room_selected;
+                                            //return $room_selected;
                                         //}
                                     }else{
                                         echo "Zero results found";
@@ -908,7 +912,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                   mysqli_stmt_close($stmt);
                        
                             }
-                    
+                            return $room_selected;
                             }
 
 
@@ -989,8 +993,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             //$id = $row['id'];
                                             $id_selected = $row['id'];
                                             $room_selected = $row['room'];
-                                            echo $id_selected;
-                                            echo $room_selected;
+                                            //echo $id_selected;
+                                            //echo $room_selected;
+                                            //return $room_selected;
                                         //}
                                     }else{
                                         echo "Zero results found";
@@ -1027,7 +1032,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                              // Close statement
                                 mysqli_stmt_close($stmt);
                            }
-
+                           return $room_selected;
                             }
                             
                             

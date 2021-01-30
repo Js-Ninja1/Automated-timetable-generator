@@ -1,5 +1,5 @@
 <?php
-set_time_limit(100);
+set_time_limit(1000);
 ini_set("memory_limit","50M");
 $courseName;
 $sem_stage;
@@ -510,8 +510,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             //$id = $row['id'];
                                             $id_selected = $row['id'];
                                             $room_selected = $row['room'];
-                                            echo "<h1>" .$row['id'] ."</h1>";
-                                            echo "<h1>" .$row['room'] ."</h1>";
+                                            echo $row['id'];
+                                            echo $row['room'];
                                         //}
                                     }else{
                                         echo "Zero results found";
@@ -633,8 +633,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             //$id = $row['id'];
                                             $id_selected = $row['id'];
                                             $room_selected = $row['room'];
-                                            echo "<h1>" .$row['id'] ."</h1>";
-                                            echo "<h1>" .$row['room'] ."</h1>";
+                                            echo $row['id'];
+                                            echo $row['room'];
                                         //}
                                     }else{
                                         echo "Zero results found";
@@ -752,8 +752,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             //$id = $row['id'];
                                             $id_selected = $row['id'];
                                             $room_selected = $row['room'];
-                                            echo "<h1>" .$row['id'] ."</h1>";
-                                            echo "<h1>" .$row['room'] ."</h1>";
+                                            echo $row['id'];
+                                            echo $row['room'];
                                         //}
                                     }else{
                                         echo "Zero results found";
@@ -871,8 +871,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             //$id = $row['id'];
                                             $id_selected = $row['id'];
                                             $room_selected = $row['room'];
-                                            echo "<h1>" .$row['id'] ."</h1>";
-                                            echo "<h1>" .$row['room'] ."</h1>";
+                                            echo $id_selected;
+                                            echo $room_selected;
                                         //}
                                     }else{
                                         echo "Zero results found";
@@ -989,8 +989,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                             //$id = $row['id'];
                                             $id_selected = $row['id'];
                                             $room_selected = $row['room'];
-                                            echo "<h1>" . $id_selected ."</h1>";
-                                            echo "<h1>" . $room_selected ."</h1>";
+                                            echo $id_selected;
+                                            echo $room_selected;
                                         //}
                                     }else{
                                         echo "Zero results found";
@@ -1032,11 +1032,11 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             
                             
 
-                            check_room_status($lessons[0]);
-                            check_room_status1($lessons1[1]);
-                            check_room_status2($lessons2[2]);
-                            check_room_status3($lessons3[3]);
-                            check_room_status4($lessons4[4]);
+                            // check_room_status($lessons[0]);
+                            // check_room_status1($lessons1[1]);
+                            // check_room_status2($lessons2[2]);
+                            // check_room_status3($lessons3[3]);
+                            // check_room_status4($lessons4[4]);
                             
                             //echo implode(',', $id);
 
@@ -1052,42 +1052,42 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                 //     echo "<h1>". $lessons[1] ."</h1>";
                                 // }
                                 if($lessons[0] && $lessons[1] && $lessons[2] && $lessons[3] && $lessons[4] && $lessons[5]){
-                                    echo "<td>"."<input type='text' value= ". $lessons[0] .">"."<br>"."<p>". select_lecture($lessons[0]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[0] .">"."<br>"."<p>". select_lecture($lessons[0]). "<br>" . "<p>". check_room_status($lessons[0]) . "</p>" ."</p>"."</td>";
                                     // echo "<td>". $lessons[1] ."<br>". $roomG ."</td>";
                                     // echo "<td>". $lessons[2]. "</td>";
                                     // echo "<td>". $lessons[3]. "</td>";
                                     // echo "<td>". $lessons[4]. "</td>";
                                     // echo "<td>". $lessons[5]. "</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[1] .">"."<br>"."<p>". select_lecture($lessons[1]) ."</p>"."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[2] .">"."<br>"."<p>". select_lecture($lessons[2]) ."</p>"."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[3] .">"."<br>"."<p>". select_lecture($lessons[3]) ."</p>"."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[4] .">"."<br>"."<p>". select_lecture($lessons[4]) ."</p>"."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[5] .">"."<br>"."<p>". select_lecture($lessons[5]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[1] .">"."<br>"."<p>". select_lecture($lessons[1]). "<br>" . "<p>". check_room_status($lessons[1]) . "Hello world". "</p>" ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[2] .">"."<br>"."<p>". select_lecture($lessons[2]). "<br>" . "<p>". check_room_status($lessons[2]) . "</p>" ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[3] .">"."<br>"."<p>". select_lecture($lessons[3]). "<br>" . "<p>". check_room_status($lessons[3]) . "</p>" ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[4] .">"."<br>"."<p>". select_lecture($lessons[4]). "<br>" . "<p>". check_room_status($lessons[4]) . "</p>" ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[5] .">"."<br>"."<p>". select_lecture($lessons[5]). "<br>" . "<p>". check_room_status($lessons[5]) . "</p>" ."</p>"."</td>";
 
                                 }elseif($lessons[0] && $lessons[2]){
-                                    echo "<td>"."<input type='text' value= ". $lessons[0] .">"."<br>"."<p>". select_lecture($lessons[0]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[0] .">"."<br>"."<p>". select_lecture($lessons[0]) . "<br>" . "<p>". check_room_status($lessons[0]) ."Hello" . "</p>" . "</p>"."</td>";
                                     echo "<td>" ."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[2] .">" . "<br>"."<p>". select_lecture($lessons[2]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[2] .">" . "<br>"."<p>". select_lecture($lessons[2]). "<br>" . "<p>". check_room_status($lessons[2]) . "</p>" ."</p>"."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                 }elseif($lessons[0] && $lessons[3]){
-                                    echo "<td>"."<input type='text' value= ". $lessons[0] .">"."<br>"."<p>". select_lecture($lessons[0]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[0] .">"."<br>"."<p>". select_lecture($lessons[0]). "<br>" . "<p>". check_room_status($lessons[0]) . "</p>" ."</p>"."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[3] .">"."<br>"."<p>". select_lecture($lessons[3]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[3] .">"."<br>"."<p>". select_lecture($lessons[3]). "<br>" . "<p>". check_room_status($lessons[3]) . "</p>" ."</p>"."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                 }elseif($lessons[1] || $lessons[4]){
                                     echo "<td>" ."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[1] .">"."<br>"."<p>". select_lecture($lessons[1]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[1] .">"."<br>"."<p>". select_lecture($lessons[1]). "<br>" . "<p>". check_room_status($lessons[1]) . "</p>" ."</p>"."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[4] .">"."<br>"."<p>". select_lecture($lessons[4]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[4] .">"."<br>"."<p>". select_lecture($lessons[4]). "<br>" . "<p>". check_room_status($lessons[4]) . "</p>" ."</p>"."</td>";
                                     echo "<td>" ."</td>";
                                 }elseif($lessons[1]){
                                     echo "<td>" ."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[1] .">"."<br>"."<p>". select_lecture($lessons[1]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[1] .">"."<br>"."<p>". select_lecture($lessons[1]). "<br>" . "<p>". check_room_status($lessons[1]) . "</p>" ."</p>"."</td>";
                                     echo "<td>". "</td>";
                                     echo "<td>". "</td>";
                                     echo "<td>". "</td>";
@@ -1095,7 +1095,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                 }elseif($lessons[2]){
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[2] .">"."<br>"."<p>". select_lecture($lessons[2]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[2] .">"."<br>"."<p>". select_lecture($lessons[2]). "<br>" . "<p>". check_room_status($lessons[2]) . "</p>" ."</p>"."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
@@ -1103,7 +1103,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[3] .">"."<br>"."<p>". select_lecture($lessons[3]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[3] .">"."<br>"."<p>". select_lecture($lessons[3]). "<br>" . "<p>". check_room_status($lessons[3]) . "</p>" ."</p>"."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                 }elseif($lessons[4]){
@@ -1111,7 +1111,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[4] .">"."<br>"."<p>". select_lecture($lessons[4]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[4] .">"."<br>"."<p>". select_lecture($lessons[4]). "<br>" . "<p>". check_room_status($lessons[4]) . "</p>" ."</p>"."</td>";
                                     echo "<td>" ."</td>";
                                 }elseif($lessons[5]){
                                     echo "<td>" ."</td>";
@@ -1119,7 +1119,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";
-                                    echo "<td>"."<input type='text' value= ". $lessons[5] .">"."<br>"."<p>". select_lecture($lessons[5]) ."</p>"."</td>";
+                                    echo "<td>"."<input type='text' value= ". $lessons[5] .">"."<br>"."<p>". select_lecture($lessons[5]). "<br>" . "<p>". check_room_status($lessons[5]) . "</p>" ."</p>"."</td>";
                                 }else{
                                     echo "<td>" ."</td>";
                                     echo "<td>" ."</td>";

@@ -54,31 +54,6 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
         <link rel="stylesheet" href="edit.css">
 
 
-        <style>
-        /* Paste this css to your style sheet file or under head tag */
-/* This only works with JavaScript, 
-if it's not present, don't show loader */
-/* .no-js #loader { display: none;  }
-.js #loader { display: block; position: absolute; left: 100px; top: 0; }
-.se-pre-con {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background: url(https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff; */
-/*}*/
-        </style>
-        <script>
-//         
-// //paste this code under the head tag or in a separate js file.
-// 	// Wait for window load
-// 	$(window).load(function() {
-// 		// Animate loader off screen
-// 		$(".se-pre-con").fadeOut("slow");;
-// 	});
-        </script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -463,6 +438,7 @@ if it's not present, don't show loader */
                             $id = array();
 
                             function check_room_status($any_lesson){
+                                $room_selected = "";
                                 global $id;
                             if($any_lesson){
                             /* Attempt to connect to MySQL database */
@@ -587,6 +563,7 @@ if it's not present, don't show loader */
 
 
                             function check_room_status1($any_lesson){
+                                $room_selected = "";
                                 global $id;
                             if($any_lesson){
                             /* Attempt to connect to MySQL database */
@@ -707,6 +684,7 @@ if it's not present, don't show loader */
                             }
 
                             function check_room_status2($any_lesson){
+                                $room_selected = "";
                                 global $id;
                             if($any_lesson){
                             /* Attempt to connect to MySQL database */
@@ -827,6 +805,7 @@ if it's not present, don't show loader */
                             }
 
                             function check_room_status3($any_lesson){
+                                $room_selected = "";
                                 global $id;
                             if($any_lesson){
                             /* Attempt to connect to MySQL database */
@@ -946,6 +925,7 @@ if it's not present, don't show loader */
 
 
                             function check_room_status4($any_lesson){
+                                $room_selected = "";
                                 global $id;
                             if($any_lesson){
                             /* Attempt to connect to MySQL database */

@@ -12,8 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($input_room)){
         $roomErr = "please enter a room.";
 
-    }elseif(!filter_var($input_room, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z\s]+$/")))){
-        $roomErr = "please enter a valid room.";
+    
     } else{
         $room = $input_room;
     }

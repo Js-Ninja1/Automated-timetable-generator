@@ -62,6 +62,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </p>
     </div>
     </div>
+    <div class = "body">
+    <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
+    </div>
     </div>
 </body>
 </html>

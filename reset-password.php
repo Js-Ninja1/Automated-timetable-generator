@@ -78,10 +78,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
+        .wrapper{ width: 350px; padding: 20px; 
+            width: 350px;
+            padding: 20px;
+            position: absolute;
+  top: 10%;
+  left: 40%;
+  margin: -25px 0 0 -25px;
+  background-color: #7df0b980;
+  border-radius: 10px;}
+        #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
     </style>
 </head>
 <body>
+<!-- The video -->
+<video autoplay muted loop id="myVideo">
+  <source src="images/Cadigal _ Commercial Office Leasing Sydney _ Lease Office Space Sydney.mp4" type="video/mp4">
+</video>
     <div class="wrapper">
         <h2>Reset Password</h2>
         <p>Please fill out this form to reset your password.</p>

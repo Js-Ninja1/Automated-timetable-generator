@@ -231,7 +231,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
 
 
                             
-                            echo implode(', ', $units_array);
+                            //echo implode(', ', $units_array);
                             $lessons = array("", "", "", "", "", "");
                             $lessons1 = array("", "", "", "", "", "");
                             $lessons2 = array("", "", "", "", "", "");
@@ -347,7 +347,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                         //}
 
                         //retrieve_rooms();
-                        echo implode(', ', $room_array);
+                       // echo implode(', ', $room_array);
 
 
                         //$lessons = array("", "", "", "", "", "");
@@ -362,7 +362,7 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
 
 
                             //}
-                            echo implode(', ', $lecture_array);
+                            //echo implode(', ', $lecture_array);
                             /*
                             function hello($t){
                                 
@@ -424,7 +424,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                             $lessons[5] = $units_array[5];
                             */
 
-                                echo implode(',', $lessons);
+                               // echo implode(',', $lessons);
+
+
                             // foreach($lessons as $lesson){
                             //     echo $lesson;
                             // }

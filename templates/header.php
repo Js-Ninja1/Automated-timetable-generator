@@ -141,7 +141,7 @@
                 <!-- </div> -->
 
                
-                    <span style="float:right"><a href="logout.php" style="font-size: 20px; color: white; padding-right:60px">Logout</a></span>
+                    <span style="float:right"><a href="../logout.php" style="font-size: 20px; color: white; padding-right:60px">Logout</a></span>
 </h2>
             </div>
 

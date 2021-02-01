@@ -6,11 +6,6 @@ session_start();
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
-}else{
-     // Store data in session variables
-     $_SESSION["loggedin"] = true;
-     
-     $_SESSION["username"] = $username;      
 }
 ?>
  
@@ -18,7 +13,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>logged in as a lecture</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; text-align: center; padding: 10px; }
@@ -70,8 +65,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class = "body">
     <div class = "roots">
     <a href="admin/adminpage.php" class="btn btn-warning">Continue as Admin</a>
-    <a href="templates/lecturer.php" class="btn btn-warning">Continue as Lecture</a>
-    <a href="templates/student.php" class="btn btn-warning">Continue as Student</a>
+    <a href="" class="btn btn-warning">Continue as Lecture</a>
+    <a href="" class="btn btn-warning">Continue as Student</a>
     </div>
     </div>
     </div>

@@ -1,4 +1,18 @@
 <?php
+
+session_start();
+                            
+// Store data in session variables
+$_SESSION["loggedin"] = true;
+$_SESSION["username"] = $username;
+
+if($_SESSION["username"] != "admin"){
+// Redirect user to welcome page
+header("location: welcome.php");
+}
+
+
+
 set_time_limit(1000);
 ini_set("memory_limit","50M");
 $courseName;

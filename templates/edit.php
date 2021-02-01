@@ -1,15 +1,5 @@
 <?php
 
-session_start();
-                            
-// Store data in session variables
-//$_SESSION["loggedin"] = true;
-//$_SESSION["username"] = $username;
-
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["login_as"] != "admin"){
-    header("location: login.php");
-    exit;
-}
 
 
 
@@ -67,7 +57,13 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="edit.css">
 
-
+<style>
+.bttons h3{
+color: yellow;
+padding: 10px;
+float: right;
+}
+</style>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -81,9 +77,11 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
         <div class="edit-wrapper">
             <div class="header">
             <h2>Time table</h2>
+            <div class= "bttons">
             <h3><a href="edit.php">Refresh</a></h3>
             <h3><a href="finish.php">Finish</a></h3>
             <h3><a href="../admin/adminpage.php">Dashboard</a></h3>
+            </div>
             </div>
             <div class = "edit-class">
                 <div class="block">
@@ -125,7 +123,9 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
                                     outline: none;
                                     background-color: #7268e580;
                                 }
-                                
+                               
+    
+
                             </style>
                         </thead>
                         <tbody>

@@ -74,9 +74,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
     <?php
 
-session_start();
- $_SESSION["loggedin"] = true;
- $_SESSION["login_as"] = "admin";
     ?>
 </body>
 </html>

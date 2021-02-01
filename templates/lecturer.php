@@ -17,13 +17,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; text-align: center; padding: 10px; }
-        #myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-}
+       
 .wrapper{
     
             padding: 20px;
@@ -48,27 +42,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
 <!-- The video -->
-<video autoplay muted loop id="myVideo">
-  <source src="images/Cadigal _ Commercial Office Leasing Sydney _ Lease Office Space Sydney.mp4" type="video/mp4">
-</video>
-<div class = "wrapper">
-    <div class="page-header">
+
+    <div class = "wrapper">
+     <div class="page-header">
         <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to timetable generator.</h1>
     
-    <div class = "reset-logout">
-    <p>
-        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
-    </p>
-    </div>
-    </div>
-    <div class = "body">
-    <div class = "roots">
-    <a href="admin/adminpage.php" class="btn btn-warning">Continue as Admin</a>
-    <a href="" class="btn btn-warning">Continue as Lecture</a>
-    <a href="" class="btn btn-warning">Continue as Student</a>
-    </div>
-    </div>
+    
+     </div>
     </div>
 </body>
 </html>

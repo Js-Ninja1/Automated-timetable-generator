@@ -3,12 +3,12 @@
 session_start();
                             
 // Store data in session variables
-$_SESSION["loggedin"] = true;
-$_SESSION["username"] = $username;
+//$_SESSION["loggedin"] = true;
+//$_SESSION["username"] = $username;
 
-if($_SESSION["username"] != "admin"){
-// Redirect user to welcome page
-header("location: welcome.php");
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["login_as"] != "admin"){
+    header("location: login.php");
+    exit;
 }
 
 

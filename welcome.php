@@ -1,16 +1,13 @@
 <?php
 // Initialize the session
 session_start();
- 
+ // Store data in session variables
+//  $_SESSION["loggedin"] = true;
+//  $_SESSION["username"] = $username;
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
-}else{
-     // Store data in session variables
-     $_SESSION["loggedin"] = true;
-     
-     $_SESSION["username"] = $username;      
 }
 ?>
  
@@ -75,5 +72,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
     </div>
     </div>
+    <?php
+
+session_start();
+ $_SESSION["loggedin"] = true;
+ $_SESSION["login_as"] = "admin";
+    ?>
 </body>
 </html>

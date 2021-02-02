@@ -56,7 +56,16 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="edit.css">
+        <script>
 
+            
+$(document).ready(function() {
+$("#b1").click(function(){
+$("#d1").load("load-text1.php?msg=Hello_world");
+})
+})
+
+</script>
 <style>
 .bttons h3{
 color: yellow;

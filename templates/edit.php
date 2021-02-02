@@ -56,16 +56,34 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="edit.css">
+
+         <!--import jquery for the genarate time table name popup-->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="../jQuery/jquery-3.5.1.js"></script>
         <script>
 
-            
-$(document).ready(function() {
-$("#b1").click(function(){
-$("#d1").load("load-text1.php?msg=Hello_world");
-})
-})
+$( window ).on( "load", function() {
+    //var pdf = document.body.innerHTML;
+    var pdf = $("body");
+  
+ $.ajax(
+    {
+    url: "finish.php",
+    type: "POST",
+
+    data: { pdf1: pdf},
+    success: function (result) {
+            alert('success');
+
+    }
+});     
+   });
+    
+
+
 
 </script>
+
 <style>
 .bttons h3{
 color: yellow;
@@ -74,7 +92,17 @@ float: right;
 }
 </style>
     </head>
-    <body>
+    <body >
+
+<?php
+
+// require_once __DIR__ . '../../vendor/autoload.php';
+
+// $mpdf = new \Mpdf\Mpdf();
+// $mpdf->WriteHTML($_REQUEST['pdf']);
+// $mpdf->Output();
+?>
+
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->

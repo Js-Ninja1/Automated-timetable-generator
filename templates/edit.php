@@ -63,8 +63,8 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
         <script>
 
 $( window ).on( "load", function() {
-    //var pdf = document.body.innerHTML;
-    var pdf = $("body");
+    var pdf = document.body.innerHTML;
+    //var pdf = $("body");
   
  $.ajax(
     {

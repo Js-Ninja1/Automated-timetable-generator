@@ -13,17 +13,26 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>logged in as a student</title>
+    <title>logged in as a lecture</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
-        body{ font: 14px sans-serif; text-align: center; padding: 10px; }
-        #myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-}
+        body{ font: 14px sans-serif; text-align: center; 
+            padding: 10px;
+            color: white;
+        /*background-image: url(../images/lecture.jpg);*/
+        /* background-image: url("../images/undraw_professor_8lrt.svg"); */
+
+  /* Full height */
+  height: 100%;
+  width: 100%;
+background-color: #1F1F41;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+        }
+       
 .wrapper{
     
             padding: 20px;
@@ -44,31 +53,81 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     padding-right: 0px;
     margin-right: 100px;
 }
+#image{
+    position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  height: 80%;
+}
+form{
+    padding-top: 100px;
+    margin-left: 5px;
+}
+label{
+    font-size: 20px;
+}
+input[type=text] {
+  float: left;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+input[type=text] {
+    border: 1px solid #ccc;
+  }
+  .search-container {
+  float: right;
+}
+.search-container button {
+  float: left;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #1F1F41;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.search-container button:hover {
+  background: #1F1F4110;
+}
+@media screen and (max-width: 600px) {
+  .search-container {
+    float: none;
+  }
+  input[type=text], .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .fa fa-search{
+      color: #1F1F41;
+  }
     </style>
 </head>
 <body>
-<!-- The video -->
-<video autoplay muted loop id="myVideo">
-  <source src="images/Cadigal _ Commercial Office Leasing Sydney _ Lease Office Space Sydney.mp4" type="video/mp4">
-</video>
-<div class = "wrapper">
-    <div class="page-header">
-        <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to timetable generator.</h1>
+<img id = "image" src="../images/undraw_Reading_book_re_kqpk.svg" alt="">
+
+    <div class = "wrapper">
+     <div class="page-header">
+        <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to students room.</h1>
+
+        <form>
+            <label for="search-lecture">Enter your course here</label>
+            <div class= "search-container">
+        <input type="text" name="search-lecture" placeholder="Search..">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+        </form>
     
-    <div class = "reset-logout">
-    <p>
-        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
-    </p>
-    </div>
-    </div>
-    <div class = "body">
-    <div class = "roots">
-    <a href="admin/adminpage.php" class="btn btn-warning">Continue as Admin</a>
-    <a href="" class="btn btn-warning">Continue as Lecture</a>
-    <a href="" class="btn btn-warning">Continue as Student</a>
-    </div>
-    </div>
+    
+     </div>
     </div>
 </body>
 </html>

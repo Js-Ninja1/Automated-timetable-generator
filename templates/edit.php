@@ -62,22 +62,22 @@ if(isset($_GET["sem_stage"]) && !empty(trim($_GET["sem_stage"]))){
    <script src="../jQuery/jquery-3.5.1.js"></script>
         <script>
 
-$( window ).on( "load", function() {
-    var pdf = document.body.innerHTML;
-    //var pdf = $("body");
+// $( window ).on( "load", function() {
+//     var pdf = document.body.innerHTML;
+//     //var pdf = $("body");
   
- $.ajax(
-    {
-    url: "finish.php",
-    type: "POST",
+//  $.ajax(
+//     {
+//     url: "finish.php",
+//     type: "POST",
 
-    data: { pdf1: pdf},
-    success: function (result) {
-            alert('success');
+//     data: { pdf: pdf},
+//     success: function (result) {
+//             alert('success');
 
-    }
-});     
-   });
+//     }
+// });     
+//    });
     
 
 
@@ -94,14 +94,6 @@ float: right;
     </head>
     <body >
 
-<?php
-
-// require_once __DIR__ . '../../vendor/autoload.php';
-
-// $mpdf = new \Mpdf\Mpdf();
-// $mpdf->WriteHTML($_REQUEST['pdf']);
-// $mpdf->Output();
-?>
 
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
@@ -110,6 +102,16 @@ float: right;
         <script src="" async defer></script>
 
         <!-- <div class="se-pre-con"></div> -->
+
+        <?php
+        require_once __DIR__ . '../../vendor/autoload.php';
+
+        $mpdf = new \Mpdf\Mpdf();
+
+        $data = '';
+        $data .= '<h2>Time table</h2>';
+
+?>
 
         <div class="edit-wrapper">
             <div class="header">
@@ -126,11 +128,13 @@ float: right;
                         <label for="course">Course:</label>
                         <h4><?php echo $courseName; ?></h4>
                     </div>
+                    <?php  $data .= '<h3>Course:</h3>'. $courseName; ?>
                     <div class="semi-block">
                         <label for="semester-stage">Semester stage:</label>
                         <h4><?php echo $sem_stage; ?></h4>
                         
                     </div>
+                    <?php  $data .= '<h4>Semester stage:</h4>'. $sem_stage; ?>
                 </div>
 
                 <div class="edit-table">
@@ -140,6 +144,7 @@ float: right;
                             <tr id="type1">
                             <th>Day/Time</th><th><?php echo $time_frames[0]; ?></th><th><?php echo $time_frames[1]; ?></th><th><?php echo $time_frames[2]; ?></th><th><?php echo $time_frames[3]; ?></th><th><?php echo $time_frames[4]; ?></th><th><?php echo $time_frames[5]; ?></th>
                             </tr>
+                            <?php  $data .= '<table><thead><tr><th>Day/Time</th><th>'. $time_frames[0] .'</th><th>'.$time_frames[1].'</th><th>'.$time_frames[2].'</th><th>'.$time_frames[3].'</th><th>'.$time_frames[4].'</th><th>'.$time_frames[5].'</th></tr></thead>'; ?>
                             <style>
                             #type2 input[type=text] {
                                 border: none;
@@ -1110,6 +1115,10 @@ float: right;
                             //echo implode(',', $id);
 
 
+                           
+                           
+
+
                             echo "<table class='generate-table'>";
                             echo "<tbody>";
 
@@ -1550,6 +1559,21 @@ float: right;
 
 
                             mysqli_close($link);
+
+
+
+                            $mpdf->WriteHTML($data);
+                            $mpdf->Output('myfile.pdf', 'D');
+
+                           
+
+//  require_once __DIR__ . '../../vendor/autoload.php';
+
+//  $mpdf = new \Mpdf\Mpdf();
+//  $mpdf->WriteHTML("");
+//  $mpdf->Output('myfile.pdf');
+
+
                             
                             //define variables
                             // $id1 = "";

@@ -104,9 +104,12 @@ float: right;
         <!-- <div class="se-pre-con"></div> -->
 
         <?php
-        require_once __DIR__ . '../../vendor/autoload.php';
+        // ob_start();
+        // ob_end_flush();
 
-        $mpdf = new \Mpdf\Mpdf();
+        // require_once __DIR__ . '../../vendor/autoload.php';
+
+        // $mpdf = new \Mpdf\Mpdf();
 
         $data = '';
         $data .= '<h2>Time table</h2>';
@@ -144,7 +147,11 @@ float: right;
                             <tr id="type1">
                             <th>Day/Time</th><th><?php echo $time_frames[0]; ?></th><th><?php echo $time_frames[1]; ?></th><th><?php echo $time_frames[2]; ?></th><th><?php echo $time_frames[3]; ?></th><th><?php echo $time_frames[4]; ?></th><th><?php echo $time_frames[5]; ?></th>
                             </tr>
-                            <?php  $data .= '<table><thead><tr><th>Day/Time</th><th>'. $time_frames[0] .'</th><th>'.$time_frames[1].'</th><th>'.$time_frames[2].'</th><th>'.$time_frames[3].'</th><th>'.$time_frames[4].'</th><th>'.$time_frames[5].'</th></tr></thead>'; ?>
+                            <?php  $data .= '<table><thead><tr><th>Day/Time</th><th>'. $time_frames[0] .'</th><th>'.$time_frames[1].'</th><th>'.$time_frames[2].'</th><th>'.$time_frames[3].'</th><th>'.$time_frames[4].'</th><th>'.$time_frames[5].'</th></tr></thead>';
+                            //  $mpdf->WriteHTML($data);
+                            //  $mpdf->Output('myfile.pdf', 'D');
+ 
+                            ?>
                             <style>
                             #type2 input[type=text] {
                                 border: none;
@@ -1562,9 +1569,7 @@ float: right;
 
 
 
-                            $mpdf->WriteHTML($data);
-                            $mpdf->Output('myfile.pdf', 'D');
-
+                           
                            
 
 //  require_once __DIR__ . '../../vendor/autoload.php';

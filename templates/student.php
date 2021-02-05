@@ -109,7 +109,10 @@ input[type=text] {
   .fa fa-search{
       color: #1F1F41;
   }
-    </style>
+  </style>
+    
+    
+  
 </head>
 <body>
 <img id = "image" src="../images/undraw_Reading_book_re_kqpk.svg" alt="">
@@ -122,7 +125,7 @@ input[type=text] {
             <label for="search-lecture">Enter your course here</label>
             <div class= "search-container">
         <input type="text" name="search-lecture" placeholder="Search..">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <button type="submit" id="but"><i class="fa fa-search"></i></button>
         </div>
         </form>
     

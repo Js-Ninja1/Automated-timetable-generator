@@ -16,6 +16,32 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <title>logged in as a lecture</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <!--import jquery for the genarate time table name popup-->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="../jQuery/jquery-3.5.1.js"></script>
+ 
+      <script>
+  //  document.getElementById("but").addEventListener("click", showSource());
+
+  //   function showSource(){;
+  //   var source = "<html>";
+  //   source += document.getElementsByTagName('html')[0].innerHTML;
+  //   source += "</html>";
+  //   //now we need to escape the html special chars, javascript has escape
+  //   //but this does not do what we want
+  //  console.log(source);
+  //   alert(source);
+
+//}  
+// $( window ).on( "load", function() {
+//      //var pdf = document.body.innerHTML;
+//     // window.location="http://localhost/ATG_project/templates/lecturer.php:"+window.location;
+//      //console.log(window.location);
+//      $.get('lecturer.php', function(data) {
+//     console.log(text(data));
+// });
+// });
+    </script>
     <style type="text/css">
         body{ font: 14px sans-serif; text-align: center; 
             padding: 10px;
@@ -105,29 +131,43 @@ input[type=text] {
     width: 100%;
     margin: 0;
     padding: 14px;
-  }
+  }s
   .fa fa-search{
       color: #1F1F41;
   }
     </style>
 </head>
 <body>
+<?php
+//require_once __DIR__ . '../../vendor/autoload.php';
+ 
+?>
 <img id = "image" src="../images/undraw_professor_8lrt.svg" alt="">
 
     <div class = "wrapper">
      <div class="page-header">
-        <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to lectures room.</h1>
+     <?php $username = htmlspecialchars($_SESSION["username"]); ?>
+        <h1>Hi, <b><?php echo $username; ?></b>. Welcome to lectures room.</h1>
+        <?php //$data .= '<h1>Hi, <b>'. $username .'</b>. Welcome to lectures room.</h1>'; ?>
 
         <form>
             <label for="search-lecture">Enter your name here</label>
             <div class= "search-container">
         <input type="text" name="search-lecture" placeholder="Search..">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <button type="submit" id="but"><i class="fa fa-search"></i></button>
+        <?php 
+        //$data .= '<h1>Enter your name here.</h1>';
+        //$data .= '<h1>Hi, <b>'. $username .'</b>. Welcome to lectures room.</h1>'; 
+        
+        ?>
         </div>
         </form>
     
     
      </div>
     </div>
+    <?php
+   
+    ?>
 </body>
 </html>

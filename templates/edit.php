@@ -1,4 +1,6 @@
 <?php
+set_time_limit(1000);
+ini_set("memory_limit","50M");
 //starting a session
 session_start();
 
@@ -107,8 +109,7 @@ $_SESSION['check_room45'] = '';
 
 
 
-set_time_limit(1000);
-ini_set("memory_limit","50M");
+
 $courseName;
 $sem_stage;
 
@@ -239,7 +240,7 @@ float: right;
                         $_SESSION['courseName']= $courseName;
                         ?></h4>
                     </div>
-                    <?php  $data .= '<h3>Course:</h3>'. $courseName; ?>
+                   
                     <div class="semi-block">
                         <label for="semester-stage">Semester stage:</label>
                         <h4><?php echo $sem_stage;

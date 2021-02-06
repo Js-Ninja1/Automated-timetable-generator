@@ -101,24 +101,6 @@ $_SESSION['lessons45'] = '';
 $_SESSION['select_lec45'] = '';
 $_SESSION['check_room45'] = '';
 
-$_SESSION['lessons50'] = '';
-$_SESSION['select_lec50'] = '';
-$_SESSION['check_room50'] = '';
-$_SESSION['lessons51'] = '';
-$_SESSION['select_lec51'] = '';
-$_SESSION['check_room51'] = '';
-$_SESSION['lessons52'] = '';
-$_SESSION['select_lec52'] = '';
-$_SESSION['check_room52'] = '';
-$_SESSION['lessons53'] = '';
-$_SESSION['select_lec53'] = '';
-$_SESSION['check_room53'] = '';
-$_SESSION['lessons54'] = '';
-$_SESSION['select_lec54'] = '';
-$_SESSION['check_room54'] = '';
-$_SESSION['lessons55'] = '';
-$_SESSION['select_lec55'] = '';
-$_SESSION['check_room55'] = '';
 
 
 
@@ -274,11 +256,7 @@ float: right;
                             <tr id="type1">
                             <th>Day/Time</th><th><?php echo $time_frames[0]; $_SESSION['time0'] = $time_frames[0]; ?></th><th><?php echo $time_frames[1]; $_SESSION['time1'] = $time_frames[1]; ?></th><th><?php echo $time_frames[2]; $_SESSION['time2'] = $time_frames[2]; ?></th><th><?php echo $time_frames[3]; $_SESSION['time3'] = $time_frames[3]; ?></th><th><?php echo $time_frames[4]; $_SESSION['time4'] = $time_frames[4]; ?></th><th><?php echo $time_frames[5]; $_SESSION['time5'] = $time_frames[5]; ?></th>
                             </tr>
-                            <?php  //$data .= '<table><thead><tr><th>Day/Time</th><th>'. $time_frames[0] .'</th><th>'.$time_frames[1].'</th><th>'.$time_frames[2].'</th><th>'.$time_frames[3].'</th><th>'.$time_frames[4].'</th><th>'.$time_frames[5].'</th></tr></thead>';
-                            //  $mpdf->WriteHTML($data);
-                            //  $mpdf->Output('myfile.pdf', 'D');
- 
-                            ?>
+                            
                             <style>
                             #type2 input[type=text] {
                                 border: none;
@@ -1882,43 +1860,93 @@ float: right;
 
                             if($lessons4[0] && $lessons4[1] && $lessons4[2] && $lessons4[3] && $lessons4[4] && $lessons4[5]){
                                 echo "<td>". "</td>";
-                                echo "<td>". "<br>". $roomG ."</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[2] ."\">"."<br>"."<p>". select_lecture($lessons4[2]). "<br>" . "<p>". check_room_status4($lessons4[2]) . "</p>" ."</p>"."</td>";
+                                echo "<td>". "<br>"."</td>";
+                                $_SESSION['lessons42'] = $lessons4[2];
+                                $select_lec42 = select_lecture($lessons4[2]);
+                                $_SESSION['select_lec42'] = $select_lec42;
+                                $check_room42 = check_room_status($lessons4[2]);
+                                $_SESSION['check_room42'] = $check_room42;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[2] ."\">"."<br>"."<p>". $select_lec42. "<br>" . "<p>". $check_room42 . "</p>" ."</p>"."</td>";
                                 echo "<td>".  "</td>";
                                 echo "<td>".  "</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[5] ."\">"."<br>"."<p>". select_lecture($lessons4[5]). "<br>" . "<p>". check_room_status4($lessons4[5]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons45'] = $lessons4[5];
+                                $select_lec45 = select_lecture($lessons4[5]);
+                                $_SESSION['select_lec45'] = $select_lec45;
+                                $check_room45 = check_room_status($lessons4[5]);
+                                $_SESSION['check_room45'] = $check_room45;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[5] ."\">"."<br>"."<p>". $select_lec45. "<br>" . "<p>". $check_room45 . "</p>" ."</p>"."</td>";
 
                             }elseif($lessons4[0] && $lessons4[2]){
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[0] ."\">"."<br>"."<p>". select_lecture($lessons4[0]). "<br>" . "<p>". check_room_status4($lessons4[0]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons40'] = $lessons4[0];
+                                $select_lec40 = select_lecture($lessons4[0]);
+                                $_SESSION['select_lec40'] = $select_lec40;
+                                $check_room40 = check_room_status($lessons4[0]);
+                                $_SESSION['check_room40'] = $check_room40;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[0] ."\">"."<br>"."<p>". $select_lec40. "<br>" . "<p>". $check_room40 . "</p>" ."</p>"."</td>";
                                 echo "<td>" ."</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[2] ."\">"."<br>"."<p>". select_lecture($lessons4[2]). "<br>" . "<p>". check_room_status4($lessons4[2]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons42'] = $lessons4[2];
+                                $select_lec42 = select_lecture($lessons4[2]);
+                                $_SESSION['select_lec42'] = $select_lec42;
+                                $check_room42 = check_room_status($lessons4[2]);
+                                $_SESSION['check_room42'] = $check_room42;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[2] ."\">"."<br>"."<p>". $select_lec42. "<br>" . "<p>". $check_room42 . "</p>" ."</p>"."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
                             }elseif($lessons4[0] || $lessons4[3]){
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[0] ."\">"."<br>"."<p>". select_lecture($lessons4[0]). "<br>" . "<p>". check_room_status4($lessons4[0]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons40'] = $lessons4[0];
+                                $select_lec40 = select_lecture($lessons4[0]);
+                                $_SESSION['select_lec40'] = $select_lec40;
+                                $check_room40 = check_room_status($lessons4[0]);
+                                $_SESSION['check_room40'] = $check_room40;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[0] ."\">"."<br>"."<p>". $select_lec40. "<br>" . "<p>". $check_room40 . "</p>" ."</p>"."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[3] ."\">"."<br>"."<p>". select_lecture($lessons4[3]). "<br>" . "<p>". check_room_status4($lessons4[3]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons43'] = $lessons4[3];
+                                $select_lec43 = select_lecture($lessons4[3]);
+                                $_SESSION['select_lec43'] = $select_lec43;
+                                $check_room43 = check_room_status($lessons4[3]);
+                                $_SESSION['check_room43'] = $check_room43;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[3] ."\">"."<br>"."<p>". $select_lec43. "<br>" . "<p>". $check_room43 . "</p>" ."</p>"."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
                             }elseif($lessons4[1] && $lessons4[4]){
                                 echo "<td>" ."</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[1] ."\">"."<br>"."<p>". select_lecture($lessons4[1]). "<br>" . "<p>". check_room_status4($lessons4[1]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons41'] = $lessons4[1];
+                                $select_lec41 = select_lecture($lessons4[1]);
+                                $_SESSION['select_lec41'] = $select_lec41;
+                                $check_room41 = check_room_status($lessons4[1]);
+                                $_SESSION['check_room41'] = $check_room41;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[1] ."\">"."<br>"."<p>". $select_lec41. "<br>" . "<p>". $check_room41 . "</p>" ."</p>"."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[4] ."\">"."<br>"."<p>". select_lecture($lessons4[4]). "<br>" . "<p>". check_room_status4($lessons4[4]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons44'] = $lessons4[4];
+                                $select_lec44 = select_lecture($lessons4[4]);
+                                $_SESSION['select_lec44'] = $select_lec44;
+                                $check_room44 = check_room_status($lessons4[4]);
+                                $_SESSION['check_room44'] = $check_room44;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[4] ."\">"."<br>"."<p>". $select_lec44. "<br>" . "<p>". $check_room44 . "</p>" ."</p>"."</td>";
                                 echo "<td>" ."</td>";
                             }elseif($lessons4[2]){
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[2] ."\">"."<br>"."<p>". select_lecture($lessons4[2]). "<br>" . "<p>". check_room_status4($lessons4[2]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons42'] = $lessons4[3];
+                                $select_lec42 = select_lecture($lessons4[2]);
+                                $_SESSION['select_lec42'] = $select_lec42;
+                                $check_room42 = check_room_status($lessons4[2]);
+                                $_SESSION['check_room42'] = $check_room42;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[2] ."\">"."<br>"."<p>". $select_lec42. "<br>" . "<p>". $check_room42 . "</p>" ."</p>"."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
                             }elseif($lessons4[1]){
                                 echo "<td>" ."</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[1] ."\">"."<br>"."<p>". select_lecture($lessons4[1]). "<br>" . "<p>". check_room_status4($lessons4[1]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons41'] = $lessons4[1];
+                                $select_lec41 = select_lecture($lessons4[1]);
+                                $_SESSION['select_lec41'] = $select_lec41;
+                                $check_room41 = check_room_status($lessons4[1]);
+                                $_SESSION['check_room41'] = $check_room41;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[1] ."\">"."<br>"."<p>". $select_lec41. "<br>" . "<p>". $check_room41 . "</p>" ."</p>"."</td>";
                                 echo "<td>". "</td>";
                                 echo "<td>". "</td>";
                                 echo "<td>". "</td>";
@@ -1927,7 +1955,12 @@ float: right;
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[3] ."\">"."<br>"."<p>". select_lecture($lessons4[3]). "<br>" . "<p>". check_room_status4($lessons4[3]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons43'] = $lessons4[3];
+                                $select_lec43 = select_lecture($lessons4[3]);
+                                $_SESSION['select_lec43'] = $select_lec43;
+                                $check_room43 = check_room_status($lessons4[3]);
+                                $_SESSION['check_room43'] = $check_room43;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[3] ."\">"."<br>"."<p>". $select_lec43. "<br>" . "<p>". $check_room43 . "</p>" ."</p>"."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
@@ -1936,7 +1969,12 @@ float: right;
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[4] ."\">"."<br>"."<p>". select_lecture($lessons4[4]). "<br>" . "<p>". check_room_status4($lessons4[4]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons44'] = $lessons4[4];
+                                $select_lec44 = select_lecture($lessons4[4]);
+                                $_SESSION['select_lec44'] = $select_lec44;
+                                $check_room44 = check_room_status($lessons4[4]);
+                                $_SESSION['check_room40'] = $check_room44;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[4] ."\">"."<br>"."<p>". $select_lec44. "<br>" . "<p>". $check_room44 . "</p>" ."</p>"."</td>";
                                 echo "<td>" ."</td>";
                             }elseif($lessons4[5]){
                                 echo "<td>" ."</td>";
@@ -1944,7 +1982,12 @@ float: right;
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";
-                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[5] ."\">"."<br>"."<p>". select_lecture($lessons4[5]). "<br>" . "<p>". check_room_status4($lessons4[5]) . "</p>" ."</p>"."</td>";
+                                $_SESSION['lessons45'] = $lessons4[5];
+                                $select_lec45 = select_lecture($lessons4[5]);
+                                $_SESSION['select_lec45'] = $select_lec45;
+                                $check_room45 = check_room_status($lessons4[5]);
+                                $_SESSION['check_room45'] = $check_room45;
+                                echo "<td>"."<input type='text' maxlength= 20 size= 20 value= \"". $lessons4[5] ."\">"."<br>"."<p>". $select_lec45. "<br>" . "<p>". $check_room45 . "</p>" ."</p>"."</td>";
                             }else{
                                 echo "<td>" ."</td>";
                                 echo "<td>" ."</td>";

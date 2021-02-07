@@ -34,16 +34,21 @@ $c = $_SESSION['myname'];
 //create  lecurers tables to db
 //include connect file
 require_once "../db_config/connect.php";
+
+$days = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
+
+
 if($_SESSION['lessons0'] && $_SESSION['select_lec0'] && $_SESSION['check_room0']){
 // Prepare an insert statement
-$sql = "INSERT INTO lecturer_timetable (name, course, unitName, time) VALUES (?, ?, ?, ?)";
+$sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
 
 if($stmt = mysqli_prepare($link, $sql)){
     //bind variables to prepared statement
-    mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_course, $param_unit, $param_time);
+    mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
     //set params
     $param_name = $_SESSION['select_lec0'];
     $param_course = $_SESSION['courseName'];
+    $param_day = $days[0];
     $param_unit = $_SESSION['lessons0'];
     $param_time = $_SESSION['time0'];
 
@@ -62,14 +67,15 @@ mysqli_stmt_close($stmt);
 
 if($_SESSION['lessons1'] && $_SESSION['select_lec1'] && $_SESSION['check_room1']){
     // Prepare an insert statement
-    $sql = "INSERT INTO lecturer_timetable (name, course, unitName, time) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
     
     if($stmt = mysqli_prepare($link, $sql)){
         //bind variables to prepared statement
-        mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_course, $param_unit, $param_time);
+        mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
         //set params
         $param_name = $_SESSION['select_lec1'];
         $param_course = $_SESSION['courseName'];
+        $param_day = $days[0];
         $param_unit = $_SESSION['lessons1'];
         $param_time = $_SESSION['time1'];
     
@@ -88,14 +94,15 @@ if($_SESSION['lessons1'] && $_SESSION['select_lec1'] && $_SESSION['check_room1']
 
     if($_SESSION['lessons2'] && $_SESSION['select_lec2'] && $_SESSION['check_room2']){
         // Prepare an insert statement
-        $sql = "INSERT INTO lecturer_timetable (name, course, unitName, time) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
         
         if($stmt = mysqli_prepare($link, $sql)){
             //bind variables to prepared statement
-            mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_course, $param_unit, $param_time);
+            mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
             //set params
             $param_name = $_SESSION['select_lec2'];
             $param_course = $_SESSION['courseName'];
+            $param_day = $days[0];
             $param_unit = $_SESSION['lessons2'];
             $param_time = $_SESSION['time2'];
         
@@ -114,14 +121,15 @@ if($_SESSION['lessons1'] && $_SESSION['select_lec1'] && $_SESSION['check_room1']
 
         if($_SESSION['lessons3'] && $_SESSION['select_lec3'] && $_SESSION['check_room3']){
             // Prepare an insert statement
-            $sql = "INSERT INTO lecturer_timetable (name, course, unitName, time) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
             
             if($stmt = mysqli_prepare($link, $sql)){
                 //bind variables to prepared statement
-                mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_course, $param_unit, $param_time);
+                mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
                 //set params
                 $param_name = $_SESSION['select_lec3'];
                 $param_course = $_SESSION['courseName'];
+                $param_day = $days[0];
                 $param_unit = $_SESSION['lessons3'];
                 $param_time = $_SESSION['time3'];
             
@@ -140,14 +148,15 @@ if($_SESSION['lessons1'] && $_SESSION['select_lec1'] && $_SESSION['check_room1']
 
             if($_SESSION['lessons4'] && $_SESSION['select_lec4'] && $_SESSION['check_room4']){
                 // Prepare an insert statement
-                $sql = "INSERT INTO lecturer_timetable (name, course, unitName, time) VALUES (?, ?, ?, ?)";
+                $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
                 
                 if($stmt = mysqli_prepare($link, $sql)){
                     //bind variables to prepared statement
-                    mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_course, $param_unit, $param_time);
+                    mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
                     //set params
                     $param_name = $_SESSION['select_lec4'];
                     $param_course = $_SESSION['courseName'];
+                    $param_day = $days[0];
                     $param_unit = $_SESSION['lessons4'];
                     $param_time = $_SESSION['time4'];
                 
@@ -166,14 +175,15 @@ if($_SESSION['lessons1'] && $_SESSION['select_lec1'] && $_SESSION['check_room1']
 
                 if($_SESSION['lessons5'] && $_SESSION['select_lec5'] && $_SESSION['check_room5']){
                     // Prepare an insert statement
-                    $sql = "INSERT INTO lecturer_timetable (name, course, unitName, time) VALUES (?, ?, ?, ?)";
+                    $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
                     
                     if($stmt = mysqli_prepare($link, $sql)){
                         //bind variables to prepared statement
-                        mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_course, $param_unit, $param_time);
+                        mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
                         //set params
                         $param_name = $_SESSION['select_lec5'];
                         $param_course = $_SESSION['courseName'];
+                        $param_day = $days[0];
                         $param_unit = $_SESSION['lessons5'];
                         $param_time = $_SESSION['time5'];
                     
@@ -191,16 +201,17 @@ if($_SESSION['lessons1'] && $_SESSION['select_lec1'] && $_SESSION['check_room1']
 
                     if($_SESSION['lessons10'] && $_SESSION['select_lec10'] && $_SESSION['check_room10']){
                         // Prepare an insert statement
-                        $sql = "INSERT INTO lecturer_timetable (name, course, unitName, time) VALUES (?, ?, ?, ?)";
+                        $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
                         
                         if($stmt = mysqli_prepare($link, $sql)){
                             //bind variables to prepared statement
-                            mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_course, $param_unit, $param_time);
+                            mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
                             //set params
                             $param_name = $_SESSION['select_lec10'];
                             $param_course = $_SESSION['courseName'];
+                            $param_day = $days[1];
                             $param_unit = $_SESSION['lessons10'];
-                            $param_time = $_SESSION['time10'];
+                            $param_time = $_SESSION['time0'];
                         
                             //attempt to execute
                             if(mysqli_stmt_execute($stmt)){
@@ -212,6 +223,136 @@ if($_SESSION['lessons1'] && $_SESSION['select_lec1'] && $_SESSION['check_room1']
                         mysqli_stmt_close($stmt);
                         }
                         }
+                    
+                    
+                        if($_SESSION['lessons11'] && $_SESSION['select_lec11'] && $_SESSION['check_room11']){
+                            // Prepare an insert statement
+                            $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
+                            
+                            if($stmt = mysqli_prepare($link, $sql)){
+                                //bind variables to prepared statement
+                                mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
+                                //set params
+                                $param_name = $_SESSION['select_lec11'];
+                                $param_course = $_SESSION['courseName'];
+                                $param_day = $days[1];
+                                $param_unit = $_SESSION['lessons11'];
+                                $param_time = $_SESSION['time1'];
+                            
+                                //attempt to execute
+                                if(mysqli_stmt_execute($stmt)){
+                                    //success
+                                }else{
+                                    echo "Something went wrong";
+                                }
+                                // Close statement
+                            mysqli_stmt_close($stmt);
+                            }
+                            }
+
+
+                            if($_SESSION['lessons12'] && $_SESSION['select_lec12'] && $_SESSION['check_room12']){
+                                // Prepare an insert statement
+                                $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
+                                
+                                if($stmt = mysqli_prepare($link, $sql)){
+                                    //bind variables to prepared statement
+                                    mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
+                                    //set params
+                                    $param_name = $_SESSION['select_lec12'];
+                                    $param_course = $_SESSION['courseName'];
+                                    $param_day = $days[1];
+                                    $param_unit = $_SESSION['lessons12'];
+                                    $param_time = $_SESSION['time2'];
+                                
+                                    //attempt to execute
+                                    if(mysqli_stmt_execute($stmt)){
+                                        //success
+                                    }else{
+                                        echo "Something went wrong";
+                                    }
+                                    // Close statement
+                                mysqli_stmt_close($stmt);
+                                }
+                                }
+
+                            
+                                if($_SESSION['lessons13'] && $_SESSION['select_lec13'] && $_SESSION['check_room13']){
+                                    // Prepare an insert statement
+                                    $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
+                                    
+                                    if($stmt = mysqli_prepare($link, $sql)){
+                                        //bind variables to prepared statement
+                                        mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
+                                        //set params
+                                        $param_name = $_SESSION['select_lec13'];
+                                        $param_course = $_SESSION['courseName'];
+                                        $param_day = $days[1];
+                                        $param_unit = $_SESSION['lessons13'];
+                                        $param_time = $_SESSION['time3'];
+                                    
+                                        //attempt to execute
+                                        if(mysqli_stmt_execute($stmt)){
+                                            //success
+                                        }else{
+                                            echo "Something went wrong";
+                                        }
+                                        // Close statement
+                                    mysqli_stmt_close($stmt);
+                                    }
+                                    }
+
+
+                                    if($_SESSION['lessons14'] && $_SESSION['select_lec14'] && $_SESSION['check_room14']){
+                                        // Prepare an insert statement
+                                        $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
+                                        
+                                        if($stmt = mysqli_prepare($link, $sql)){
+                                            //bind variables to prepared statement
+                                            mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
+                                            //set params
+                                            $param_name = $_SESSION['select_lec14'];
+                                            $param_course = $_SESSION['courseName'];
+                                            $param_day = $days[1];
+                                            $param_unit = $_SESSION['lessons14'];
+                                            $param_time = $_SESSION['time4'];
+                                        
+                                            //attempt to execute
+                                            if(mysqli_stmt_execute($stmt)){
+                                                //success
+                                            }else{
+                                                echo "Something went wrong";
+                                            }
+                                            // Close statement
+                                        mysqli_stmt_close($stmt);
+                                        }
+                                        }
+
+
+                                        if($_SESSION['lessons15'] && $_SESSION['select_lec15'] && $_SESSION['check_room15']){
+                                            // Prepare an insert statement
+                                            $sql = "INSERT INTO lecturer_timetable (name, course, day, unitName, time) VALUES (?, ?, ?, ?, ?)";
+                                            
+                                            if($stmt = mysqli_prepare($link, $sql)){
+                                                //bind variables to prepared statement
+                                                mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_course, $param_day, $param_unit, $param_time);
+                                                //set params
+                                                $param_name = $_SESSION['select_lec15'];
+                                                $param_course = $_SESSION['courseName'];
+                                                $param_day = $days[1];
+                                                $param_unit = $_SESSION['lessons15'];
+                                                $param_time = $_SESSION['time5'];
+                                            
+                                                //attempt to execute
+                                                if(mysqli_stmt_execute($stmt)){
+                                                    //success
+                                                }else{
+                                                    echo "Something went wrong";
+                                                }
+                                                // Close statement
+                                            mysqli_stmt_close($stmt);
+                                            }
+                                            }
   // Close connection
   mysqli_close($link);
 ?>

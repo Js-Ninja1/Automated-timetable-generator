@@ -7,6 +7,31 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+
+
+//scan pdf directory
+
+$dir = "../pdf/";
+$scanner = scandir($dir,1);
+
+//print_r($scanner);
+//echo $scanner[0];
+
+if ($scanner) {
+  foreach($scanner as $key => $value) {
+        if ($value == "." || $value == "..") {
+           unset($key);
+        }
+  }
+}
+   echo "<ul style = 'padding: 20px; list-style: none'>";
+foreach($scanner as $k => $v) {
+ echo "<li style = 'padding: 20px'><a target = '_blank' href=\"$dir/" . $v . "\" download>". $scanner[$k] ."</a></li>";
+}
+   echo "</ul>";
+
+
 ?>
  
 <!DOCTYPE html>
@@ -109,6 +134,9 @@ input[type=text] {
   .fa fa-search{
       color: #1F1F41;
   }
+  ul li{
+    padding: 30px;
+  }
   </style>
     
     
@@ -121,14 +149,7 @@ input[type=text] {
      <div class="page-header">
         <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to students room.</h1>
 
-        <form>
-            <label for="search-lecture">Enter your course here</label>
-            <div class= "search-container">
-        <input type="text" name="search-lecture" placeholder="Search..">
-        <button type="submit" id="but"><i class="fa fa-search"></i></button>
-        </div>
-        </form>
-    
+       
     
      </div>
     </div>

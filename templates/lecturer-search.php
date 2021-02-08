@@ -7,6 +7,9 @@ server with default setting (user 'root' with no password) */
 //if($link === false){
    // die("ERROR: Could not connect. " . mysqli_connect_error());
 //}
+set_time_limit(1000);
+ini_set("memory_limit","50M");
+
 
 require_once "../db_config/connect.php";
  

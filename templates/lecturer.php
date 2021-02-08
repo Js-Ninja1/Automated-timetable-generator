@@ -1,4 +1,7 @@
 <?php
+
+//set_time_limit(1000);
+//ini_set("memory_limit","50M");
 // Initialize the session
 session_start();
  
@@ -7,6 +10,67 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+
+require_once "../db_config/connect.php";
+// Check existence of id parameter before processing further
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+ // require_once "config.php";
+  
+  // Prepare a select statement
+  $sql = "SELECT DISTINCT * FROM lecturer_timetable WHERE name = ?";
+  
+  if($stmt = mysqli_prepare($link, $sql)){
+      // Bind variables to the prepared statement as parameters
+      mysqli_stmt_bind_param($stmt, "s", $param_name);
+      
+      // Set parameters
+      $param_name = trim($_POST["search-lecture"]);
+      
+      // Attempt to execute the prepared statement
+      if(mysqli_stmt_execute($stmt)){
+          $result = mysqli_stmt_get_result($stmt);
+
+          if(mysqli_num_rows($result) > 0){
+            // Fetch result rows as an associative array
+            while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+              //echo "<p>" . $row["name"] . "</p>";
+
+    
+              
+              // Retrieve individual field value
+              $id = $row["id"];
+              $name = $row["name"];
+              $course = $row["course"];
+              $day = $row['day'];
+              $unitName = $row['unitName'];
+              $time = $row['time'];
+
+              echo $id;
+              echo $name;
+              echo $course;
+              echo $day;
+              echo $unitName;
+              echo $time;
+
+          } 
+      }
+     } else{
+          echo "Oops! Something went wrong. Please try again later.";
+      }
+  }
+   
+  // Close statement
+  mysqli_stmt_close($stmt);
+  
+  // Close connection
+  mysqli_close($link);
+} else{
+  
+}
+
+
 ?>
  
 <!DOCTYPE html>
@@ -188,13 +252,13 @@ input[type=text] {
      <div class="page-header">
      <?php $username = htmlspecialchars($_SESSION["username"]); ?>
         <h1>Hi, <b><?php echo $username; ?></b>. Welcome to lectures room.</h1>
-        <?php //$data .= '<h1>Hi, <b>'. $username .'</b>. Welcome to lectures room.</h1>'; ?>
+       
 
-        <form>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label for="search-lecture">Enter your name here</label>
             <div class= "search-container">
             <div class="search-box">
-        <input type="text" name="search-lecture" autocomplete="off" placeholder="Search..">
+        <input type="text" name="search-lecture" autocomplete="off" placeholder="Search...">
         <div class="result"></div>
         </div>
         <button type="submit" id="but"><i class="fa fa-search"></i></button>

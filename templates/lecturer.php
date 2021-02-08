@@ -33,6 +33,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           $result = mysqli_stmt_get_result($stmt);
 
           if(mysqli_num_rows($result) > 0){
+
+            echo '<table>';
+            echo '<tr><th> Lecturer Name:'.$_POST["search-lecture"].'</th></tr>';
+            echo '<tr><th>DAY</th><th>UNIT NAME</th><th>TIME</th><th>COURSE</th><th>ROOM</th></tr>';
             // Fetch result rows as an associative array
             while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
               //echo "<p>" . $row["name"] . "</p>";
@@ -47,14 +51,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               $unitName = $row['unitName'];
               $time = $row['time'];
 
-              echo $id;
-              echo $name;
-              echo $course;
-              echo $day;
-              echo $unitName;
-              echo $time;
+              // echo $id;
+              // echo $name;
+              // echo $course;
+              // echo $day;
+              // echo $unitName;
+              // echo $time;
+
+             
+              
+              echo '<tr><td>'. $day .'</td><td>'.$unitName.'</td><td>'.$time.'</td><td>'.$course.'</td></tr>';
+             
 
           } 
+          echo '</table>';
       }
      } else{
           echo "Oops! Something went wrong. Please try again later.";

@@ -27,8 +27,15 @@ session_start();
  $data .= '</table>';
 
 
+ $timetable_name = $_SESSION['courseName'];
+ $timetable_name .= $_SESSION['semester_stage'];
+ $timetable_name .= ".pdf";
+
  $mpdf->WriteHTML($data);
- $mpdf->Output('myfile.pdf', 'D');
+
+ //save in folder
+$this->m_pdf->pdf->Output("../pdf/".$pdfFilePath, "F");
+ //$mpdf->Output('myfile.pdf', 'D');
 
 //create  lecurers tables to db
 //include connect file

@@ -126,9 +126,11 @@ input[type=text] {
   margin-top: 8px;
   margin-right: 16px;
   font-size: 17px;
+  color: black;
 }
 input[type=text] {
     border: 1px solid #ccc;
+    color: black;
   }
   .search-container {
   float: right;
@@ -160,6 +162,18 @@ input[type=text] {
   }s
   .fa fa-search{
       color: #1F1F41;
+  }
+  .result{
+    color: black;
+    background-color: #1F1F41;
+  }
+  .result p{
+    color: black;
+    
+  }
+
+  .search-box .result{
+    color: #1F1F41;
   }
     </style>
 </head>

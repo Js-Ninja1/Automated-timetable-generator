@@ -12,7 +12,7 @@ require_once "../db_config/connect.php";
  
 if(isset($_REQUEST["term"])){
     // Prepare a select statement
-    $sql = "SELECT DISTINCT * FROM lecturer_timetable WHERE name LIKE ?";
+    $sql = "SELECT DISTINCT name FROM lecturer_timetable WHERE name LIKE ?";
     
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters

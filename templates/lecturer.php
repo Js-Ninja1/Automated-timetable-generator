@@ -42,6 +42,32 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 // });
 // });
     </script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("lecturer-search.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
+
     <style type="text/css">
         body{ font: 14px sans-serif; text-align: center; 
             padding: 10px;
@@ -153,13 +179,12 @@ input[type=text] {
         <form>
             <label for="search-lecture">Enter your name here</label>
             <div class= "search-container">
-        <input type="text" name="search-lecture" placeholder="Search..">
+            <div class="search-box">
+        <input type="text" name="search-lecture" autocomplete="off" placeholder="Search..">
+        <div class="result"></div>
+        </div>
         <button type="submit" id="but"><i class="fa fa-search"></i></button>
-        <?php 
-        //$data .= '<h1>Enter your name here.</h1>';
-        //$data .= '<h1>Hi, <b>'. $username .'</b>. Welcome to lectures room.</h1>'; 
         
-        ?>
         </div>
         </form>
     

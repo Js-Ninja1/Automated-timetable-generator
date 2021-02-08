@@ -1,6 +1,5 @@
 <?php
 
-use Mpdf\Css\Border;
 
 session_start();
 
@@ -8,12 +7,12 @@ session_start();
 
 
 
-$c = $_SESSION['myname'];
+
  $mpdf = new \Mpdf\Mpdf();
 
  $data = '';
 
- $data .= $_SESSION['timetable'];
+ $data .= '<h2>'. $_SESSION['timetable'] .'</h2>';
  $data .= 'Course name:';
  $data .= $_SESSION['courseName'];
  $data .= 'Semester stage:';

@@ -34,8 +34,8 @@ session_start();
  $mpdf->WriteHTML($data);
 
  //save in folder
-$this->m_pdf->pdf->Output("../pdf/".$pdfFilePath, "F");
- //$mpdf->Output('myfile.pdf', 'D');
+//$this->m_pdf->pdf->Output("../pdf/".$pdfFilePath, "F");
+ $mpdf->Output('../pdf/'.$timetable_name, 'F');
 
 //create  lecurers tables to db
 //include connect file

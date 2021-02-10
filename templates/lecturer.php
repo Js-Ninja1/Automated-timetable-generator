@@ -50,6 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               $day = $row['day'];
               $unitName = $row['unitName'];
               $time = $row['time'];
+              $room = $row['room'];
 
               // echo $id;
               // echo $name;
@@ -60,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
              
               
-              echo '<tr><td>'. $day .'</td><td>'.$unitName.'</td><td>'.$time.'</td><td>'.$course.'</td></tr>';
+              echo '<tr><td>'. $day .'</td><td>'.$unitName.'</td><td>'.$time.'</td><td>'.$course.'</td><td>'.$room.'</td></tr>';
              
 
           } 

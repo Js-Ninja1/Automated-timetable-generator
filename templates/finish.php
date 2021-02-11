@@ -27,15 +27,15 @@ session_start();
  $data .= '</table>';
 
 
-//  $timetable_name = $_SESSION['courseName'];
-//  $timetable_name .= $_SESSION['semester_stage'];
-//  $timetable_name .= ".pdf";
+  $timetable_name = $_SESSION['courseName'];
+  $timetable_name .= $_SESSION['semester_stage'];
+  $timetable_name .= ".pdf";
 
  $mpdf->WriteHTML($data);
 
  //save in folder
 //$this->m_pdf->pdf->Output("../pdf/".$pdfFilePath, "F");
- $mpdf->Output('../pdf/'. 'my_file2.pdf', 'F');
+ $mpdf->Output('../pdf/'. $timetable_name, 'F');
 
 //create  lecurers tables to db
 //include connect file

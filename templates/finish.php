@@ -859,6 +859,7 @@ if($_SESSION['lessons1'] && $_SESSION['select_lec1'] && $_SESSION['check_room1']
                                            
   // Close connection
   mysqli_close($link);
+  header("location: ../admin/adminpage.php");
 ?>
 
 
